@@ -1,36 +1,36 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "danielmarci-dot-dev",
+  "name": "danielmarchi-dot-dev",
   "compatibility_flags": ["nodejs_compat"],
   "compatibility_date": "2026-02-13",
   "observability": {
     "logs": {
       "enabled": true,
       "head_sampling_rate": 1,
-      "invocation_logs": true,
-    },
+      "invocation_logs": true
+    }
   },
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "danielmarchi-dot-dev",
-      "database_id": "594f7a77-d2e0-4a38-ba39-69a3c61550cb",
-    },
+      "database_id": "594f7a77-d2e0-4a38-ba39-69a3c61550cb"
+    }
   ],
   "r2_buckets": [
     {
       "binding": "BLOB",
-      "bucket_name": "danielmarchi-dot-dev",
-    },
+      "bucket_name": "danielmarchi-dot-dev"
+    }
   ],
   "kv_namespaces": [
     {
       "binding": "KV",
-      "id": "d764ad98655d4d3dbeed1f6b51554156",
+      "id": "d764ad98655d4d3dbeed1f6b51554156"
     },
     {
       "binding": "CACHE",
-      "id": "c19fc7b3bde649e38a4387402d0e4660",
-    },
-  ],
+      "id": "c19fc7b3bde649e38a4387402d0e4660"
+    }
+  ]
 }
