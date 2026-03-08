@@ -1,0 +1,11 @@
+title: Projetos
+description: Uma coleção dos meus trabalhos e projetos.
+links:
+  - label: "Vamos conversar"
+    color: "primary"
+    to: "/contact"
+  - label: "Ver GitHub"
+    color: "neutral"
+    variant: "outline"
+    to: "#"
+    target: "_blank"

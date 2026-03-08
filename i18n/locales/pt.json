@@ -1,0 +1,307 @@
+{
+  "app": {
+    "title": "Daniel Marchi",
+    "description": "Meu site template.",
+    "seoTitleTemplate": "%s - Seu Nome",
+    "header": {
+      "home": "Início",
+      "projects": "Projetos",
+      "resume": "Currículo",
+      "blog": "Blog",
+      "about": "Sobre",
+      "contact": "Contato",
+      "languagePicker": "Escolher Idioma"
+    }
+  },
+  "pages": {
+    "home": {
+      "meta": {
+        "title": "Seu Nome - Seu Título"
+      },
+      "sections": {
+        "hero": {
+          "title": "Olá, sou Seu Nome, Seu Título",
+          "description": "Crio experiências imersivas e trabalho incrível. Baseado em Sua Cidade, dando vida a ideias através da criatividade e tecnologia.",
+          "actions": {
+            "talk": "Vamos Conversar"
+          }
+        },
+        "about": {
+          "title": "Sobre Mim",
+          "description": "Profissional criativo com paixão por construir experiências excepcionais. Minha abordagem combina estratégia criativa com expertise técnica, transformando conceitos em resultados propositais."
+        },
+        "blog": {
+          "title": "Últimos Artigos",
+          "description": "Algumas das minhas reflexões recentes",
+          "readMore": "Ler Artigo"
+        },
+        "testimonials": {
+          "items": [
+            {
+              "quote": "Trabalhar com este profissional deu vida ao nosso projeto. Sua atenção aos detalhes é excepcional. Ele não apenas entrega trabalho; ele constrói experiências que combinam perfeitamente com a visão do projeto.",
+              "author": {
+                "name": "Sarah Chen",
+                "description": "Desenvolvedora Líder na IndieSphere Games"
+              }
+            },
+            {
+              "quote": "A qualidade da produção é padrão da indústria. Ele tem uma habilidade única de capturar a emoção exata necessária para uma cena, seja uma sequência de ação ou um ambiente sutil.",
+              "author": {
+                "name": "Michael Rodriguez",
+                "description": "Diretor Criativo na SonicWave Studios"
+              }
+            }
+          ]
+        },
+        "faq": {
+          "title": "Perguntas Frequentes",
+          "description": "Tudo o que você precisa saber sobre trabalhar comigo em produções de áudio e música.",
+          "categories": [
+            {
+              "title": "Serviços & Processo",
+              "questions": [
+                {
+                  "label": "Quais serviços você oferece?",
+                  "content": "Especializo-me em design de som, arte de Foley e composição musical para jogos, projetos audiovisuais e branding. Ofereço produção de áudio ponta a ponta, incluindo gravação, mixagem e masterização."
+                },
+                {
+                  "label": "Como você aborda um novo projeto?",
+                  "content": "Meu processo começa com um mergulho profundo na visão criativa. Trabalho em estreita colaboração com desenvolvedores e diretores para entender os objetivos estéticos, e então itero em conceitos sonoros através de protótipos e implementação técnica em ferramentas como Reaper e Pro Tools."
+                }
+              ]
+            },
+            {
+              "title": "Técnico & Entrega",
+              "questions": [
+                {
+                  "label": "Em quais formatos você entrega os arquivos?",
+                  "content": "Entrego em WAV, AIFF de alta qualidade ou formatos especializados para implementação em middleware. Também sou proficiente em entregar assets de áudio integrados e prontos para engines de jogos."
+                },
+                {
+                  "label": "Quais equipamentos e softwares você usa?",
+                  "content": "Trabalho principalmente com Reaper e Pro Tools para DAW, e DaVinci Resolve para sincronização de vídeo. Meu estúdio é equipado com microfones e sistemas de monitoramento de nível profissional para garantir a mais alta fidelidade."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "projects": {
+      "meta": {
+        "title": "Projetos | Seu Nome"
+      },
+      "sections": {
+        "hero": {
+          "title": "Projetos",
+          "description": "Uma coleção dos meus trabalhos recentes e contribuições de código aberto."
+        }
+      },
+      "viewProject": "Ver Projeto"
+    },
+    "blog": {
+      "meta": {
+        "title": "Blog | Seu Nome"
+      },
+      "sections": {
+        "hero": {
+          "title": "Blog",
+          "description": "Pensamentos sobre desenvolvimento de software, design e tecnologia."
+        }
+      },
+      "copyLink": "Copiar link",
+      "linkCopied": "Link copiado!"
+    },
+    "about": {
+      "meta": {
+        "title": "Sobre Mim | Seu Nome"
+      },
+      "sections": {
+        "hero": {
+          "title": "Sobre Mim",
+          "description": "Saiba mais sobre minha trajetória, filosofia e experiência."
+        }
+      }
+    },
+    "resume": {
+      "meta": {
+        "title": "Currículo | Seu Nome"
+      },
+      "sections": {
+        "hero": {
+          "title": "Seu Nome",
+          "description": "Profissional criativo com paixão por construir experiências excepcionais. Ofereço serviços para jogos, projetos audiovisuais, anúncios e branding.",
+          "actions": {
+            "hire": "Vamos Conversar",
+            "downloadCv": "Baixar CV"
+          }
+        },
+        "sidebar": {
+          "location": "Sua Cidade, País",
+          "availability": "Disponível"
+        },
+        "about": {
+          "title": "Sobre",
+          "fields": {
+            "name": "Nome:",
+            "nameValue": "Seu Nome",
+            "gender": "Gênero:",
+            "genderValue": "Prefiro não dizer",
+            "pronouns": "Pronomes:",
+            "pronounsValue": "Qualquer",
+            "nationality": "Nacionalidade:",
+            "nationalityValue": "Sua Nacionalidade",
+            "age": "Idade:"
+          }
+        },
+        "languages": {
+          "title": "Idiomas",
+          "levels": {
+            "professional": "Profissional",
+            "native": "Nativo"
+          },
+          "items": {
+            "english": "Inglês",
+            "portuguese": "Português"
+          }
+        },
+        "skills": {
+          "title": "Habilidades"
+        },
+        "tech": {
+          "title": "Tecnologias",
+          "categories": {
+            "audio": "Produção de Áudio",
+            "video": "Edição de Vídeo"
+          }
+        },
+        "education": {
+          "title": "Educação",
+          "items": [
+            {
+              "degree": "Bacharelado em Música, Produção e pesquisa musical",
+              "school": "Universidade Federal do Paraná (UFPR)",
+              "period": "Jun 2021 – Dez 2025"
+            }
+          ]
+        },
+        "certifications": {
+          "title": "Certificações",
+          "items": [
+            {
+              "name": "Produção Musical",
+              "issuer": "Futuresonic",
+              "date": "2017"
+            },
+            {
+              "name": "Nome da Certificação",
+              "issuer": "Nome do Emissor",
+              "date": "Ano"
+            }
+          ]
+        },
+        "volunteering": {
+          "title": "Voluntariado",
+          "items": [
+            {
+              "role": "Secretário",
+              "organization": "Vicentina (Associação de Proteção à Saúde e Maternidade)",
+              "period": "Abr 2012 - Dez 2013",
+              "field": "Serviços Sociais"
+            }
+          ]
+        },
+        "experience": {
+          "title": "Experiência",
+          "items": [
+            {
+              "role": "Cargo Genérico 1",
+              "company": "Empresa Genérica 1",
+              "period": "Período 1",
+              "bullets": [
+                "Descrição detalhada da sua primeira conquista ou responsabilidade.",
+                "Descrição detalhada da sua segunda conquista ou responsabilidade."
+              ]
+            },
+            {
+              "role": "Cargo Genérico 2",
+              "company": "Empresa Genérica 2",
+              "period": "Período 2",
+              "bullets": [
+                "Descrição detalhada da sua terceira conquista ou responsabilidade.",
+                "Descrição detalhada da sua quarta conquista ou responsabilidade."
+              ]
+            },
+            {
+              "role": "Cargo Genérico 3",
+              "company": "Empresa Genérica 3",
+              "period": "Período 3",
+              "bullets": [
+                "Descrição detalhada da sua quinta conquista ou responsabilidade.",
+                "Descrição detalhada da sua sexta conquista ou responsabilidade."
+              ]
+            },
+            {
+              "role": "Cargo Genérico 4",
+              "company": "Empresa Genérica 4",
+              "period": "Período 4",
+              "bullets": [
+                "Descrição detalhada da sua sétima conquista ou responsabilidade.",
+                "Descrição detalhada da sua oitava conquista ou responsabilidade."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "contact": {
+      "meta": {
+        "title": "Contato | Seu Nome"
+      },
+      "sections": {
+        "hero": {
+          "title": "Envie-me uma mensagem",
+          "description": "Sinta-se à vontade para entrar em contato para consultas de negócios ou outros tópicos!"
+        },
+        "form": {
+          "title": "Enviar uma Mensagem",
+          "fields": {
+            "name": {
+              "label": "Seu Nome",
+              "placeholder": "Digite seu nome",
+              "error": "O nome deve ter pelo menos 2 caracteres."
+            },
+            "email": {
+              "label": "Endereço de E-mail",
+              "placeholder": "nome{'@'}exemplo.com",
+              "error": "Por favor, insira um endereço de e-mail válido."
+            },
+            "message": {
+              "label": "Mensagem",
+              "placeholder": "Digite sua mensagem aqui...",
+              "error": "A mensagem deve ter pelo menos 10 caracteres."
+            },
+            "submit": "Enviar Mensagem"
+          },
+          "success": {
+            "title": "Mensagem Enviada!",
+            "description": "Retornarei o contato o mais rápido possível."
+          }
+        },
+        "details": {
+          "title": "Detalhes de Contato",
+          "email": "E-mail",
+          "emailValue": "seu.email{'@'}exemplo.com",
+          "whatsapp": "WhatsApp",
+          "whatsappValue": "+551234567890",
+          "socials": "Também estou disponível através das minhas redes sociais:"
+        }
+      }
+    },
+    "global": {
+      "errors": {
+        "notFound": "Página não encontrada"
+      }
+    }
+  }
+}

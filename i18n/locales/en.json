@@ -1,0 +1,308 @@
+{
+  "app": {
+    "title": "Daniel Marchi",
+    "description": "My template website.",
+    "seoTitleTemplate": "%s - Your Name",
+    "header": {
+      "home": "Home",
+      "projects": "Projects",
+      "resume": "Resume",
+      "blog": "Blog",
+      "about": "About",
+      "contact": "Contact",
+      "languagePicker": "Switch Language"
+    }
+  },
+  "pages": {
+    "home": {
+      "meta": {
+        "title": "Daniel Marchi - Web Developer",
+        "description": "I build websites like the one you're looking at, for businesses and individuals."
+      },
+      "sections": {
+        "hero": {
+          "title": "Hey, I'm Daniel Marchi, Web Developer",
+          "description": "I build websites like the one you're looking at, for businesses and individuals.",
+          "actions": {
+            "talk": "Let's Talk"
+          }
+        },
+        "about": {
+          "title": "About Me",
+          "description": "Creative professional with a passion for building exceptional experiences. My approach blends creative strategy with technical expertise, transforming concepts into purposeful results."
+        },
+        "blog": {
+          "title": "Latest Articles",
+          "description": "Some of my recent thoughts",
+          "readMore": "Read Article"
+        },
+        "testimonials": {
+          "items": [
+            {
+              "quote": "Working with this professional brought our project to life. Their attention to detail is exceptional. They don't just deliver work; they build experiences that perfectly match the vision.",
+              "author": {
+                "name": "Sarah Chen",
+                "description": "Lead Developer at IndieSphere Games"
+              }
+            },
+            {
+              "quote": "The quality provided is industry-standard. They have a unique ability to capture the exact emotion needed for a scene, whether it's an action-packed sequence or a subtle ambient background.",
+              "author": {
+                "name": "Michael Rodriguez",
+                "description": "Creative Director at SonicWave Studios"
+              }
+            }
+          ]
+        },
+        "faq": {
+          "title": "Frequently Asked Questions",
+          "description": "Everything you need to know about working with me on audio and music productions.",
+          "categories": [
+            {
+              "title": "Services & Process",
+              "questions": [
+                {
+                  "label": "What services do you offer?",
+                  "content": "I specialize in sound design, Foley art, and music composition for games, audiovisual projects, and branding. I provide end-to-end audio production, including recording, mixing, and mastering."
+                },
+                {
+                  "label": "How do you approach a new project?",
+                  "content": "My process starts with a deep dive into the creative vision. I work closely with developers and directors to understand the aesthetic goals, then iterate on sonic concepts through prototypes and technical implementation in tools like Reaper and Pro Tools."
+                }
+              ]
+            },
+            {
+              "title": "Technical & Delivery",
+              "questions": [
+                {
+                  "label": "What formats do you deliver in?",
+                  "content": "I deliver high-quality WAV, AIFF, or specialized formats for middleware implementation. I'm also proficient in delivering integrated audio assets ready for game engines."
+                },
+                {
+                  "label": "What gear and software do you use?",
+                  "content": "I primarily work with Reaper and Pro Tools for DAW work, and DaVinci Resolve for video sync. My studio is equipped with professional-grade microphones and monitoring systems to ensure the highest fidelity."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "projects": {
+      "meta": {
+        "title": "Projects | Your Name"
+      },
+      "sections": {
+        "hero": {
+          "title": "Projects",
+          "description": "A collection of my recent work and open-source contributions."
+        }
+      },
+      "viewProject": "View Project"
+    },
+    "blog": {
+      "meta": {
+        "title": "Blog | Your Name"
+      },
+      "sections": {
+        "hero": {
+          "title": "Blog",
+          "description": "Thoughts on software development, design, and technology."
+        }
+      },
+      "copyLink": "Copy link",
+      "linkCopied": "Link copied!"
+    },
+    "about": {
+      "meta": {
+        "title": "About Me | Your Name"
+      },
+      "sections": {
+        "hero": {
+          "title": "About Me",
+          "description": "Get to know more about my background, philosophy, and experience."
+        }
+      }
+    },
+    "resume": {
+      "meta": {
+        "title": "Resume | Your Name"
+      },
+      "sections": {
+        "hero": {
+          "title": "Your Name",
+          "description": "Creative professional with a passion for building exceptional experiences. I offer services for games, audiovisual projects, advertisements, and branding.",
+          "actions": {
+            "hire": "Let's Talk",
+            "downloadCv": "Download CV"
+          }
+        },
+        "sidebar": {
+          "location": "Your City, Country",
+          "availability": "Available"
+        },
+        "about": {
+          "title": "About",
+          "fields": {
+            "name": "Name:",
+            "nameValue": "Your Name",
+            "gender": "Gender:",
+            "genderValue": "Prefer not to say",
+            "pronouns": "Pronouns:",
+            "pronounsValue": "Any",
+            "nationality": "Nationality:",
+            "nationalityValue": "Your Nationality",
+            "age": "Age:"
+          }
+        },
+        "languages": {
+          "title": "Languages",
+          "levels": {
+            "professional": "Professional",
+            "native": "Native"
+          },
+          "items": {
+            "english": "English",
+            "portuguese": "Portuguese"
+          }
+        },
+        "skills": {
+          "title": "Skills"
+        },
+        "tech": {
+          "title": "Technologies",
+          "categories": {
+            "audio": "Audio Production",
+            "video": "Video Editing"
+          }
+        },
+        "education": {
+          "title": "Education",
+          "items": [
+            {
+              "degree": "Bachelor of Music, Music Production and Research",
+              "school": "Federal University of Paraná (UFPR)",
+              "period": "Jun 2021 – Dec 2025"
+            }
+          ]
+        },
+        "certifications": {
+          "title": "Certifications",
+          "items": [
+            {
+              "name": "Music Production",
+              "issuer": "Futuresonic",
+              "date": "2017"
+            },
+            {
+              "name": "Certification Name",
+              "issuer": "Issuer Name",
+              "date": "Year"
+            }
+          ]
+        },
+        "volunteering": {
+          "title": "Volunteering",
+          "items": [
+            {
+              "role": "Secretary",
+              "organization": "Vicentina (Associação de Proteção à Saúde e Maternidade)",
+              "period": "Apr 2012 - Dec 2013",
+              "field": "Social Services"
+            }
+          ]
+        },
+        "experience": {
+          "title": "Experience",
+          "items": [
+            {
+              "role": "Generic Role 1",
+              "company": "Generic Company 1",
+              "period": "Period 1",
+              "bullets": [
+                "Detailed description of your first accomplishment or responsibility.",
+                "Detailed description of your second accomplishment or responsibility."
+              ]
+            },
+            {
+              "role": "Generic Role 2",
+              "company": "Generic Company 2",
+              "period": "Period 2",
+              "bullets": [
+                "Detailed description of your third accomplishment or responsibility.",
+                "Detailed description of your fourth accomplishment or responsibility."
+              ]
+            },
+            {
+              "role": "Generic Role 3",
+              "company": "Generic Company 3",
+              "period": "Period 3",
+              "bullets": [
+                "Detailed description of your fifth accomplishment or responsibility.",
+                "Detailed description of your sixth accomplishment or responsibility."
+              ]
+            },
+            {
+              "role": "Generic Role 4",
+              "company": "Generic Company 4",
+              "period": "Period 4",
+              "bullets": [
+                "Detailed description of your seventh accomplishment or responsibility.",
+                "Detailed description of your eighth accomplishment or responsibility."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "contact": {
+      "meta": {
+        "title": "Contact | Your Name"
+      },
+      "sections": {
+        "hero": {
+          "title": "Send me a message",
+          "description": "Feel free to contact me for business inquiries or other topics!"
+        },
+        "form": {
+          "title": "Send a Message",
+          "fields": {
+            "name": {
+              "label": "Your Name",
+              "placeholder": "Enter your name",
+              "error": "Name must be at least 2 characters long."
+            },
+            "email": {
+              "label": "Email Address",
+              "placeholder": "name{'@'}example.com",
+              "error": "Please enter a valid email address."
+            },
+            "message": {
+              "label": "Message",
+              "placeholder": "Type your message here...",
+              "error": "Message must be at least 10 characters long..."
+            },
+            "submit": "Send Message"
+          },
+          "success": {
+            "title": "Message Sent!",
+            "description": "I'll get back to you as soon as possible."
+          }
+        },
+        "details": {
+          "title": "Contact Details",
+          "email": "Email",
+          "emailValue": "your.email{'@'}example.com",
+          "whatsapp": "WhatsApp",
+          "whatsappValue": "+1234567890",
+          "socials": "I'm also available through my socials:"
+        }
+      }
+    },
+    "global": {
+      "errors": {
+        "notFound": "Page not found"
+      }
+    }
+  }
+}

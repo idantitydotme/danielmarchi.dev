@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@source "../../../content/**/*";
+
+@theme static {
+  --font-sans: "Public Sans", sans-serif;
+  --font-serif: "Instrument Serif", serif;
+
+  --ui-container: 60rem;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+
+  --padding-xs: 0.5rem;
+  --padding-sm: 0.75rem;
+  --padding-md: 1rem;
+  --padding-lg: 1.5rem;
+  --padding-xl: 2rem;
+
+  --gap-xs: 0.5rem;
+  --gap-sm: 0.75rem;
+  --gap-md: 1rem;
+  --gap-lg: 1.5rem;
+  --gap-xl: 2rem;
+}
+
+:root {
+  ::selection {
+    color: var(--color-neutral-900);
+    background-color: var(--color-primary-500);
+  }
+}
+
+.dark {
+  ::selection {
+    color: var(--color-neutral-50);
+    background-color: var(--color-primary-500);
+  }
+}

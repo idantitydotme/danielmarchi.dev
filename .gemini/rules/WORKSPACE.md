@@ -1,4 +1,4 @@
-# Workspace Rules for Rimelight Projects (Gemini Version)
+# Workspace Rules for Rimelight Projects
 
 ## Project-Specific Guidelines
 - Follow the rimelight-utilities shared configuration

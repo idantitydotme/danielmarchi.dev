@@ -4,13 +4,15 @@
 
 ## Tech Stack
 
-- **Runtime:** Bun
-- **Framework:** Nuxt 3 (Nightly), Vue 3
-- **Styling:** Tailwind CSS 4, Nuxt UI (v3+), Tailwind Variants
+- **Package Manager:** Bun
+- **Build Tool:** Bun
+- **Runtime:** Node (Development) / Wrangler (Production)
+- **Framework:** Nuxt, Vue
+- **Styling:** Tailwind CSS, Tailwind Variants, Nuxt UI
 - **Language:** TypeScript (Strict)
 - **Database:** PostgreSQL 18, Drizzle ORM (UUIDv7)
 - **Environment:** Windows 11, Powershell, Webstorm IDE
-- **Linting/Formatting:** Oxlint, Oxfmt (Prettier-compatible)
+- **Linting/Formatting:** Oxlint, Oxfmt (ESlint & Prettier-compatible)
 
 ## Quick Reference
 
@@ -39,9 +41,10 @@ Always use `bun` to run scripts:
 
 For comprehensive guidelines, see:
 
-- [TypeScript Conventions](./.agent/rules/typescript-conventions.md) - Strict typing, interfaces, no enums, no classes
-- [Component Architecture](./.agent/rules/component-architecture.md) - Script setup order, naming, prop patterns
-- [Nuxt Specifics](./.agent/rules/nuxt-specifics.md) - Composition API, auto-imports, SSR safety, data fetching
-- [UI & Styling](./.agent/rules/ui-styling.md) - Tailwind 4, Nuxt UI components, theme variables
-- [Data Management](./.agent/rules/data-management.md) - PostgreSQL, Drizzle ORM, server API patterns
-- [Workflow](./.agent/rules/workflow.md) - Solution strategy, code delivery, verification steps
+- [Workspace Overview](./.cursor/rules/WORKSPACE.md) - Project-specific guidelines and general rules
+- [TypeScript Conventions](./.cursor/rules/typescript-conventions.md) - Strict typing, interfaces, no enums, no classes
+- [Component Architecture](./.cursor/rules/component-architecture.md) - Script setup order, naming, prop patterns
+- [Nuxt Specifics](./.cursor/rules/nuxt-specifics.md) - Composition API, auto-imports, SSR safety, data fetching
+- [UI & Styling](./.cursor/rules/ui-styling.md) - Tailwind 4, Nuxt UI components, theme variables
+- [Data Management](./.cursor/rules/data-management.md) - PostgreSQL, Drizzle ORM, server API patterns
+- [Workflow](./.cursor/rules/workflow.md) - Solution strategy, code delivery, verification steps
