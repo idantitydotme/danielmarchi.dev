@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/* region State */
 const route = useRoute();
 const { locale, t } = useI18n();
 const localePath = useLocalePath();
@@ -34,16 +35,14 @@ if (page.value?.ogImage) {
 }
 
 useHead((page.value?.head || {}) as any);
+/* endregion */
+
+/* region Meta */
 useSeoMeta({
   title: t("pages.projects.meta.title"),
   description: t("pages.projects.sections.hero.description"),
   ...(page.value?.seo || {}),
 });
-
-/* region State */
-/* endregion */
-
-/* region Meta */
 /* endregion */
 
 /* region Lifecycle */

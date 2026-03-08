@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/* region State */
 const route = useRoute();
 const { locale, t } = useI18n();
 const { data: page } = await useAsyncData(
@@ -24,16 +25,14 @@ if (page.value?.ogImage) {
   defineOgImage({ url: page.value.image });
 }
 useHead((page.value?.head || {}) as any);
+/* endregion */
+
+/* region Meta */
 useSeoMeta({
   title: t("pages.about.meta.title"),
   description: t("pages.about.sections.hero.description"),
   ...(page.value?.seo || {}),
 });
-
-/* region State */
-/* endregion */
-
-/* region Meta */
 /* endregion */
 
 /* region Lifecycle */
@@ -57,10 +56,14 @@ useSeoMeta({
     >
       <div class="flex flex-col sm:grid sm:grid-cols-3 gap-24">
         <div class="order-first sm:order-last sm:col-span-1 w-full aspect-square sm:rotate-4">
-          <img
-            src="https://placehold.co/400x400"
-            alt="My profile picture"
-            class="w-full h-full rounded-lg ring ring-default ring-offset-3 ring-offset-bg"
+          <NuxtImg
+            src="https://cdn.danielmarchi.dev/Images/Users/Avatars/Daniel-Marchi_0000_00.webp"
+            alt="Daniel Marchi"
+            width="80"
+            height="80"
+            fetchpriority="high"
+            loading="eager"
+            class="w-full h-full ring ring-default ring-offset-6 ring-offset-bg mx-auto rounded-lg"
           />
         </div>
         <MDC :value="page.content" unwrap="p" class="order-last sm:order-first sm:col-span-2" />

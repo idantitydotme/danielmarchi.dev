@@ -2,6 +2,7 @@
 import { withLeadingSlash } from "ufo";
 import type { Collections } from "@nuxt/content";
 
+/* region State */
 const route = useRoute();
 const { locale, t } = useI18n();
 const slug = computed(() =>
@@ -36,12 +37,10 @@ if (page.value?.ogImage) {
 }
 
 useHead((page.value?.head || {}) as any);
-useSeoMeta((page.value?.seo || {}) as any);
-
-/* region State */
 /* endregion */
 
 /* region Meta */
+useSeoMeta((page.value?.seo || {}) as any);
 /* endregion */
 
 /* region Lifecycle */

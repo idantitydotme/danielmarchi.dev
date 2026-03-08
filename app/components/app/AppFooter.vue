@@ -59,4 +59,3 @@ const socialLinks = [
     </template>
   </UFooter>
 </template>
-

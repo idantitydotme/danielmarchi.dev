@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /* region State */
-const { t, rt, locale } = useI18n()
-const localePath = useLocalePath()
+const { t, rt, locale } = useI18n();
+const localePath = useLocalePath();
 
 const testimonialItems = computed(() => [
   {
@@ -18,7 +18,7 @@ const testimonialItems = computed(() => [
       description: t("pages.home.sections.testimonials.items[1].author.description"),
     },
   },
-])
+]);
 
 const faqItems = computed(() => [
   {
@@ -49,7 +49,7 @@ const faqItems = computed(() => [
       },
     ],
   },
-])
+]);
 
 const { data: posts } = await useAsyncData(
   `index-blogs-${locale.value}`,
@@ -58,7 +58,7 @@ const { data: posts } = await useAsyncData(
     return queryCollection(collection).order("date", "DESC").limit(3).all();
   },
   { watch: [locale] },
-)
+);
 /* endregion */
 
 /* region Meta */
@@ -85,13 +85,15 @@ useSeoMeta({
     >
       <template #headline>
         <NuxtImg
-          src="https://pub-15f7c276f8b449ac91d74fa56692d47f.r2.dev/Images/Users/Avatars/Daniel-Marchi_0000_00.webp"
-          alt="Profile photo"
+          src="https://cdn.danielmarchi.dev/Images/Users/Avatars/Daniel-Marchi_0000_00.webp"
+          alt="Daniel Marchi"
           width="80"
           height="80"
+          format="webp"
           fetchpriority="high"
           loading="eager"
-          class="ring ring-default ring-offset-3 ring-offset-bg mx-auto rounded-full"
+          preload
+          class="ring ring-default ring-offset-6 ring-offset-bg mx-auto rounded-full"
         />
       </template>
 
@@ -235,10 +237,10 @@ useSeoMeta({
               root: 'flex items-center gap-md w-full',
               list: 'relative flex bg-transparent dark:bg-transparent gap-sm px-0',
               indicator:
-              'absolute top-[4px] duration-200 ease-out focus:outline-none rounded-lg bg-elevated/60',
+                'absolute top-[4px] duration-200 ease-out focus:outline-none rounded-lg bg-elevated/60',
               trigger:
-              'px-3 py-2 rounded-lg hover:bg-muted/50 data-[state=active]:text-highlighted data-[state=inactive]:text-muted',
-              label: 'truncate'
+                'px-3 py-2 rounded-lg hover:bg-muted/50 data-[state=active]:text-highlighted data-[state=inactive]:text-muted',
+              label: 'truncate',
             }"
           >
             <template #content="{ item }">

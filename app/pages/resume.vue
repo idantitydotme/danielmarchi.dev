@@ -130,8 +130,8 @@ useSeoMeta({
 /* region Logic */
 const downloadPDF = () => {
   const link = document.createElement("a");
-  link.href = "https://your-r2-assets.r2.dev/Resume/Resume_Your_Name.pdf";
-  link.setAttribute("download", "Resume_Your_Name.pdf");
+  link.href = "https://cdn.danielmarchi.dev/Files/Resume.pdf";
+  link.setAttribute("download", "Resume.pdf");
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -153,7 +153,15 @@ const downloadPDF = () => {
           container: 'px-0 max-w-none py-16 sm:py-24',
         }"
       >
-        <img src="https://placehold.co/512x512" alt="Your Name" class="w-full object-cover" />
+        <NuxtImg
+          src="https://cdn.danielmarchi.dev/Images/Users/Avatars/Daniel-Marchi_0000_00.webp"
+          alt="Daniel Marchi"
+          width="512"
+          height="512"
+          fetchpriority="high"
+          loading="eager"
+          class="w-full object-cover ring ring-default ring-offset-6 ring-offset-bg mx-auto rounded-full"
+        />
       </UPageHero>
 
       <UPageSection
@@ -182,12 +190,12 @@ const downloadPDF = () => {
                   block
                   variant="ghost"
                   color="neutral"
-                  icon="fad:logo-reaper"
-                  to="https://www.reaper.fm/"
+                  icon="i-simple-icons-vuedotjs"
+                  to="https://vuejs.org/"
                   target="_blank"
                   class="justify-start hover:text-primary-500"
                 >
-                  Reaper
+                  Vue.js
                 </UButton>
               </li>
               <li>
@@ -195,12 +203,12 @@ const downloadPDF = () => {
                   block
                   variant="ghost"
                   color="neutral"
-                  icon="simple-icons:protools"
-                  to="https://www.avid.com/pro-tools"
+                  icon="i-simple-icons-nuxtdotjs"
+                  to="https://nuxt.com/"
                   target="_blank"
                   class="justify-start hover:text-primary-500"
                 >
-                  Pro Tools
+                  Nuxt
                 </UButton>
               </li>
             </ul>
@@ -213,12 +221,25 @@ const downloadPDF = () => {
                   block
                   variant="ghost"
                   color="neutral"
-                  icon="simple-icons:davinciresolve"
-                  to="https://www.blackmagicdesign.com/products/davinciresolve"
+                  icon="i-simple-icons-bun"
+                  to="https://bun.sh/"
                   target="_blank"
                   class="justify-start hover:text-primary-500"
                 >
-                  DaVinci Resolve
+                  Bun
+                </UButton>
+              </li>
+              <li>
+                <UButton
+                  block
+                  variant="ghost"
+                  color="neutral"
+                  icon="i-simple-icons-tailwindcss"
+                  to="https://tailwindcss.com/"
+                  target="_blank"
+                  class="justify-start hover:text-primary-500"
+                >
+                  Tailwind CSS
                 </UButton>
               </li>
             </ul>
@@ -309,8 +330,16 @@ const downloadPDF = () => {
         >
           <div class="flex flex-col gap-lg">
             <div class="flex flex-col items-center justify-center gap-sm">
-              <img src="https://placehold.co/150" alt="Your Name" class="h-24 w-24 rounded-full" />
-              <h3 class="text-center font-bold text-highlighted">Your Name</h3>
+              <NuxtImg
+                src="https://cdn.danielmarchi.dev/Images/Users/Avatars/Daniel-Marchi_0000_00.webp"
+                alt="Daniel Marchi"
+                width="96"
+                height="96"
+                fetchpriority="high"
+                loading="eager"
+                class="ring ring-default ring-offset-6 ring-offset-bg mx-auto rounded-full"
+              />
+              <h3 class="text-center font-bold text-highlighted">Daniel Marchi</h3>
               <UFieldGroup class="gap-xs pdf-exclude">
                 <UButton
                   variant="ghost"

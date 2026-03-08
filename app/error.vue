@@ -2,11 +2,10 @@
 import type { NuxtError } from "#app";
 
 export interface ErrorProps {
-  error: NuxtError
+  error: NuxtError;
 }
 
-const { error} = defineProps<ErrorProps>();
-
+const { error } = defineProps<ErrorProps>();
 
 const { t, locale } = useI18n();
 const localePath = useLocalePath();
@@ -14,32 +13,32 @@ const localePath = useLocalePath();
 const searchLinks = computed(() => [
   {
     label: t("app.header.home"),
-    icon: "i-lucide-home",
+    icon: "lucide:home",
     to: localePath("/"),
   },
   {
     label: t("app.header.projects"),
-    icon: "i-lucide-folder",
+    icon: "lucide:folder",
     to: localePath("/projects"),
   },
   {
     label: t("app.header.resume"),
-    icon: "i-lucide-layout",
+    icon: "lucide:layout",
     to: localePath("/resume"),
   },
   {
     label: t("app.header.blog"),
-    icon: "i-lucide-file-text",
+    icon: "lucide:file-text",
     to: localePath("/blog"),
   },
   {
     label: t("app.header.about"),
-    icon: "i-lucide-user",
+    icon: "lucide:user",
     to: localePath("/about"),
   },
   {
     label: t("app.header.contact"),
-    icon: "i-lucide-mail",
+    icon: "lucide:mail",
     to: localePath("/contact"),
   },
 ]);

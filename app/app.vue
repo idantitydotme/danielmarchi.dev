@@ -14,11 +14,11 @@ import * as locales from "@nuxt/ui/locale";
 /* endregion */
 
 /* region State */
-const { t, locale } = useI18n()
-const localePath = useLocalePath()
+const { t, locale } = useI18n();
+const localePath = useLocalePath();
 
-const lang = computed(() => (locales as any)[locale.value]?.code || "en")
-const dir = computed(() => (locales as any)[locale.value]?.dir || "ltr")
+const lang = computed(() => (locales as any)[locale.value]?.code || "en");
+const dir = computed(() => (locales as any)[locale.value]?.dir || "ltr");
 
 const searchLinks = computed(() => [
   {
@@ -51,7 +51,7 @@ const searchLinks = computed(() => [
     icon: "lucide:mail",
     to: localePath("/contact"),
   },
-])
+]);
 
 const [{ data: navigation }, { data: files }] = await Promise.all([
   useAsyncData(
@@ -94,9 +94,9 @@ const [{ data: navigation }, { data: files }] = await Promise.all([
       watch: [locale],
     },
   ),
-])
+]);
 
-provide("navigation", navigation)
+provide("navigation", navigation);
 /* endregion */
 
 /* region Meta */
@@ -105,7 +105,7 @@ useHead({
     lang,
     dir,
   },
-})
+});
 /* endregion */
 
 /* region Lifecycle */
@@ -118,11 +118,11 @@ useHead({
 <template>
   <UApp :locale="(locales as any)[locale]">
     <NuxtLayout>
-      <TPAppHeader />
+      <DMAppHeader />
       <UMain>
         <NuxtPage />
       </UMain>
-      <TPAppFooter />
+      <DMAppFooter />
     </NuxtLayout>
 
     <ClientOnly>

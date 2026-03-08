@@ -14,20 +14,24 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    "@nuxtjs/seo",
+    // Dev Modules
     "@nuxt/a11y",
-    "@nuxt/content",
-    "@nuxt/fonts",
     "@nuxt/hints",
-    "@nuxt/icon",
-    "@nuxt/image",
     "@nuxt/test-utils",
-    "@nuxt/ui",
-    "@nuxtjs/device",
+    // Must go before Content
     "@nuxtjs/i18n",
+    "@nuxt/image",
+    "@nuxtjs/seo",
+    "@nuxt/content",
+    // Must go before UI
+    "@nuxt/fonts",
+    "@nuxt/icon",
+    // Must go after Content
+    "@nuxt/ui",
+    "nuxt-studio",
+    "@nuxtjs/device",
     "nuxt-llms",
     "nuxt-security",
-    "nuxt-studio",
   ],
 
   $development: {
@@ -67,7 +71,7 @@ export default defineNuxtConfig({
       },
     },
     site: {
-      url: "https://template-dot-com.idantity.workers.dev",
+      url: "https://danielmarchi.dev",
       indexable: true,
     },
     robots: {
@@ -95,12 +99,12 @@ export default defineNuxtConfig({
   app: {
     baseURL: "/",
     head: {
-      title: "Template",
-      titleTemplate: "%s | Template",
+      title: "Daniel Marchi",
+      titleTemplate: "%s | Daniel Marchi",
       meta: [
         {
           name: "description",
-          content: "A website template.",
+          content: "Web Developer",
         },
         {
           name: "author",
@@ -133,14 +137,14 @@ export default defineNuxtConfig({
           "'self'",
           "data:",
           "blob:",
-          "https://pub-15f7c276f8b449ac91d74fa56692d47f.r2.dev",
+          "https://cdn.danielmarchi.dev",
           "https://placehold.co",
         ],
         "script-src": ["'self'", "'unsafe-inline'", "'wasm-unsafe-eval'"],
         "script-src-attr": ["'unsafe-inline'"],
         "connect-src": [
           "'self'",
-          "https://template-dot-com.idantity.workers.dev",
+          "https://danielmarchi.dev",
           "https://api.iconify.design",
           "https://api.unisvg.com",
           "https://api.simplesvg.com",
@@ -160,6 +164,14 @@ export default defineNuxtConfig({
       xFrameOptions: "SAMEORIGIN",
       xContentTypeOptions: "nosniff",
     },
+  },
+
+  routeRules: {
+    // Disable rate limiting for internal Nuxt endpoints
+    "/__nuxt_content/**": { security: { rateLimiter: false } },
+    "/__nuxt_studio/**": { security: { rateLimiter: false } },
+    "/__nuxt_hints/**": { security: { rateLimiter: false } },
+    "/_nuxt/**": { security: { rateLimiter: false } },
   },
 
   i18n: {
@@ -188,13 +200,13 @@ export default defineNuxtConfig({
     {
       path: "~/components",
       pathPrefix: false,
-      prefix: "TP",
+      prefix: "DM",
     },
     {
       path: "~/pages",
       pattern: "**/components/**",
       pathPrefix: false,
-      prefix: "TP",
+      prefix: "DM",
     },
   ],
 
@@ -239,9 +251,10 @@ export default defineNuxtConfig({
   },
 
   image: {
-    provider: "ipx",
-    format: ["webp"],
-    domains: ["pub-15f7c276f8b449ac91d74fa56692d47f.r2.dev", "placehold.co"],
+    cloudflare: {
+      baseURL: "https://cdn.danielmarchi.dev",
+    },
+    domains: ["danielmarchi.dev", "placehold.co"],
   },
 
   ogImage: {
@@ -270,14 +283,14 @@ export default defineNuxtConfig({
     repository: {
       provider: "github",
       owner: "idantitydotme",
-      repo: "template.com",
+      repo: "danielmarchi.dev",
     },
   },
 
   llms: {
-    domain: "https://template.com",
-    title: "Template",
-    description: "My personal portfolio website.",
+    domain: "https://danielmarchi.dev",
+    title: "Daniel Marchi",
+    description: "Web Developer",
   },
 
   ui: {

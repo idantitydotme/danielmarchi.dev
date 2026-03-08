@@ -10,6 +10,8 @@ definePageMeta({
     },
   },
 });
+
+/* region State */
 const route = useRoute();
 const { t, locale } = useI18n();
 const localePath = useLocalePath();
@@ -60,9 +62,8 @@ if (page.value?.ogImage) {
 }
 
 useHead((page.value?.head || {}) as any);
-useSeoMeta((page.value?.seo || {}) as any);
 
-const articleLink = computed(() => `${window?.location}`);
+const articleLink = computed(() => useRequestURL().href);
 
 const formatDate = (dateString: string) => {
   return new Date(dateString).toLocaleDateString(locale.value, {
@@ -71,11 +72,10 @@ const formatDate = (dateString: string) => {
     day: "numeric",
   });
 };
-
-/* region State */
 /* endregion */
 
 /* region Meta */
+useSeoMeta((page.value?.seo || {}) as any);
 /* endregion */
 
 /* region Lifecycle */
@@ -86,7 +86,7 @@ const formatDate = (dateString: string) => {
 </script>
 
 <template>
-  <UContainer>
+  <UContainer class="pt-8 sm:pt-16 lg:pt-24">
     <UPage v-if="page">
       <UPageHeader :title="page.title" :description="page.description" class="border-none">
         <template #headline>
@@ -101,7 +101,7 @@ const formatDate = (dateString: string) => {
       </UPageHeader>
 
       <UPageBody>
-        <NuxtImg
+        <LazyNuxtImg
           v-if="page.image"
           :src="page.image"
           :alt="page.title"

@@ -2,6 +2,7 @@
 import type { ContentNavigationItem } from "@nuxt/content";
 import { findPageHeadline } from "@nuxt/content/utils";
 
+/* region State */
 const route = useRoute();
 const navigation = inject<Ref<ContentNavigationItem[]>>("navigation");
 
@@ -44,14 +45,12 @@ if (page.value?.ogImage) {
 }
 
 useHead((page.value?.head || {}) as any);
-useSeoMeta((page.value?.seo || {}) as any);
 
 const headline = computed(() => findPageHeadline(navigation?.value, page.value?.path));
-
-/* region State */
 /* endregion */
 
 /* region Meta */
+useSeoMeta((page.value?.seo || {}) as any);
 /* endregion */
 
 /* region Lifecycle */
@@ -62,7 +61,7 @@ const headline = computed(() => findPageHeadline(navigation?.value, page.value?.
 </script>
 
 <template>
-  <UContainer>
+  <UContainer class="pt-8 sm:pt-16 lg:pt-24">
     <UPage v-if="page">
       <UPageHeader
         :title="page.title"
@@ -76,7 +75,7 @@ const headline = computed(() => findPageHeadline(navigation?.value, page.value?.
       </UPageHeader>
 
       <UPageBody>
-        <NuxtImg
+        <LazyNuxtImg
           v-if="page.image"
           :src="page.image"
           :alt="page.title"
@@ -91,7 +90,7 @@ const headline = computed(() => findPageHeadline(navigation?.value, page.value?.
           <span class="text-muted text-sm font-medium flex items-center">
             <UIcon name="i-lucide-calendar" class="mr-2 size-4" />
             {{
-              new Date(page.date).toLocaleDateString(undefined, { year: "numeric", month: "long" })
+              new Date(page.date).toLocaleDateString(locale, { year: "numeric", month: "long" })
             }}
           </span>
         </div>

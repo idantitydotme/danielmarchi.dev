@@ -2,6 +2,7 @@
 import { z } from "zod";
 import type { FormSubmitEvent } from "#ui/types";
 
+/* region State */
 const { t } = useI18n();
 const toast = useToast();
 
@@ -24,28 +25,6 @@ const state = ref<ContactFormData>({
 });
 
 const isLoading = ref(false);
-
-async function onSubmit() {
-  isLoading.value = true;
-
-  const { name, email, message } = state.value;
-  const targetEmail = t("pages.contact.sections.details.emailValue");
-  const subject = encodeURIComponent(`Contact from ${name}`);
-  const body = encodeURIComponent(`${message}\n\n---\nFrom: ${name}\nEmail: ${email}`);
-
-  window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
-
-  isLoading.value = false;
-  toast.add({
-    color: "success",
-    title: t("pages.contact.sections.form.success.title"),
-    description: t("pages.contact.sections.form.success.description"),
-  });
-
-  state.value.name = "";
-  state.value.email = "";
-  state.value.message = "";
-}
 
 const contactInfo = computed(() => [
   {
@@ -72,22 +51,40 @@ const socialLinks = [
     url: "#",
   },
 ];
+/* endregion */
 
+/* region Meta */
 useSeoMeta({
   title: t("pages.contact.meta.title"),
   description: t("pages.contact.sections.hero.description"),
 });
-
-/* region State */
-/* endregion */
-
-/* region Meta */
 /* endregion */
 
 /* region Lifecycle */
 /* endregion */
 
 /* region Logic */
+async function onSubmit() {
+  isLoading.value = true;
+
+  const { name, email, message } = state.value;
+  const targetEmail = t("pages.contact.sections.details.emailValue");
+  const subject = encodeURIComponent(`Contact from ${name}`);
+  const body = encodeURIComponent(`${message}\n\n---\nFrom: ${name}\nEmail: ${email}`);
+
+  window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
+
+  isLoading.value = false;
+  toast.add({
+    color: "success",
+    title: t("pages.contact.sections.form.success.title"),
+    description: t("pages.contact.sections.form.success.description"),
+  });
+
+  state.value.name = "";
+  state.value.email = "";
+  state.value.message = "";
+}
 /* endregion */
 </script>
 
