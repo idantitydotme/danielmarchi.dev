@@ -6,11 +6,11 @@
   "routes": [
     {
       "pattern": "danielmarchi.dev",
-      "custom_domain": true,
+      "custom_domain": true
     },
     {
       "pattern": "www.danielmarchi.dev",
-      "custom_domain": true,
+      "custom_domain": true
     }
   ],
   "observability": {

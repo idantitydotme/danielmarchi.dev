@@ -2,7 +2,6 @@
   "app": {
     "title": "Daniel Marchi",
     "description": "Web Developer specialized in the Vue and Nuxt ecosystem.",
-    "seoTitleTemplate": "%s - Daniel Marchi",
     "header": {
       "home": "Home",
       "projects": "Projects",

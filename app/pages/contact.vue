@@ -1,63 +1,62 @@
 <script setup lang="ts">
-import { z } from "zod";
-import type { FormSubmitEvent } from "#ui/types";
+import { z } from "zod"
 
 /* region State */
-const { t } = useI18n();
-const toast = useToast();
+const { t } = useI18n()
+const toast = useToast()
 
 interface ContactFormData {
-  name: string;
-  email: string;
-  message: string;
+  name: string
+  email: string
+  message: string
 }
 
 const contactFormSchema = z.object({
   name: z.string().min(2, t("pages.contact.sections.form.fields.name.error")),
   email: z.string().email(t("pages.contact.sections.form.fields.email.error")),
-  message: z.string().min(10, t("pages.contact.sections.form.fields.message.error")),
-});
+  message: z.string().min(10, t("pages.contact.sections.form.fields.message.error"))
+})
 
 const state = ref<ContactFormData>({
   name: "",
   email: "",
-  message: "",
-});
+  message: ""
+})
 
-const isLoading = ref(false);
+const isLoading = ref(false)
 
 const contactInfo = computed(() => [
   {
     icon: "i-lucide-mail",
     label: t("pages.contact.sections.details.email"),
-    value: t("pages.contact.sections.details.emailValue"),
+    value: t("pages.contact.sections.details.emailValue")
   },
   {
     icon: "i-simple-icons-whatsapp",
     label: t("pages.contact.sections.details.whatsapp"),
-    value: t("pages.contact.sections.details.whatsappValue"),
-  },
-]);
+    value: t("pages.contact.sections.details.whatsappValue")
+  }
+])
 
 const socialLinks = [
   {
     icon: "i-simple-icons-github",
     name: "GitHub",
-    url: "#",
+    url: "#"
   },
   {
     icon: "i-simple-icons-linkedin",
     name: "LinkedIn",
-    url: "#",
-  },
-];
+    url: "#"
+  }
+]
 /* endregion */
 
 /* region Meta */
 useSeoMeta({
   title: t("pages.contact.meta.title"),
-  description: t("pages.contact.sections.hero.description"),
-});
+  description: t("pages.contact.sections.hero.description")
+})
 /* endregion */
 
 /* region Lifecycle */
@@ -65,25 +64,25 @@ useSeoMeta({
 
 /* region Logic */
 async function onSubmit() {
-  isLoading.value = true;
+  isLoading.value = true
 
-  const { name, email, message } = state.value;
-  const targetEmail = t("pages.contact.sections.details.emailValue");
-  const subject = encodeURIComponent(`Contact from ${name}`);
-  const body = encodeURIComponent(`${message}\n\n---\nFrom: ${name}\nEmail: ${email}`);
+  const { name, email, message } = state.value
+  const targetEmail = t("pages.contact.sections.details.emailValue")
+  const subject = encodeURIComponent(`Contact from ${name}`)
+  const body = encodeURIComponent(`${message}\n\n---\nFrom: ${name}\nEmail: ${email}`)
 
-  window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
+  window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`
 
-  isLoading.value = false;
+  isLoading.value = false
   toast.add({
     color: "success",
     title: t("pages.contact.sections.form.success.title"),
-    description: t("pages.contact.sections.form.success.description"),
-  });
+    description: t("pages.contact.sections.form.success.description")
+  })
 
-  state.value.name = "";
-  state.value.email = "";
-  state.value.message = "";
+  state.value.name = ""
+  state.value.email = ""
+  state.value.message = ""
 }
 /* endregion */
 </script>
@@ -101,7 +100,7 @@ async function onSubmit() {
           <div class="space-y-8">
             <ul class="space-y-6">
               <li v-for="item in contactInfo" :key="item.label" class="flex items-start">
-                <UIcon :name="item.icon" class="mr-3 h-6 w-6 shrink-0 text-primary" />
+                <UIcon :name="item.icon" class="text-primary mr-3 h-6 w-6 shrink-0" />
                 <div>
                   <h4 class="font-medium">
                     {{ item.label }}
@@ -147,7 +146,11 @@ async function onSubmit() {
             class="flex flex-col gap-6"
             @submit="onSubmit"
           >
-            <UFormField :label="t('pages.contact.sections.form.fields.name.label')" name="name" required>
+            <UFormField
+              :label="t('pages.contact.sections.form.fields.name.label')"
+              name="name"
+              required
+            >
               <UInput
                 v-model="state.name"
                 icon="i-lucide-user"

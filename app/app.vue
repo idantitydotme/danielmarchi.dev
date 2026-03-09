@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import * as locales from "@nuxt/ui/locale";
+import * as locales from "@nuxt/ui/locale"
 
 /* region Props */
 /* endregion */
@@ -14,98 +14,98 @@ import * as locales from "@nuxt/ui/locale";
 /* endregion */
 
 /* region State */
-const { t, locale } = useI18n();
-const localePath = useLocalePath();
+const { t, locale } = useI18n()
+const localePath = useLocalePath()
 
-const lang = computed(() => (locales as any)[locale.value]?.code || "en");
-const dir = computed(() => (locales as any)[locale.value]?.dir || "ltr");
+const lang = computed(() => (locales as any)[locale.value]?.code || "en")
+const dir = computed(() => (locales as any)[locale.value]?.dir || "ltr")
 
 const searchLinks = computed(() => [
   {
     label: t("app.header.home"),
     icon: "lucide:home",
-    to: localePath("/"),
+    to: localePath("/")
   },
   {
     label: t("app.header.projects"),
     icon: "lucide:folder",
-    to: localePath("/projects"),
+    to: localePath("/projects")
   },
   {
     label: t("app.header.blog"),
     icon: "lucide:file-text",
-    to: localePath("/blog"),
+    to: localePath("/blog")
   },
   {
     label: t("app.header.about"),
     icon: "lucide:user",
-    to: localePath("/about"),
+    to: localePath("/about")
   },
   {
     label: t("app.header.resume"),
     icon: "lucide:layout",
-    to: localePath("/resume"),
+    to: localePath("/resume")
   },
   {
     label: t("app.header.contact"),
     icon: "lucide:mail",
-    to: localePath("/contact"),
-  },
-]);
+    to: localePath("/contact")
+  }
+])
 
 const [{ data: navigation }, { data: files }] = await Promise.all([
   useAsyncData(
     `navigation-${locale.value}`,
     async () => {
-      const blogCollection = `${locale.value}_blog` as any;
-      const projectsCollection = `${locale.value}_projects` as any;
+      const blogCollection = `${locale.value}_blog` as any
+      const projectsCollection = `${locale.value}_projects` as any
       const [blogNavRaw, projectsNavRaw] = await Promise.all([
         queryCollectionNavigation(blogCollection),
-        queryCollectionNavigation(projectsCollection),
-      ]);
+        queryCollectionNavigation(projectsCollection)
+      ])
 
-      const blogNav = blogNavRaw?.[0]?.path === "/blog" ? blogNavRaw[0].children : blogNavRaw;
+      const blogNav = blogNavRaw?.[0]?.path === "/blog" ? blogNavRaw[0].children : blogNavRaw
       const projectsNav =
-        projectsNavRaw?.[0]?.path === "/projects" ? projectsNavRaw[0].children : projectsNavRaw;
+        projectsNavRaw?.[0]?.path === "/projects" ? projectsNavRaw[0].children : projectsNavRaw
 
       return [
         {
           path: localePath("/blog"),
           title: t("app.header.blog"),
-          children: blogNav,
+          children: blogNav
         },
         {
           path: localePath("/projects"),
           title: t("app.header.projects"),
-          children: projectsNav,
-        },
-      ];
+          children: projectsNav
+        }
+      ]
     },
-    { watch: [locale] },
+    { watch: [locale] }
   ),
   useLazyAsyncData(
     `search-${locale.value}`,
     () => {
-      const collection = `${locale.value}_blog` as any;
-      return queryCollectionSearchSections(collection);
+      const collection = `${locale.value}_blog` as any
+      return queryCollectionSearchSections(collection)
     },
     {
       server: false,
-      watch: [locale],
-    },
-  ),
-]);
+      watch: [locale]
+    }
+  )
+])
 
-provide("navigation", navigation);
+provide("navigation", navigation)
 /* endregion */
 
 /* region Meta */
 useHead({
   htmlAttrs: {
     lang,
-    dir,
-  },
-});
+    dir
+  }
+})
 /* endregion */
 
 /* region Lifecycle */

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { NavigationMenuItem, ButtonProps } from "@nuxt/ui";
+import type { NavigationMenuItem, ButtonProps } from "@nuxt/ui"
 
 /* region Props */
 /* endregion */
@@ -14,56 +14,56 @@ import type { NavigationMenuItem, ButtonProps } from "@nuxt/ui";
 /* endregion */
 
 /* region State */
-const { t, locale, setLocale } = useI18n();
-const localePath = useLocalePath();
-const route = useRoute();
+const { t, locale, setLocale } = useI18n()
+const localePath = useLocalePath()
+const route = useRoute()
 
-const open = ref(false);
+const open = ref(false)
 
 const leftLinks = computed<NavigationMenuItem[]>(() => [
   {
     label: t("app.header.home"),
-    to: localePath("/"),
+    to: localePath("/")
   },
   {
     label: t("app.header.projects"),
-    to: localePath("/projects"),
+    to: localePath("/projects")
   },
   {
     label: t("app.header.blog"),
-    to: localePath("/blog"),
+    to: localePath("/blog")
   },
   {
     label: t("app.header.about"),
-    to: localePath("/about"),
-  },
-]);
+    to: localePath("/about")
+  }
+])
 
 const rightLinks = computed<NavigationMenuItem[]>(() => [
   {
     label: t("app.header.resume"),
-    to: localePath("/resume"),
+    to: localePath("/resume")
   },
   {
     label: t("app.header.contact"),
-    to: localePath("/contact"),
-  },
-]);
+    to: localePath("/contact")
+  }
+])
 
 const socialLinks = computed<ButtonProps[]>(() => [
   {
     label: "LinkedIn",
     icon: "simple-icons:linkedin",
     to: "https://linkedin.com",
-    class: "hover:text-primary-500",
+    class: "hover:text-primary-500"
   },
   {
     label: "GitHub",
     icon: "simple-icons:github",
     to: "https://github.com",
-    class: "hover:text-primary-500",
-  },
-]);
+    class: "hover:text-primary-500"
+  }
+])
 /* endregion */
 
 /* region Meta */
@@ -73,9 +73,9 @@ const socialLinks = computed<ButtonProps[]>(() => [
 watch(
   () => route.path,
   () => {
-    open.value = false;
-  },
-);
+    open.value = false
+  }
+)
 /* endregion */
 
 /* region Logic */
@@ -83,9 +83,9 @@ watch(
 </script>
 
 <template>
-  <header class="fixed top-2 sm:top-4 z-50 inset-x-0 mx-auto w-full max-w-(--ui-container) px-sm">
+  <header class="px-sm fixed inset-x-0 top-2 z-50 mx-auto w-full max-w-(--ui-container) sm:top-4">
     <div
-      class="flex w-full items-center justify-between bg-muted rounded-full px-md py-xs border border-muted shadow-lg shadow-neutral-950/5"
+      class="bg-muted px-md py-xs border-muted flex w-full items-center justify-between rounded-full border shadow-lg shadow-neutral-950/5"
     >
       <!-- Left Section -->
       <div class="flex items-center">
@@ -101,14 +101,14 @@ watch(
               icon="lucide:menu"
               color="neutral"
               variant="ghost"
-              class="rounded-full my-auto sm:hidden"
+              class="my-auto rounded-full sm:hidden"
               aria-label="Open Menu"
             />
             <template #body>
-              <div class="flex flex-col gap-md">
+              <div class="gap-md flex flex-col">
                 <UNavigationMenu orientation="vertical" :items="[...leftLinks, ...rightLinks]" />
                 <LazyUSeparator />
-                <div class="flex flex-col gap-sm">
+                <div class="gap-sm flex flex-col">
                   <UButton
                     v-for="link in socialLinks"
                     :key="link.name"
@@ -128,14 +128,14 @@ watch(
           </USlideover>
         </ClientOnly>
 
-        <div class="hidden sm:flex items-center">
+        <div class="hidden items-center sm:flex">
           <UNavigationMenu :items="leftLinks" variant="link" />
         </div>
       </div>
 
       <!-- Right Section -->
-      <div class="flex self-stretch items-stretch gap-sm">
-        <div class="hidden sm:flex items-center">
+      <div class="gap-sm flex items-stretch self-stretch">
+        <div class="hidden items-center sm:flex">
           <UNavigationMenu :items="rightLinks" variant="link" />
         </div>
 
@@ -148,17 +148,17 @@ watch(
               @update:model-value="setLocale($event as 'en' | 'pt')"
               :items="[
                 { code: 'en', name: 'English' },
-                { code: 'pt', name: 'Português' },
+                { code: 'pt', name: 'Português' }
               ]"
               value-key="code"
               label-key="name"
               icon="i-lucide-languages"
               variant="ghost"
               size="sm"
-              class="shrink-0 h-full"
+              class="h-full shrink-0"
               :ui="{
                 value: 'hidden',
-                content: 'w-48',
+                content: 'w-48'
               }"
               :aria-label="t('app.header.languagePicker')"
             >
@@ -171,7 +171,7 @@ watch(
             </USelectMenu>
           </ClientOnly>
 
-          <div class="hidden sm:flex items-center gap-xs">
+          <div class="gap-xs hidden items-center sm:flex">
             <UButton
               v-for="link in socialLinks"
               :key="link.name"

@@ -17,14 +17,14 @@ const socialLinks = [
     name: "LinkedIn",
     icon: "simple-icons:linkedin",
     to: "https://linkedin.com",
-    class: "hover:text-primary-500",
+    class: "hover:text-primary-500"
   },
   {
     name: "GitHub",
     icon: "simple-icons:github",
-    to: "https://github.com",
-  },
-];
+    to: "https://github.com"
+  }
+]
 /* endregion */
 
 /* region Meta */

@@ -1,16 +1,16 @@
 export default defineNuxtConfig({
   compatibilityDate: "2026-02-13",
   future: {
-    compatibilityVersion: 5,
+    compatibilityVersion: 5
   },
   experimental: {
     viteEnvironmentApi: false,
     typescriptPlugin: true,
     nitroAutoImports: true,
     componentIslands: {
-      selectiveClient: true,
+      selectiveClient: true
     },
-    viewTransition: true,
+    viewTransition: true
   },
 
   modules: [
@@ -31,7 +31,7 @@ export default defineNuxtConfig({
     "nuxt-studio",
     "@nuxtjs/device",
     "nuxt-llms",
-    "nuxt-security",
+    "nuxt-security"
   ],
 
   $development: {
@@ -41,13 +41,13 @@ export default defineNuxtConfig({
     a11y: {
       enabled: true,
       defaultHighlight: false,
-      logIssues: false,
+      logIssues: false
     },
-    site: { indexable: false },
+    site: { indexable: false }
   },
 
   $test: {
-    devtools: { enabled: true },
+    devtools: { enabled: true }
   },
 
   $production: {
@@ -56,42 +56,42 @@ export default defineNuxtConfig({
     nitro: {
       experimental: {
         websocket: true,
-        tasks: true,
+        tasks: true
       },
       compressPublicAssets: true,
       minify: true,
       preset: "cloudflare-module",
       cloudflare: {
         deployConfig: true,
-        nodeCompat: true,
+        nodeCompat: true
       },
       prerender: {
         routes: ["/"],
-        crawlLinks: true,
-      },
+        crawlLinks: true
+      }
     },
     site: {
       url: "https://danielmarchi.dev",
-      indexable: true,
+      indexable: true
     },
     robots: {
       blockAiBots: true,
       blockNonSeoBots: true,
-      disallow: ["/dashboard"],
+      disallow: ["/dashboard"]
     },
     a11y: {
-      enabled: false,
+      enabled: false
     },
     content: {
       database: {
         type: "d1",
-        bindingName: "DB",
-      },
-    },
+        bindingName: "DB"
+      }
+    }
   },
 
   vite: {
-    clearScreen: false,
+    clearScreen: false
   },
 
   ssr: true,
@@ -104,32 +104,32 @@ export default defineNuxtConfig({
       meta: [
         {
           name: "description",
-          content: "Web Developer",
+          content: "Web Developer"
         },
         {
           name: "author",
-          content: "Daniel Marchi",
+          content: "Daniel Marchi"
         },
         {
           name: "creator",
-          content: "Daniel Marchi",
-        },
+          content: "Daniel Marchi"
+        }
       ],
       link: [
         {
           rel: "icon",
           type: "image/svg+xml",
-          href: "/favicon.svg",
-        },
-      ],
+          href: "/favicon.svg"
+        }
+      ]
     },
-    viewTransition: true,
+    viewTransition: true
   },
 
   security: {
     ssg: {
       meta: false,
-      exportToPresets: false,
+      exportToPresets: false
     },
     headers: {
       contentSecurityPolicy: {
@@ -138,7 +138,7 @@ export default defineNuxtConfig({
           "data:",
           "blob:",
           "https://cdn.danielmarchi.dev",
-          "https://placehold.co",
+          "https://placehold.co"
         ],
         "script-src": ["'self'", "'unsafe-inline'", "'wasm-unsafe-eval'"],
         "script-src-attr": ["'unsafe-inline'"],
@@ -147,23 +147,23 @@ export default defineNuxtConfig({
           "https://danielmarchi.dev",
           "https://api.iconify.design",
           "https://api.unisvg.com",
-          "https://api.simplesvg.com",
+          "https://api.simplesvg.com"
         ],
         "font-src": ["'self'", "https://fonts.gstatic.com"],
         "style-src": ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
         "frame-ancestors": ["'self'"],
-        "form-action": ["'self'"],
+        "form-action": ["'self'"]
       },
       strictTransportSecurity: {
         maxAge: 31536000,
         includeSubdomains: true,
-        preload: true,
+        preload: true
       },
       crossOriginOpenerPolicy: "same-origin",
       referrerPolicy: "strict-origin-when-cross-origin",
       xFrameOptions: "SAMEORIGIN",
-      xContentTypeOptions: "nosniff",
-    },
+      xContentTypeOptions: "nosniff"
+    }
   },
 
   routeRules: {
@@ -171,7 +171,7 @@ export default defineNuxtConfig({
     "/__nuxt_content/**": { security: { rateLimiter: false } },
     "/__nuxt_studio/**": { security: { rateLimiter: false } },
     "/__nuxt_hints/**": { security: { enabled: false } },
-    "/_nuxt/**": { security: { rateLimiter: false } },
+    "/_nuxt/**": { security: { rateLimiter: false } }
   },
 
   i18n: {
@@ -183,15 +183,15 @@ export default defineNuxtConfig({
         code: "en",
         name: "English",
         language: "en-US",
-        file: "en.json",
+        file: "en.json"
       },
       {
         code: "pt",
         name: "Português",
         language: "pt-BR",
-        file: "pt.json",
-      },
-    ],
+        file: "pt.json"
+      }
+    ]
   },
 
   css: ["~/assets/css/main.css"],
@@ -200,23 +200,23 @@ export default defineNuxtConfig({
     {
       path: "~/components",
       pathPrefix: false,
-      prefix: "DM",
+      prefix: "DM"
     },
     {
       path: "~/pages",
       pattern: "**/components/**",
       pathPrefix: false,
-      prefix: "DM",
-    },
+      prefix: "DM"
+    }
   ],
 
   pages: {
-    pattern: ["**/*.vue", "!**/components/**"],
+    pattern: ["**/*.vue", "!**/components/**"]
   },
 
   colorMode: {
     preference: "dark",
-    fallback: "dark",
+    fallback: "dark"
   },
 
   fonts: {
@@ -237,60 +237,60 @@ export default defineNuxtConfig({
         // Bold
         700,
         // Extra Bold
-        800,
+        800
       ],
-      styles: ["normal", "italic"],
+      styles: ["normal", "italic"]
     },
-    families: [],
+    families: []
   },
 
   icon: {
     class: "icon",
     size: "24px",
-    customCollections: [],
+    customCollections: []
   },
 
   image: {
     cloudflare: {
-      baseURL: "https://cdn.danielmarchi.dev",
+      baseURL: "https://cdn.danielmarchi.dev"
     },
-    domains: ["danielmarchi.dev", "placehold.co"],
+    domains: ["danielmarchi.dev", "placehold.co"]
   },
 
   ogImage: {
-    zeroRuntime: true,
+    zeroRuntime: true
   },
 
   sitemap: {
-    zeroRuntime: true,
+    zeroRuntime: true
   },
 
   content: {
     build: {
       markdown: {
         toc: {
-          depth: 3,
-        },
-      },
-    },
+          depth: 3
+        }
+      }
+    }
   },
 
   studio: {
     i18n: {
-      defaultLocale: "en",
+      defaultLocale: "en"
     },
     route: "/studio",
     repository: {
       provider: "github",
       owner: "idantitydotme",
-      repo: "danielmarchi.dev",
-    },
+      repo: "danielmarchi.dev"
+    }
   },
 
   llms: {
     domain: "https://danielmarchi.dev",
     title: "Daniel Marchi",
-    description: "Web Developer",
+    description: "Web Developer"
   },
 
   ui: {
@@ -308,8 +308,8 @@ export default defineNuxtConfig({
         "error",
         "commentary",
         "ideation",
-        "source",
-      ],
-    },
-  },
-});
+        "source"
+      ]
+    }
+  }
+})
