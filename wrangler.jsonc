@@ -3,6 +3,16 @@
   "name": "danielmarchi-dot-dev",
   "compatibility_flags": ["nodejs_compat"],
   "compatibility_date": "2026-02-13",
+  "routes": [
+    {
+      "pattern": "danielmarchi.dev",
+      "custom_domain": true,
+    },
+    {
+      "pattern": "www.danielmarchi.dev",
+      "custom_domain": true,
+    }
+  ],
   "observability": {
     "logs": {
       "enabled": true,
