@@ -85,7 +85,7 @@ useSeoMeta({
     >
       <template #headline>
         <NuxtImg
-          src="/Images/Users/Avatars/Daniel-Marchi_0000_00.webp"
+          src="https://cdn.danielmarchi.dev/Images/Users/Avatars/Daniel-Marchi_0000_00.webp"
           alt="Daniel Marchi"
           width="80"
           height="80"

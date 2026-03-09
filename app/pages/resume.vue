@@ -154,7 +154,7 @@ const downloadPDF = () => {
         }"
       >
         <NuxtImg
-          src="/Images/Users/Avatars/Daniel-Marchi_0000_00.webp"
+          src="https://cdn.danielmarchi.dev/Images/Users/Avatars/Daniel-Marchi_0000_00.webp"
           alt="Daniel Marchi"
           width="512"
           height="512"
@@ -333,7 +333,7 @@ const downloadPDF = () => {
           <div class="gap-lg flex flex-col">
             <div class="gap-sm flex flex-col items-center justify-center">
               <NuxtImg
-                src="/Images/Users/Avatars/Daniel-Marchi_0000_00.webp"
+                src="https://cdn.danielmarchi.dev/Images/Users/Avatars/Daniel-Marchi_0000_00.webp"
                 alt="Daniel Marchi"
                 width="96"
                 height="96"
