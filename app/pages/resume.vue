@@ -158,8 +158,10 @@ const downloadPDF = () => {
           alt="Daniel Marchi"
           width="512"
           height="512"
+          format="webp"
           fetchpriority="high"
           loading="eager"
+          preload
           class="w-full object-cover ring ring-default ring-offset-6 ring-offset-bg mx-auto rounded-full"
         />
       </UPageHero>
@@ -335,8 +337,10 @@ const downloadPDF = () => {
                 alt="Daniel Marchi"
                 width="96"
                 height="96"
+                format="webp"
                 fetchpriority="high"
                 loading="eager"
+                preload
                 class="ring ring-default ring-offset-6 ring-offset-bg mx-auto rounded-full"
               />
               <h3 class="text-center font-bold text-highlighted">Daniel Marchi</h3>

@@ -105,7 +105,8 @@ useSeoMeta((page.value?.seo || {}) as any);
           v-if="page.image"
           :src="page.image"
           :alt="page.title"
-          class="rounded-lg w-full h-[300px] object-cover object-center mb-12 shadow-2xl ring-1 ring-default"
+          format="webp"
+          class="rounded-lg w-full h-80 object-cover object-center mb-12 shadow-2xl ring-1 ring-default"
         />
 
         <div class="flex items-center justify-center gap-2 mb-8">
@@ -121,6 +122,7 @@ useSeoMeta((page.value?.seo || {}) as any);
         <div class="max-w-none">
           <ContentRenderer
             v-if="page.body"
+            :key="page.path"
             :value="page"
             class="prose prose-primary dark:prose-invert"
           />

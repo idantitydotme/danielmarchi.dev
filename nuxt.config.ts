@@ -170,7 +170,7 @@ export default defineNuxtConfig({
     // Disable rate limiting for internal Nuxt endpoints
     "/__nuxt_content/**": { security: { rateLimiter: false } },
     "/__nuxt_studio/**": { security: { rateLimiter: false } },
-    "/__nuxt_hints/**": { security: { rateLimiter: false } },
+    "/__nuxt_hints/**": { security: { enabled: false } },
     "/_nuxt/**": { security: { rateLimiter: false } },
   },
 

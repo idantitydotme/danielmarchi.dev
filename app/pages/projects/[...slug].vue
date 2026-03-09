@@ -79,6 +79,8 @@ useSeoMeta((page.value?.seo || {}) as any);
           v-if="page.image"
           :src="page.image"
           :alt="page.title"
+          format="webp"
+          preload
           class="w-full aspect-video object-cover rounded-2xl mb-12 shadow-2xl ring-1 ring-default"
         />
 
@@ -98,6 +100,7 @@ useSeoMeta((page.value?.seo || {}) as any);
         <div class="max-w-none">
           <ContentRenderer
             v-if="page"
+            :key="page.path"
             :value="page"
             class="prose prose-primary dark:prose-invert"
           />

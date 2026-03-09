@@ -51,6 +51,6 @@ useSeoMeta((page.value?.seo || {}) as any);
 </script>
 
 <template>
-  <ContentRenderer v-if="page" :value="page" />
-  <UError v-else :error="{ statusCode: 404, message: t('pages.global.errors.notFound') }" />
+  <ContentRenderer v-if="page" :key="page.path" :value="page" />
+  <UError v-else :error="{ status: 404, message: t('pages.global.errors.notFound') }" />
 </template>

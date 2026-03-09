@@ -61,8 +61,10 @@ useSeoMeta({
             alt="Daniel Marchi"
             width="80"
             height="80"
+            format="webp"
             fetchpriority="high"
             loading="eager"
+            preload
             class="w-full h-full ring ring-default ring-offset-6 ring-offset-bg mx-auto rounded-lg"
           />
         </div>

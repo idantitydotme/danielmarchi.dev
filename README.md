@@ -19,7 +19,7 @@ Install the dependencies:
 bun install
 ```
 
-Install the utilities:
+Install and synchronize the utilities:
 
 ```bash
 bun submodule add https://github.com/Rimelight-Entertainment/rimelight-utilities
