@@ -66,7 +66,7 @@ export default defineNuxtConfig({
         nodeCompat: true
       },
       prerender: {
-        routes: ["/"],
+        routes: ["/", "/pt", "/en", "/about", "/pt/about", "/contact", "/pt/contact", "/blog", "/pt/blog", "/projects", "/pt/projects", "/resume", "/pt/resume"],
         crawlLinks: true
       }
     },
@@ -120,6 +120,14 @@ export default defineNuxtConfig({
           rel: "icon",
           type: "image/svg+xml",
           href: "/favicon.svg"
+        },
+        {
+          rel: "preconnect",
+          href: "https://cdn.danielmarchi.dev"
+        },
+        {
+          rel: "dns-prefetch",
+          href: "https://cdn.danielmarchi.dev"
         }
       ]
     },
@@ -129,7 +137,9 @@ export default defineNuxtConfig({
   security: {
     ssg: {
       meta: false,
-      exportToPresets: true
+      exportToPresets: true,
+      hashScripts: false,
+      hashStyles: false
     },
     headers: {
       contentSecurityPolicy: {
@@ -171,7 +181,12 @@ export default defineNuxtConfig({
     "/__nuxt_content/**": { security: { rateLimiter: false } },
     "/__nuxt_studio/**": { security: { rateLimiter: false } },
     "/__nuxt_hints/**": { security: { enabled: false } },
-    "/_nuxt/**": { security: { rateLimiter: false } }
+    "/_nuxt/**": { security: { rateLimiter: false } },
+    // Cache content pages
+    "/blog/**": { isr: true },
+    "/projects/**": { isr: true },
+    "/about": { isr: true },
+    "/resume": { isr: true }
   },
 
   i18n: {
@@ -221,27 +236,13 @@ export default defineNuxtConfig({
 
   fonts: {
     defaults: {
-      weights: [
-        // Thin
-        100,
-        // ExtraLight
-        200,
-        // Light
-        300,
-        // Regular
-        400,
-        // Medium
-        500,
-        // SemiBold
-        600,
-        // Bold
-        700,
-        // Extra Bold
-        800
-      ],
+      weights: [400, 500, 600, 700],
       styles: ["normal", "italic"]
     },
-    families: []
+    families: [
+      { name: "Public Sans", provider: "google" },
+      { name: "Instrument Serif", provider: "google" }
+    ]
   },
 
   icon: {
@@ -251,6 +252,7 @@ export default defineNuxtConfig({
   },
 
   image: {
+    provider: "cloudflare",
     cloudflare: {
       baseURL: "https://cdn.danielmarchi.dev"
     },
