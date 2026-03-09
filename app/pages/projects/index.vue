@@ -41,7 +41,7 @@ useHead((page.value?.head || {}) as any)
 useSeoMeta({
   title: t("pages.projects.meta.title"),
   description: t("pages.projects.sections.hero.description"),
-  ...(page.value?.seo || {})
+  ...page.value?.seo
 })
 /* endregion */
 

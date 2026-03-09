@@ -27,12 +27,12 @@ const isLoading = ref(false)
 
 const contactInfo = computed(() => [
   {
-    icon: "i-lucide-mail",
+    icon: "lucide:mail",
     label: t("pages.contact.sections.details.email"),
     value: t("pages.contact.sections.details.emailValue")
   },
   {
-    icon: "i-simple-icons-whatsapp",
+    icon: "simple:icons-whatsapp",
     label: t("pages.contact.sections.details.whatsapp"),
     value: t("pages.contact.sections.details.whatsappValue")
   }
@@ -40,12 +40,12 @@ const contactInfo = computed(() => [
 
 const socialLinks = [
   {
-    icon: "i-simple-icons-github",
+    icon: "simple:icons-github",
     name: "GitHub",
     url: "#"
   },
   {
-    icon: "i-simple-icons-linkedin",
+    icon: "simple:icons-linkedin",
     name: "LinkedIn",
     url: "#"
   }
