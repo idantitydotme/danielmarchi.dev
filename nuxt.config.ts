@@ -129,7 +129,7 @@ export default defineNuxtConfig({
   security: {
     ssg: {
       meta: false,
-      exportToPresets: false
+      exportToPresets: true
     },
     headers: {
       contentSecurityPolicy: {
