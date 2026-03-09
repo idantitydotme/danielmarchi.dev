@@ -136,13 +136,16 @@ export default defineNuxtConfig({
 
   security: {
     ssg: {
-      meta: false,
+      meta: true,
       exportToPresets: true,
       hashScripts: false,
       hashStyles: false
     },
     headers: {
       contentSecurityPolicy: {
+        "default-src": ["'self'"],
+        "base-uri": ["'none'"],
+        "object-src": ["'none'"],
         "img-src": [
           "'self'",
           "data:",
@@ -150,7 +153,7 @@ export default defineNuxtConfig({
           "https://cdn.danielmarchi.dev",
           "https://placehold.co"
         ],
-        "script-src": ["'self'", "'unsafe-inline'", "'wasm-unsafe-eval'"],
+        "script-src": ["'self'"],
         "script-src-attr": ["'unsafe-inline'"],
         "connect-src": [
           "'self'",
@@ -172,7 +175,7 @@ export default defineNuxtConfig({
       crossOriginOpenerPolicy: "same-origin",
       referrerPolicy: "strict-origin-when-cross-origin",
       xFrameOptions: "SAMEORIGIN",
-      xContentTypeOptions: "nosniff"
+      xContentTypeOptions: "nosniff",
     }
   },
 
@@ -193,6 +196,12 @@ export default defineNuxtConfig({
     strategy: "prefix_except_default",
     defaultLocale: "en",
     langDir: "locales",
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "i18n_redirected",
+      cookieSecure: true,
+      alwaysRedirect: true
+    },
     locales: [
       {
         code: "en",
