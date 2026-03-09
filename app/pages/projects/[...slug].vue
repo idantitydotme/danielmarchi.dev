@@ -1,56 +1,57 @@
 <script setup lang="ts">
-import type { ContentNavigationItem } from "@nuxt/content";
-import { findPageHeadline } from "@nuxt/content/utils";
+import type { ContentNavigationItem } from "@nuxt/content"
+import { findPageHeadline } from "@nuxt/content/utils"
+import { withoutTrailingSlash } from "ufo"
 
 /* region State */
-const route = useRoute();
-const navigation = inject<Ref<ContentNavigationItem[]>>("navigation");
+const route = useRoute()
+const navigation = inject<Ref<ContentNavigationItem[]>>("navigation")
 
-const { locale, t } = useI18n();
-const localePath = useLocalePath();
+const { locale, t } = useI18n()
+const localePath = useLocalePath()
 
 const slug = computed(() => {
-  const s = Array.isArray(route.params.slug) ? route.params.slug.join("/") : route.params.slug;
-  return `/projects/${s}`;
-});
+  const s = Array.isArray(route.params.slug) ? route.params.slug.join("/") : route.params.slug
+  return withoutTrailingSlash(`/projects/${s}`)
+})
 
 const { data: page } = await useAsyncData(
   route.path,
   async () => {
-    const collection = `${locale.value}_projects` as any;
-    return queryCollection(collection).path(slug.value).first();
+    const collection = `${locale.value}_projects` as any
+    return queryCollection(collection).path(slug.value).first()
   },
-  { watch: [locale] },
-);
+  { watch: [locale] }
+)
 
 if (!page.value) {
-  throw createError({ statusCode: 404, statusMessage: "Project not found", fatal: true });
+  throw createError({ statusCode: 404, statusMessage: "Project not found", fatal: true })
 }
 
 const { data: surround } = await useAsyncData(
   `${route.path}-surround`,
   async () => {
-    const collection = `${locale.value}_projects` as any;
+    const collection = `${locale.value}_projects` as any
     return queryCollectionItemSurroundings(collection, slug.value, {
-      fields: ["description"],
-    });
+      fields: ["description"]
+    })
   },
-  { watch: [locale] },
-);
+  { watch: [locale] }
+)
 
 if (page.value?.ogImage) {
-  defineOgImage(page.value.ogImage);
+  defineOgImage(page.value.ogImage)
 } else if (page.value?.image) {
-  defineOgImage({ url: page.value.image });
+  defineOgImage({ url: page.value.image })
 }
 
-useHead((page.value?.head || {}) as any);
+useHead((page.value?.head || {}) as any)
 
-const headline = computed(() => findPageHeadline(navigation?.value, page.value?.path));
+const headline = computed(() => findPageHeadline(navigation?.value, page.value?.path))
 /* endregion */
 
 /* region Meta */
-useSeoMeta((page.value?.seo || {}) as any);
+useSeoMeta((page.value?.seo || {}) as any)
 /* endregion */
 
 /* region Lifecycle */
@@ -81,19 +82,17 @@ useSeoMeta((page.value?.seo || {}) as any);
           :alt="page.title"
           format="webp"
           preload
-          class="w-full aspect-video object-cover rounded-2xl mb-12 shadow-2xl ring-1 ring-default"
+          class="ring-default mb-12 aspect-video w-full rounded-2xl object-cover shadow-2xl ring-1"
         />
 
-        <div class="flex flex-wrap items-center gap-3 mb-12">
+        <div class="mb-12 flex flex-wrap items-center gap-3">
           <UBadge v-for="tag in page.tags" :key="tag" variant="subtle" color="neutral" size="md">
             {{ tag }}
           </UBadge>
-          <div class="h-4 w-px bg-default mx-2" />
-          <span class="text-muted text-sm font-medium flex items-center">
+          <div class="bg-default mx-2 h-4 w-px" />
+          <span class="text-muted flex items-center text-sm font-medium">
             <UIcon name="i-lucide-calendar" class="mr-2 size-4" />
-            {{
-              new Date(page.date).toLocaleDateString(locale, { year: "numeric", month: "long" })
-            }}
+            {{ new Date(page.date).toLocaleDateString(locale, { year: "numeric", month: "long" }) }}
           </span>
         </div>
 
@@ -113,8 +112,8 @@ useSeoMeta((page.value?.seo || {}) as any);
 
       <template #left>
         <UPageAside>
-          <div class="flex flex-col gap-sm">
-            <div class="text-sm font-semibold text-highlighted">
+          <div class="gap-sm flex flex-col">
+            <div class="text-highlighted text-sm font-semibold">
               {{ t("app.header.projects") }}
             </div>
             <UContentNavigation

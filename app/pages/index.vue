@@ -1,24 +1,24 @@
 <script setup lang="ts">
 /* region State */
-const { t, rt, locale } = useI18n();
-const localePath = useLocalePath();
+const { t, rt, locale } = useI18n()
+const localePath = useLocalePath()
 
 const testimonialItems = computed(() => [
   {
     quote: t("pages.home.sections.testimonials.items[0].quote"),
     author: {
       name: t("pages.home.sections.testimonials.items[0].author.name"),
-      description: t("pages.home.sections.testimonials.items[0].author.description"),
-    },
+      description: t("pages.home.sections.testimonials.items[0].author.description")
+    }
   },
   {
     quote: t("pages.home.sections.testimonials.items[1].quote"),
     author: {
       name: t("pages.home.sections.testimonials.items[1].author.name"),
-      description: t("pages.home.sections.testimonials.items[1].author.description"),
-    },
-  },
-]);
+      description: t("pages.home.sections.testimonials.items[1].author.description")
+    }
+  }
+])
 
 const faqItems = computed(() => [
   {
@@ -27,13 +27,13 @@ const faqItems = computed(() => [
     questions: [
       {
         label: t("pages.home.sections.faq.categories[0].questions[0].label"),
-        content: t("pages.home.sections.faq.categories[0].questions[0].content"),
+        content: t("pages.home.sections.faq.categories[0].questions[0].content")
       },
       {
         label: t("pages.home.sections.faq.categories[0].questions[1].label"),
-        content: t("pages.home.sections.faq.categories[0].questions[1].content"),
-      },
-    ],
+        content: t("pages.home.sections.faq.categories[0].questions[1].content")
+      }
+    ]
   },
   {
     label: t("pages.home.sections.faq.categories[1].title"),
@@ -41,31 +41,31 @@ const faqItems = computed(() => [
     questions: [
       {
         label: t("pages.home.sections.faq.categories[1].questions[0].label"),
-        content: t("pages.home.sections.faq.categories[1].questions[0].content"),
+        content: t("pages.home.sections.faq.categories[1].questions[0].content")
       },
       {
         label: t("pages.home.sections.faq.categories[1].questions[1].label"),
-        content: t("pages.home.sections.faq.categories[1].questions[1].content"),
-      },
-    ],
-  },
-]);
+        content: t("pages.home.sections.faq.categories[1].questions[1].content")
+      }
+    ]
+  }
+])
 
 const { data: posts } = await useAsyncData(
   `index-blogs-${locale.value}`,
   () => {
-    const collection = `${locale.value}_blog` as any;
-    return queryCollection(collection).order("date", "DESC").limit(3).all();
+    const collection = `${locale.value}_blog` as any
+    return queryCollection(collection).order("date", "DESC").limit(3).all()
   },
-  { watch: [locale] },
-);
+  { watch: [locale] }
+)
 /* endregion */
 
 /* region Meta */
 useSeoMeta({
   title: t("pages.home.meta.title"),
-  description: t("pages.home.meta.description"),
-});
+  description: t("pages.home.meta.description")
+})
 /* endregion */
 
 /* region Lifecycle */
@@ -93,12 +93,12 @@ useSeoMeta({
           fetchpriority="high"
           loading="eager"
           preload
-          class="ring ring-default ring-offset-6 ring-offset-bg mx-auto rounded-full"
+          class="ring-default ring-offset-bg mx-auto rounded-full ring ring-offset-6"
         />
       </template>
 
       <template #links>
-        <div class="flex flex-col items-center gap-md">
+        <div class="gap-md flex flex-col items-center">
           <UButton
             :label="t('pages.home.sections.hero.actions.talk')"
             :to="localePath('/contact')"
@@ -116,7 +116,7 @@ useSeoMeta({
       :description="t('pages.home.sections.about.description')"
       :ui="{
         title: 'text-left text-xl sm:text-xl lg:text-2xl font-medium',
-        description: 'text-left mt-m3 text-sm sm:text-md lg:text-sm text-muted',
+        description: 'text-left mt-m3 text-sm sm:text-md lg:text-sm text-muted'
       }"
     />
 
@@ -127,7 +127,7 @@ useSeoMeta({
       :description="t('pages.home.sections.blog.description')"
       :ui="{
         title: 'text-left text-xl sm:text-xl lg:text-2xl font-medium',
-        description: 'text-left text-sm sm:text-md lg:text-sm text-muted',
+        description: 'text-left text-sm sm:text-md lg:text-sm text-muted'
       }"
     >
       <UBlogPosts orientation="vertical">
@@ -142,15 +142,15 @@ useSeoMeta({
             author: post.author
               ? {
                   ...post.author,
-                  avatar: post.author.avatar?.src ? post.author.avatar : undefined,
+                  avatar: post.author.avatar?.src ? post.author.avatar : undefined
                 }
-              : undefined,
+              : undefined
           }"
           :to="post.path ? localePath(post.path) : undefined"
           :ui="{
             root: 'group relative lg:items-start lg:flex ring-0 hover:ring-0',
             body: '!px-0',
-            header: 'hidden',
+            header: 'hidden'
           }"
         >
           <template #footer>
@@ -158,12 +158,12 @@ useSeoMeta({
               size="xs"
               variant="link"
               :label="t('pages.home.sections.blog.readMore')"
-              class="px-0 gap-0"
+              class="gap-0 px-0"
             >
               <template #trailing>
                 <UIcon
                   name="lucide:arrow-right"
-                  class="size-2 text-primary transition-all opacity-0 group-hover:translate-x-1 group-hover:opacity-100"
+                  class="text-primary size-2 opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"
                 />
               </template>
             </UButton>
@@ -176,7 +176,7 @@ useSeoMeta({
     <UPageSection
       v-if="testimonialItems.length"
       :ui="{
-        container: 'px-0 !pt-0',
+        container: 'px-0 !pt-0'
       }"
     >
       <ClientOnly>
@@ -187,23 +187,23 @@ useSeoMeta({
           loop
           dots
           :ui="{
-            viewport: '-mx-4 sm:-mx-12 lg:-mx-16 max-w-(--ui-container)',
+            viewport: '-mx-4 sm:-mx-12 lg:-mx-16 max-w-(--ui-container)'
           }"
         >
           <UPageCTA
             variant="naked"
-            class="rounded-none w-full"
+            class="w-full rounded-none"
             :ui="{
-              container: 'sm:py-12 lg:py-12 sm:gap-10',
+              container: 'sm:py-12 lg:py-12 sm:gap-10'
             }"
           >
             <template #description>
-              <div class="flex flex-col items-center gap-md text-center">
-                <UIcon name="lucide:quote" class="size-8 text-dimmed rotate-180" />
-                <p class="text-xl text-balance italic text-highlighted">
+              <div class="gap-md flex flex-col items-center text-center">
+                <UIcon name="lucide:quote" class="text-dimmed size-8 rotate-180" />
+                <p class="text-highlighted text-xl text-balance italic">
                   {{ rt(item.quote) }}
                 </p>
-                <UIcon name="lucide:quote" class="size-8 text-dimmed" />
+                <UIcon name="lucide:quote" class="text-dimmed size-8" />
               </div>
             </template>
             <UUser
@@ -226,12 +226,13 @@ useSeoMeta({
         :ui="{
           container: 'px-0 !pt-0 gap-md sm:gap-md',
           title: 'text-center text-xl sm:text-xl lg:text-2xl font-medium',
-          description: 'text-center text-sm sm:text-md lg:text-sm text-muted',
+          description: 'text-center text-sm sm:text-md lg:text-sm text-muted'
         }"
       >
         <UContainer>
           <UTabs
             :items="faqItems"
+            :default-value="faqItems[0]?.value"
             orientation="horizontal"
             :ui="{
               root: 'flex items-center gap-md w-full',
@@ -240,7 +241,7 @@ useSeoMeta({
                 'absolute top-[4px] duration-200 ease-out focus:outline-none rounded-lg bg-elevated/60',
               trigger:
                 'px-3 py-2 rounded-lg hover:bg-muted/50 data-[state=active]:text-highlighted data-[state=inactive]:text-muted',
-              label: 'truncate',
+              label: 'truncate'
             }"
           >
             <template #content="{ item }">
@@ -248,13 +249,14 @@ useSeoMeta({
                 trailing-icon="lucide:plus"
                 :items="item.questions"
                 :unmount-on-hide="false"
+                default-value="0"
                 :ui="{
                   item: 'border-none',
                   content: 'data-[state=open]:animate-none data-[state=closed]:animate-none',
                   trigger:
                     'mb-2 border-0 group px-4 transform-gpu rounded-lg bg-elevated/60 will-change-transform hover:bg-muted/50 text-base',
                   trailingIcon:
-                    'group-data-[state=closed]:rotate-0 group-data-[state=open]:rotate-135 text-base text-muted',
+                    'group-data-[state=closed]:rotate-0 group-data-[state=open]:rotate-135 text-base text-muted'
                 }"
               >
                 <template #body="{ item: _item }">
@@ -274,7 +276,7 @@ useSeoMeta({
       variant="naked"
     >
       <template #links>
-        <div class="flex flex-col items-center gap-sm">
+        <div class="gap-sm flex flex-col items-center">
           <UButton
             :label="t('pages.home.sections.hero.actions.talk')"
             :to="localePath('/contact')"
