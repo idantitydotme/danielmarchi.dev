@@ -164,10 +164,7 @@ export default defineNuxtConfig({
         "base-uri": ["'none'"],
         "object-src": ["'none'"],
         "img-src": ["'self'", "data:", "blob:", "https://cdn.danielmarchi.dev", "https://placehold.co"],
-        "script-src": [
-          "'self'",
-          "https://static.cloudflareinsights.com"
-        ],
+        "script-src": ["'self'", "https://static.cloudflareinsights.com", "'wasm-unsafe-eval'"],
         "script-src-attr": ["'unsafe-hashes'"],
         "connect-src": [
           "'self'",
@@ -175,15 +172,14 @@ export default defineNuxtConfig({
           "https://api.iconify.design",
           "https://api.unisvg.com",
           "https://api.simplesvg.com",
-          "https://cloudflareinsights.com"
+          "https://cloudflareinsights.com",
+          "https://nuxt.studio",
+          "https://*.nuxt.com",
+          "https://*.nuxt.dev"
         ],
         "font-src": ["'self'", "https://fonts.gstatic.com"],
-        "style-src": [
-          "'self'",
-          "https://fonts.googleapis.com",
-          "'unsafe-hashes'"
-        ],
-        "frame-ancestors": ["'self'"],
+        "style-src": ["'self'", "https://fonts.googleapis.com", "'unsafe-hashes'"],
+        "frame-ancestors": ["'self'", "https://nuxt.studio"],
         "form-action": ["'self'"]
       },
       strictTransportSecurity: {
@@ -201,6 +197,8 @@ export default defineNuxtConfig({
   routeRules: {
     // Disable rate limiting for internal Nuxt endpoints
     "/__nuxt_content/**": { security: { rateLimiter: false } },
+    "/_content/**": { security: { rateLimiter: false } },
+    "/api/_content/**": { security: { rateLimiter: false } },
     "/__nuxt_studio/**": { security: { rateLimiter: false } },
     "/__nuxt_hints/**": { security: { enabled: false } },
     "/_nuxt/**": { security: { rateLimiter: false } },
