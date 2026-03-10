@@ -150,35 +150,33 @@ export default defineNuxtConfig({
   },
 
   security: {
-    nonce: true,
-    ssg: {
-      meta: true,
-      hashScripts: true,
-      hashStyles: false,
-      nitroHeaders: true,
-      exportToPresets: false
-    },
-    sri: true,
+    strict: false,
     headers: {
       contentSecurityPolicy: {
         "default-src": ["'none'"],
         "base-uri": ["'none'"],
-        "object-src": ["'none'"],
+        "font-src": ["'self'", "https:", "data:", "https://fonts.gstatic.com"],
+        "form-action": ["'self'"],
+        "frame-ancestors": ["'self'"],
         "img-src": [
           "'self'",
           "data:",
-          "blob:",
           "https://cdn.danielmarchi.dev",
-          "https://placehold.co"
+          "https://placehold.co",
+          "https://avatars.githubusercontent.com"
         ],
+        "object-src": ["'none'"],
+        "script-src-attr": ["'none'"],
+        "style-src": ["'self'", "https:", "'unsafe-inline'"],
         "script-src": [
-          "'nonce-{{nonce}}'",
           "'self'",
-          "'strict-dynamic'",
           "https:",
-          "'wasm-unsafe-eval'"
+          "'unsafe-inline'",
+          "'strict-dynamic'",
+          "'nonce-{{nonce}}'",
+          "https://static.cloudflareinsights.com",
+          "https://esm.sh"
         ],
-        "script-src-attr": ["'unsafe-hashes'"],
         "connect-src": [
           "'self'",
           "https://danielmarchi.dev",
@@ -186,17 +184,14 @@ export default defineNuxtConfig({
           "https://api.unisvg.com",
           "https://api.simplesvg.com",
           "https://cloudflareinsights.com",
+          "https://static.cloudflareinsights.com",
           "https://nuxt.studio",
           "https://*.nuxt.com",
           "https://*.nuxt.dev",
           "https://api.github.com",
           "https://raw.githubusercontent.com",
           "https://esm.sh"
-        ],
-        "font-src": ["'self'", "https://fonts.gstatic.com"],
-        "style-src": ["'self'", "https:", "'unsafe-inline'"],
-        "frame-ancestors": ["'self'", "https://nuxt.studio"],
-        "form-action": ["'self'"]
+        ]
       },
       strictTransportSecurity: {
         maxAge: 31536000,
@@ -207,7 +202,16 @@ export default defineNuxtConfig({
       referrerPolicy: "strict-origin-when-cross-origin",
       xFrameOptions: "SAMEORIGIN",
       xContentTypeOptions: "nosniff"
-    }
+    },
+    nonce: true,
+    ssg: {
+      meta: true,
+      hashScripts: true,
+      hashStyles: false,
+      nitroHeaders: true,
+      exportToPresets: true
+    },
+    sri: true
   },
 
   routeRules: {
