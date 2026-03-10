@@ -112,6 +112,12 @@ useHead({
 /* endregion */
 
 /* region Logic */
+useScriptCloudflareWebAnalytics({
+  token: '8309799b4ff448d1b447a451b5d62c1c',
+  scriptOptions: {
+    trigger: 'onNuxtReady',
+  }
+})
 /* endregion */
 </script>
 
