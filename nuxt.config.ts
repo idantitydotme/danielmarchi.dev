@@ -215,6 +215,14 @@ export default defineNuxtConfig({
     sri: true
   },
 
+   scripts: {  
+    registry: {
+      cloudflareWebAnalytics: {
+        token: "8309799b4ff448d1b447a451b5d62c1c"
+      }
+    }
+  },
+
   routeRules: {
     // Disable rate limiting for internal Nuxt endpoints
     "/__nuxt_content/**": { security: { rateLimiter: false } },
