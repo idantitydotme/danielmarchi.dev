@@ -174,7 +174,6 @@ export default defineNuxtConfig({
           "'unsafe-inline'",
           "'strict-dynamic'",
           "'nonce-{{nonce}}'",
-          "'unsafe-eval'",
           "https://esm.sh"
         ],
         "connect-src": [
