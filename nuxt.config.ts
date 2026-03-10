@@ -153,8 +153,8 @@ export default defineNuxtConfig({
     ssg: {
       meta: true,
       hashScripts: true,
-      hashStyles: false,
-      nitroHeaders: true,
+      hashStyles: true,
+      nitroHeaders: false,
       exportToPresets: false
     },
     sri: true,
@@ -163,14 +163,14 @@ export default defineNuxtConfig({
         "default-src": ["'none'"],
         "base-uri": ["'none'"],
         "object-src": ["'none'"],
-        "img-src": ["'self'", "blob:", "https://cdn.danielmarchi.dev", "https://placehold.co"],
+        "img-src": ["'self'", "blob:", "data:", "https://cdn.danielmarchi.dev", "https://placehold.co"],
         "script-src": [
           "'self'",
           "https://static.cloudflareinsights.com",
           "'sha256-3zwSU1lbxDow3XOB4WObv2+vvNU4dm4m/1NS2cDUAVg='",
           "'sha256-UZNT2Ak8+Yz6zajvl4cnCdhMMUYhfGN7T/DHuDMv2+w='"
         ],
-        "script-src-attr": ["'none'"],
+        "script-src-attr": ["'unsafe-hashes'"],
         "connect-src": [
           "'self'",
           "https://danielmarchi.dev",
@@ -180,14 +180,7 @@ export default defineNuxtConfig({
           "https://cloudflareinsights.com"
         ],
         "font-src": ["'self'", "https://fonts.gstatic.com"],
-        "style-src": [
-          "'self'",
-          "https://fonts.googleapis.com",
-          "'sha256-P6/PvwD6N9s5+3snCbQzm9cC2374mGRLVsWRlhpGBNE='",
-          "'sha256-9OcA2EZvds3/FyI9UKxWBCVtNlwb0gv5RhxuQY1s7L0='",
-          "'sha256-iYwYhiMcsGmXCUzLEpEzZNz5dINrlkqf1sLbLhEcqGM='",
-          "'sha256-PWIO0gcxk+hYmq3mpltsG8rUjK8U/3TgEvp2L6eozNI='"
-        ],
+        "style-src": ["'self'", "https://fonts.googleapis.com"],
         "frame-ancestors": ["'self'"],
         "form-action": ["'self'"]
       },
