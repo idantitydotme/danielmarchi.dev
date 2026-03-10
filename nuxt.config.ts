@@ -170,7 +170,13 @@ export default defineNuxtConfig({
           "https://cdn.danielmarchi.dev",
           "https://placehold.co"
         ],
-        "script-src": ["'self'", "https://static.cloudflareinsights.com", "'wasm-unsafe-eval'"],
+        "script-src": [
+          "'nonce-{{nonce}}'",
+          "'self'",
+          "'strict-dynamic'",
+          "https://static.cloudflareinsights.com",
+          "'wasm-unsafe-eval'"
+        ],
         "script-src-attr": ["'unsafe-hashes'"],
         "connect-src": [
           "'self'",
@@ -185,7 +191,12 @@ export default defineNuxtConfig({
           "https://api.github.com"
         ],
         "font-src": ["'self'", "https://fonts.gstatic.com"],
-        "style-src": ["'self'", "https://fonts.googleapis.com", "'unsafe-hashes'"],
+        "style-src": [
+          "'nonce-{{nonce}}'",
+          "'self'",
+          "https://fonts.googleapis.com",
+          "'unsafe-hashes'"
+        ],
         "frame-ancestors": ["'self'", "https://nuxt.studio"],
         "form-action": ["'self'"]
       },
