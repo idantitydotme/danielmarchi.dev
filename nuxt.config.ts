@@ -175,6 +175,7 @@ export default defineNuxtConfig({
           "'self'",
           "'strict-dynamic'",
           "https://static.cloudflareinsights.com",
+          "https://esm.sh",
           "'wasm-unsafe-eval'"
         ],
         "script-src-attr": ["'unsafe-hashes'"],
@@ -189,7 +190,8 @@ export default defineNuxtConfig({
           "https://*.nuxt.com",
           "https://*.nuxt.dev",
           "https://api.github.com",
-          "https://raw.githubusercontent.com"
+          "https://raw.githubusercontent.com",
+          "https://esm.sh"
         ],
         "font-src": ["'self'", "https://fonts.gstatic.com"],
         "style-src": [
