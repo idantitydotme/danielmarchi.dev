@@ -192,7 +192,7 @@ const downloadPDF = () => {
                   block
                   variant="ghost"
                   color="neutral"
-                  icon="i-simple-icons-vuedotjs"
+                  icon="simple-icons:vuedotjs"
                   to="https://vuejs.org/"
                   target="_blank"
                   class="hover:text-primary-500 justify-start"
@@ -205,7 +205,7 @@ const downloadPDF = () => {
                   block
                   variant="ghost"
                   color="neutral"
-                  icon="i-simple-icons-nuxtdotjs"
+                  icon="simple-icons:nuxtdotjs"
                   to="https://nuxt.com/"
                   target="_blank"
                   class="hover:text-primary-500 justify-start"
@@ -223,7 +223,7 @@ const downloadPDF = () => {
                   block
                   variant="ghost"
                   color="neutral"
-                  icon="i-simple-icons-bun"
+                  icon="simple-icons:bun"
                   to="https://bun.sh/"
                   target="_blank"
                   class="hover:text-primary-500 justify-start"
@@ -236,7 +236,7 @@ const downloadPDF = () => {
                   block
                   variant="ghost"
                   color="neutral"
-                  icon="i-simple-icons-tailwindcss"
+                  icon="simple-icons:tailwindcss"
                   to="https://tailwindcss.com/"
                   target="_blank"
                   class="hover:text-primary-500 justify-start"
@@ -348,7 +348,7 @@ const downloadPDF = () => {
                 <UButton
                   variant="ghost"
                   color="neutral"
-                  icon="i-simple-icons-linkedin"
+                  icon="simple-icons:linkedin"
                   to="#"
                   target="_blank"
                   class="hover:text-primary-500"
@@ -357,7 +357,7 @@ const downloadPDF = () => {
                 <UButton
                   variant="ghost"
                   color="neutral"
-                  icon="i-simple-icons-github"
+                  icon="simple-icons:github"
                   to="#"
                   target="_blank"
                   class="hover:text-primary-500"

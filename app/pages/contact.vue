@@ -153,7 +153,7 @@ async function onSubmit() {
             >
               <UInput
                 v-model="state.name"
-                icon="i-lucide-user"
+                icon="lucide:user"
                 :placeholder="t('pages.contact.sections.form.fields.name.placeholder')"
                 class="w-full"
               />
@@ -167,7 +167,7 @@ async function onSubmit() {
             >
               <UInput
                 v-model="state.email"
-                icon="i-lucide-mail"
+                icon="lucide:mail"
                 :placeholder="t('pages.contact.sections.form.fields.email.placeholder')"
                 type="email"
                 class="w-full"
@@ -191,7 +191,7 @@ async function onSubmit() {
             <UButton
               type="submit"
               :loading="isLoading"
-              icon="i-lucide-send"
+              icon="lucide:send"
               size="lg"
               block
               class="mt-2"

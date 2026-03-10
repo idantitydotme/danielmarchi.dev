@@ -149,7 +149,7 @@ watch(
             ]"
             value-key="code"
             label-key="name"
-            icon="i-lucide-languages"
+            icon="lucide:languages"
             variant="ghost"
             size="sm"
             class="h-full shrink-0"

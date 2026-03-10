@@ -91,7 +91,7 @@ useSeoMeta((page.value?.seo || {}) as any)
           </UBadge>
           <div class="bg-default mx-2 h-4 w-px" />
           <span class="text-muted flex items-center text-sm font-medium">
-            <UIcon name="i-lucide-calendar" class="mr-2 size-4" />
+            <UIcon name="lucide:calendar" class="mr-2 size-4" />
             {{ new Date(page.date).toLocaleDateString(locale, { year: "numeric", month: "long" }) }}
           </span>
         </div>

@@ -110,7 +110,7 @@ useSeoMeta({
             </div>
             <UButton
               :label="t('pages.projects.viewProject')"
-              icon="i-lucide-arrow-right"
+              icon="lucide:arrow-right"
               trailing
               variant="link"
               class="hover:text-primary p-0"
