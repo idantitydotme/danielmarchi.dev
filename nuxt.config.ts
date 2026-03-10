@@ -163,7 +163,13 @@ export default defineNuxtConfig({
         "default-src": ["'none'"],
         "base-uri": ["'none'"],
         "object-src": ["'none'"],
-        "img-src": ["'self'", "data:", "blob:", "https://cdn.danielmarchi.dev", "https://placehold.co"],
+        "img-src": [
+          "'self'",
+          "data:",
+          "blob:",
+          "https://cdn.danielmarchi.dev",
+          "https://placehold.co"
+        ],
         "script-src": ["'self'", "https://static.cloudflareinsights.com", "'wasm-unsafe-eval'"],
         "script-src-attr": ["'unsafe-hashes'"],
         "connect-src": [
