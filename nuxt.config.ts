@@ -153,8 +153,8 @@ export default defineNuxtConfig({
     ssg: {
       meta: true,
       hashScripts: true,
-      hashStyles: true,
-      nitroHeaders: false,
+      hashStyles: false,
+      nitroHeaders: true,
       exportToPresets: false
     },
     sri: true,
@@ -180,7 +180,7 @@ export default defineNuxtConfig({
           "https://cloudflareinsights.com"
         ],
         "font-src": ["'self'", "https://fonts.gstatic.com"],
-        "style-src": ["'self'", "https://fonts.googleapis.com"],
+        "style-src": ["'self'", "https://fonts.googleapis.com", "'unsafe-inline'"],
         "frame-ancestors": ["'self'"],
         "form-action": ["'self'"]
       },
