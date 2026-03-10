@@ -149,12 +149,13 @@ export default defineNuxtConfig({
   },
 
   security: {
+    nonce: true,
     ssg: {
       meta: true,
-      hashScripts: true,
+      hashScripts: false,
       hashStyles: false,
       nitroHeaders: true,
-      exportToPresets: true
+      exportToPresets: false
     },
     sri: true,
     headers: {
