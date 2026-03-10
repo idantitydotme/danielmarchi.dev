@@ -163,14 +163,15 @@ export default defineNuxtConfig({
         "base-uri": ["'none'"],
         "object-src": ["'none'"],
         "img-src": ["'self'", "blob:", "https://cdn.danielmarchi.dev", "https://placehold.co"],
-        "script-src": ["'self'"],
+        "script-src": ["'self'", "https://static.cloudflareinsights.com"],
         "script-src-attr": ["'none'"],
         "connect-src": [
           "'self'",
           "https://danielmarchi.dev",
           "https://api.iconify.design",
           "https://api.unisvg.com",
-          "https://api.simplesvg.com"
+          "https://api.simplesvg.com",
+          "https://cloudflareinsights.com"
         ],
         "font-src": ["'self'", "https://fonts.gstatic.com"],
         "style-src": ["'self'", "https://fonts.googleapis.com"],
