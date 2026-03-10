@@ -152,8 +152,8 @@ export default defineNuxtConfig({
     nonce: true,
     ssg: {
       meta: true,
-      hashScripts: false,
-      hashStyles: false,
+      hashScripts: true,
+      hashStyles: true,
       nitroHeaders: true,
       exportToPresets: false
     },
@@ -167,8 +167,8 @@ export default defineNuxtConfig({
         "script-src": [
           "'self'",
           "https://static.cloudflareinsights.com",
-          "'nonce-{{nonce}}'",
-          "'strict-dynamic'"
+          "'unsafe-inline'",
+          "https:"
         ],
         "script-src-attr": ["'unsafe-hashes'"],
         "connect-src": [
@@ -183,8 +183,7 @@ export default defineNuxtConfig({
         "style-src": [
           "'self'",
           "https://fonts.googleapis.com",
-          "'nonce-{{nonce}}'",
-          "'unsafe-hashes'"
+          "'unsafe-inline'"
         ],
         "frame-ancestors": ["'self'"],
         "form-action": ["'self'"]
