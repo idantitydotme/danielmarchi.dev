@@ -149,6 +149,7 @@ export default defineNuxtConfig({
   },
 
   security: {
+    nonce: true,
     ssg: {
       meta: true,
       hashScripts: false,
@@ -163,8 +164,8 @@ export default defineNuxtConfig({
         "base-uri": ["'none'"],
         "object-src": ["'none'"],
         "img-src": ["'self'", "blob:", "https://cdn.danielmarchi.dev", "https://placehold.co"],
-        "script-src": ["'self'", "https://static.cloudflareinsights.com"],
-        "script-src-attr": ["'none'"],
+        "script-src": ["'self'", "https://static.cloudflareinsights.com", "'nonce'"],
+        "script-src-attr": ["'self'", "'unsafe-hashes'"],
         "connect-src": [
           "'self'",
           "https://danielmarchi.dev",
@@ -174,7 +175,7 @@ export default defineNuxtConfig({
           "https://cloudflareinsights.com"
         ],
         "font-src": ["'self'", "https://fonts.gstatic.com"],
-        "style-src": ["'self'", "https://fonts.googleapis.com"],
+        "style-src": ["'self'", "https://fonts.googleapis.com", "'nonce'"],
         "frame-ancestors": ["'self'"],
         "form-action": ["'self'"]
       },
