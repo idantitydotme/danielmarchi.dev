@@ -174,6 +174,7 @@ export default defineNuxtConfig({
           "'unsafe-inline'",
           "'strict-dynamic'",
           "'nonce-{{nonce}}'",
+          "'unsafe-eval'",
           "https://static.cloudflareinsights.com",
           "https://esm.sh"
         ],
@@ -199,6 +200,7 @@ export default defineNuxtConfig({
         preload: true
       },
       crossOriginOpenerPolicy: "same-origin",
+      crossOriginEmbedderPolicy: "unsafe-none",
       referrerPolicy: "strict-origin-when-cross-origin",
       xFrameOptions: "SAMEORIGIN",
       xContentTypeOptions: "nosniff"
@@ -209,7 +211,7 @@ export default defineNuxtConfig({
       hashScripts: true,
       hashStyles: false,
       nitroHeaders: true,
-      exportToPresets: true
+      exportToPresets: false
     },
     sri: true
   },
