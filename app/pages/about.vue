@@ -61,8 +61,8 @@ useSeoMeta({
           <NuxtImg
             src="/Images/Users/Avatars/Daniel-Marchi_0000_00.webp"
             alt="Daniel Marchi"
-            width="80"
-            height="80"
+            width="512"
+            height="512"
             format="webp"
             fetchpriority="high"
             loading="eager"
