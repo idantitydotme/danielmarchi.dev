@@ -57,7 +57,7 @@ useSeoMeta({
       <div class="flex flex-col gap-24 sm:grid sm:grid-cols-3">
         <div class="order-first aspect-square w-full sm:order-last sm:col-span-1 sm:rotate-4">
           <NuxtImg
-            src="https://cdn.danielmarchi.dev/Images/Users/Avatars/Daniel-Marchi_0000_00.webp"
+            src="/Images/Users/Avatars/Daniel-Marchi_0000_00.webp"
             alt="Daniel Marchi"
             width="80"
             height="80"
