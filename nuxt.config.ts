@@ -181,7 +181,8 @@ export default defineNuxtConfig({
           "https://cloudflareinsights.com",
           "https://nuxt.studio",
           "https://*.nuxt.com",
-          "https://*.nuxt.dev"
+          "https://*.nuxt.dev",
+          "https://api.github.com"
         ],
         "font-src": ["'self'", "https://fonts.gstatic.com"],
         "style-src": ["'self'", "https://fonts.googleapis.com", "'unsafe-hashes'"],
