@@ -167,7 +167,7 @@ export default defineNuxtConfig({
         ],
         "object-src": ["'none'"],
         "script-src-attr": ["'none'"],
-        "style-src": ["'self'", "https:"],
+        "style-src": ["'self'", "https:", "'unsafe-inline'"],
         "script-src": [
           "'self'",
           "https:",
