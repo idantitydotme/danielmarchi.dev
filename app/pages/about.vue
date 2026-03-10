@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { withoutTrailingSlash } from "ufo"
+
 /* region State */
 const route = useRoute()
 const { locale, t } = useI18n()
 const { data: page } = await useAsyncData(
-  route.path,
+  withoutTrailingSlash(route.path),
   async () => {
     const collection = `${locale.value}_pages` as any
     return queryCollection(collection).path("/about").first()

@@ -14,7 +14,7 @@ const slug = computed(() =>
 )
 
 const { data: page } = await useAsyncData(
-  "page-" + slug.value,
+  "page-" + locale.value + "-" + slug.value,
   async () => {
     // Build collection name based on current locale
     const collection = `${locale.value}_pages` as keyof Collections

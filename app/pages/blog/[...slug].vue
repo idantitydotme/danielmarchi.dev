@@ -23,7 +23,7 @@ const slug = computed(() => {
 })
 
 const { data: page } = await useAsyncData(
-  `blog-${route.path}`,
+  `blog-${withoutTrailingSlash(route.path)}`,
   async () => {
     const collection = `${locale.value}_blog` as any
     return queryCollection(collection).path(slug.value).first()
