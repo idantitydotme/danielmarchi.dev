@@ -149,7 +149,7 @@ export default defineNuxtConfig({
   },
 
   security: {
-    nonce: false,
+    nonce: true,
     ssg: {
       meta: true,
       hashScripts: true,
