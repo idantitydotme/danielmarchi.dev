@@ -152,8 +152,8 @@ export default defineNuxtConfig({
     nonce: true,
     ssg: {
       meta: true,
-      hashScripts: true,
-      hashStyles: true,
+      hashScripts: false,
+      hashStyles: false,
       nitroHeaders: true,
       exportToPresets: false
     },
