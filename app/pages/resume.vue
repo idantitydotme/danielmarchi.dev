@@ -140,7 +140,7 @@ const downloadPDF = () => {
 </script>
 
 <template>
-  <UContainer>
+  <UContainer class="pt-24 sm:pt-32 lg:pt-40">
     <UPage :ui="{ root: 'flex flex-col gap-y-8 lg:grid lg:grid-cols-10 lg:gap-10' }">
       <UPageHero
         :title="t('pages.resume.sections.hero.title')"

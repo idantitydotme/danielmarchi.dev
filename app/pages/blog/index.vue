@@ -60,7 +60,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <UPage v-if="page">
+  <UPage v-if="page" class="pt-24 sm:pt-32 lg:pt-40">
     <UPageSection
       :title="t('pages.blog.sections.hero.title')"
       :description="t('pages.blog.sections.hero.description')"

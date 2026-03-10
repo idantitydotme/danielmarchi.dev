@@ -76,7 +76,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <UPage>
+  <UPage class="pt-24 sm:pt-32 lg:pt-40">
     <!-- Hero Section -->
     <UPageHero
       :title="t('pages.home.sections.hero.title')"

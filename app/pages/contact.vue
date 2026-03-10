@@ -88,7 +88,7 @@ async function onSubmit() {
 </script>
 
 <template>
-  <UPage>
+  <UPage class="pt-24 sm:pt-32 lg:pt-40">
     <UPageSection
       :title="t('pages.contact.sections.hero.title')"
       :description="t('pages.contact.sections.hero.description')"

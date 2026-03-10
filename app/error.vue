@@ -103,7 +103,7 @@ const [{ data: navigation }, { data: files }] = await Promise.all([
     <DMAppHeader />
 
     <UMain>
-      <UContainer>
+      <UContainer class="pt-24 sm:pt-32 lg:pt-40">
         <UPage>
           <UError :error="error" />
         </UPage>
