@@ -188,7 +188,8 @@ export default defineNuxtConfig({
           "https://nuxt.studio",
           "https://*.nuxt.com",
           "https://*.nuxt.dev",
-          "https://api.github.com"
+          "https://api.github.com",
+          "https://raw.githubusercontent.com"
         ],
         "font-src": ["'self'", "https://fonts.gstatic.com"],
         "style-src": [
