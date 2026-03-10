@@ -66,7 +66,21 @@ export default defineNuxtConfig({
         nodeCompat: true
       },
       prerender: {
-        routes: ["/", "/pt", "/en", "/about", "/pt/about", "/contact", "/pt/contact", "/blog", "/pt/blog", "/projects", "/pt/projects", "/resume", "/pt/resume"],
+        routes: [
+          "/",
+          "/pt",
+          "/en",
+          "/about",
+          "/pt/about",
+          "/contact",
+          "/pt/contact",
+          "/blog",
+          "/pt/blog",
+          "/projects",
+          "/pt/projects",
+          "/resume",
+          "/pt/resume"
+        ],
         crawlLinks: true
       }
     },
@@ -137,22 +151,18 @@ export default defineNuxtConfig({
   security: {
     ssg: {
       meta: true,
-      exportToPresets: true,
-      hashScripts: false,
-      hashStyles: false
+      hashScripts: true,
+      hashStyles: false,
+      nitroHeaders: true,
+      exportToPresets: true
     },
+    sri: true,
     headers: {
       contentSecurityPolicy: {
         "default-src": ["'self'"],
         "base-uri": ["'none'"],
         "object-src": ["'none'"],
-        "img-src": [
-          "'self'",
-          "data:",
-          "blob:",
-          "https://cdn.danielmarchi.dev",
-          "https://placehold.co"
-        ],
+        "img-src": ["'self'", "blob:", "https://cdn.danielmarchi.dev", "https://placehold.co"],
         "script-src": ["'self'"],
         "script-src-attr": ["'unsafe-inline'"],
         "connect-src": [
@@ -163,7 +173,7 @@ export default defineNuxtConfig({
           "https://api.simplesvg.com"
         ],
         "font-src": ["'self'", "https://fonts.gstatic.com"],
-        "style-src": ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+        "style-src": ["'self'", "https://fonts.googleapis.com"],
         "frame-ancestors": ["'self'"],
         "form-action": ["'self'"]
       },
@@ -175,7 +185,7 @@ export default defineNuxtConfig({
       crossOriginOpenerPolicy: "same-origin",
       referrerPolicy: "strict-origin-when-cross-origin",
       xFrameOptions: "SAMEORIGIN",
-      xContentTypeOptions: "nosniff",
+      xContentTypeOptions: "nosniff"
     }
   },
 
