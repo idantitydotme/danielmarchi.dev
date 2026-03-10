@@ -166,8 +166,7 @@ export default defineNuxtConfig({
         "img-src": ["'self'", "data:", "blob:", "https://cdn.danielmarchi.dev", "https://placehold.co"],
         "script-src": [
           "'self'",
-          "https://static.cloudflareinsights.com",
-          "'strict-dynamic'"
+          "https://static.cloudflareinsights.com"
         ],
         "script-src-attr": ["'unsafe-hashes'"],
         "connect-src": [
