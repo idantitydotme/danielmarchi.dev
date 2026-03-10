@@ -167,8 +167,7 @@ export default defineNuxtConfig({
         "script-src": [
           "'self'",
           "https://static.cloudflareinsights.com",
-          "'unsafe-inline'",
-          "https:"
+          "'strict-dynamic'"
         ],
         "script-src-attr": ["'unsafe-hashes'"],
         "connect-src": [
@@ -183,7 +182,7 @@ export default defineNuxtConfig({
         "style-src": [
           "'self'",
           "https://fonts.googleapis.com",
-          "'unsafe-inline'"
+          "'unsafe-hashes'"
         ],
         "frame-ancestors": ["'self'"],
         "form-action": ["'self'"]
