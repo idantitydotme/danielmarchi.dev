@@ -149,23 +149,22 @@ export default defineNuxtConfig({
   },
 
   security: {
-    nonce: true,
     ssg: {
       meta: true,
-      hashScripts: false,
+      hashScripts: true,
       hashStyles: false,
       nitroHeaders: true,
-      exportToPresets: false
+      exportToPresets: true
     },
     sri: true,
     headers: {
       contentSecurityPolicy: {
-        "default-src": ["'self'"],
+        "default-src": ["'none'"],
         "base-uri": ["'none'"],
         "object-src": ["'none'"],
         "img-src": ["'self'", "blob:", "https://cdn.danielmarchi.dev", "https://placehold.co"],
         "script-src": ["'self'"],
-        "script-src-attr": ["'unsafe-inline'"],
+        "script-src-attr": ["'none'"],
         "connect-src": [
           "'self'",
           "https://danielmarchi.dev",
