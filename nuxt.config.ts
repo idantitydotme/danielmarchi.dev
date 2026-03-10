@@ -31,7 +31,8 @@ export default defineNuxtConfig({
     "nuxt-studio",
     "@nuxtjs/device",
     "nuxt-llms",
-    "nuxt-security"
+    "nuxt-security",
+    "@nuxt/scripts"
   ],
 
   $development: {
@@ -153,7 +154,7 @@ export default defineNuxtConfig({
     ssg: {
       meta: true,
       hashScripts: true,
-      hashStyles: true,
+      hashStyles: false,
       nitroHeaders: true,
       exportToPresets: false
     },
@@ -174,8 +175,7 @@ export default defineNuxtConfig({
           "'nonce-{{nonce}}'",
           "'self'",
           "'strict-dynamic'",
-          "https://static.cloudflareinsights.com",
-          "https://esm.sh",
+          "https:",
           "'wasm-unsafe-eval'"
         ],
         "script-src-attr": ["'unsafe-hashes'"],
@@ -194,12 +194,7 @@ export default defineNuxtConfig({
           "https://esm.sh"
         ],
         "font-src": ["'self'", "https://fonts.gstatic.com"],
-        "style-src": [
-          "'nonce-{{nonce}}'",
-          "'self'",
-          "https://fonts.googleapis.com",
-          "'unsafe-hashes'"
-        ],
+        "style-src": ["'self'", "https:", "'unsafe-inline'"],
         "frame-ancestors": ["'self'", "https://nuxt.studio"],
         "form-action": ["'self'"]
       },
