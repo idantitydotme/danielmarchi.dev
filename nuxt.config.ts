@@ -175,7 +175,6 @@ export default defineNuxtConfig({
           "'strict-dynamic'",
           "'nonce-{{nonce}}'",
           "'unsafe-eval'",
-          "https://static.cloudflareinsights.com",
           "https://esm.sh"
         ],
         "connect-src": [
