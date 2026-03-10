@@ -137,6 +137,21 @@ watch(
           <UNavigationMenu :items="rightLinks" variant="link" />
         </div>
 
+        <div class="gap-xs hidden items-center sm:flex">
+          <UButton
+            v-for="link in socialLinks"
+            :key="link.label"
+            size="md"
+            color="neutral"
+            variant="ghost"
+            :icon="link.icon"
+            :to="link.to"
+            target="_blank"
+            :aria-label="link.label"
+            :class="link.class"
+          />
+        </div>
+
         <div class="flex items-stretch gap-1">
           <UColorModeButton size="sm" aria-label="Toggle color mode" />
 
@@ -149,38 +164,20 @@ watch(
             ]"
             value-key="code"
             label-key="name"
-            icon="lucide:languages"
             variant="ghost"
             size="sm"
+            icon="lucide:languages"
             class="h-full shrink-0"
             :ui="{
-              value: 'hidden',
               content: 'w-48'
             }"
             :aria-label="t('app.header.languagePicker')"
           >
-            <template #leading="{ modelValue }">
-              <span class="text-xs font-medium">{{ modelValue === "pt" ? "PT" : "EN" }}</span>
-            </template>
+            <span>{{ locale === 'pt' ? 'PT' : 'EN' }}</span>
             <template #item-leading="{ item }">
               <span class="text-xs font-medium">{{ item.code.toUpperCase() }}</span>
             </template>
           </USelectMenu>
-
-          <div class="gap-xs hidden items-center sm:flex">
-            <UButton
-              v-for="link in socialLinks"
-              :key="link.label"
-              size="md"
-              color="neutral"
-              variant="ghost"
-              :icon="link.icon"
-              :to="link.to"
-              target="_blank"
-              :aria-label="link.label"
-              :class="link.class"
-            />
-          </div>
         </div>
       </div>
     </div>
