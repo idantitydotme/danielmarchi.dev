@@ -175,7 +175,7 @@ watch(
             <UButton
               v-for="link in socialLinks"
               :key="link.name"
-              size="sm"
+              size="md"
               color="neutral"
               variant="ghost"
               :icon="link.icon"
