@@ -83,50 +83,48 @@ watch(
 </script>
 
 <template>
-  <header class="px-sm fixed inset-x-0 top-2 z-50 mx-auto w-full max-w-(--ui-container) sm:top-4">
+  <header class="px-sm fixed inset-x-0 top-2 z-50 mx-auto max-w-(--ui-container) sm:top-4">
     <div
       class="bg-muted px-md py-xs border-muted flex w-full items-center justify-between rounded-full border shadow-lg shadow-neutral-950/5"
     >
       <!-- Left Section -->
       <div class="flex items-center">
-        <ClientOnly>
-          <USlideover
-            v-model:open="open"
-            side="left"
-            :ui="{ content: 'w-2/3' }"
-            :title="t('app.title')"
-            :description="t('app.description')"
-          >
-            <UButton
-              icon="lucide:menu"
-              color="neutral"
-              variant="ghost"
-              class="my-auto rounded-full sm:hidden"
-              aria-label="Open Menu"
-            />
-            <template #body>
-              <div class="gap-md flex flex-col">
-                <UNavigationMenu orientation="vertical" :items="[...leftLinks, ...rightLinks]" />
-                <LazyUSeparator />
-                <div class="gap-sm flex flex-col">
-                  <UButton
-                    v-for="link in socialLinks"
-                    :key="link.name"
-                    size="md"
-                    color="neutral"
-                    variant="ghost"
-                    :icon="link.icon"
-                    :label="link.label"
-                    :to="link.to"
-                    target="_blank"
-                    :aria-label="link.name"
-                    :class="link.class"
-                  />
-                </div>
+        <USlideover
+          v-model:open="open"
+          side="left"
+          :ui="{ content: 'w-2/3' }"
+          :title="t('app.title')"
+          :description="t('app.description')"
+        >
+          <UButton
+            icon="lucide:menu"
+            color="neutral"
+            variant="ghost"
+            class="my-auto rounded-full sm:hidden"
+            aria-label="Open Menu"
+          />
+          <template #body>
+            <div class="gap-md flex flex-col">
+              <UNavigationMenu orientation="vertical" :items="[...leftLinks, ...rightLinks]" />
+              <LazyUSeparator />
+              <div class="gap-sm flex flex-col">
+                <UButton
+                  v-for="link in socialLinks"
+                  :key="link.label"
+                  size="md"
+                  color="neutral"
+                  variant="ghost"
+                  :icon="link.icon"
+                  :label="link.label"
+                  :to="link.to"
+                  target="_blank"
+                  :aria-label="link.label"
+                  :class="link.class"
+                />
               </div>
-            </template>
-          </USlideover>
-        </ClientOnly>
+            </div>
+          </template>
+        </USlideover>
 
         <div class="hidden items-center sm:flex">
           <UNavigationMenu :items="leftLinks" variant="link" />
@@ -142,46 +140,44 @@ watch(
         <div class="flex items-stretch gap-1">
           <UColorModeButton size="sm" aria-label="Toggle color mode" />
 
-          <ClientOnly>
-            <USelectMenu
-              :model-value="locale"
-              @update:model-value="setLocale($event as 'en' | 'pt')"
-              :items="[
-                { code: 'en', name: 'English' },
-                { code: 'pt', name: 'Português' }
-              ]"
-              value-key="code"
-              label-key="name"
-              icon="i-lucide-languages"
-              variant="ghost"
-              size="sm"
-              class="h-full shrink-0"
-              :ui="{
-                value: 'hidden',
-                content: 'w-48'
-              }"
-              :aria-label="t('app.header.languagePicker')"
-            >
-              <template #leading="{ modelValue }">
-                <span class="text-xs font-medium">{{ modelValue === "pt" ? "PT" : "EN" }}</span>
-              </template>
-              <template #item-leading="{ item }">
-                <span class="text-xs font-medium">{{ item.code.toUpperCase() }}</span>
-              </template>
-            </USelectMenu>
-          </ClientOnly>
+          <USelectMenu
+            :model-value="locale"
+            @update:model-value="setLocale($event as 'en' | 'pt')"
+            :items="[
+              { code: 'en', name: 'English' },
+              { code: 'pt', name: 'Português' }
+            ]"
+            value-key="code"
+            label-key="name"
+            icon="i-lucide-languages"
+            variant="ghost"
+            size="sm"
+            class="h-full shrink-0"
+            :ui="{
+              value: 'hidden',
+              content: 'w-48'
+            }"
+            :aria-label="t('app.header.languagePicker')"
+          >
+            <template #leading="{ modelValue }">
+              <span class="text-xs font-medium">{{ modelValue === "pt" ? "PT" : "EN" }}</span>
+            </template>
+            <template #item-leading="{ item }">
+              <span class="text-xs font-medium">{{ item.code.toUpperCase() }}</span>
+            </template>
+          </USelectMenu>
 
           <div class="gap-xs hidden items-center sm:flex">
             <UButton
               v-for="link in socialLinks"
-              :key="link.name"
+              :key="link.label"
               size="md"
               color="neutral"
               variant="ghost"
               :icon="link.icon"
               :to="link.to"
               target="_blank"
-              :aria-label="link.name"
+              :aria-label="link.label"
               :class="link.class"
             />
           </div>

@@ -176,6 +176,7 @@ useSeoMeta({
     <UPageSection
       v-if="testimonialItems.length"
       :ui="{
+        root: 'overflow-hidden',
         container: 'px-0 !pt-0'
       }"
     >
@@ -187,7 +188,7 @@ useSeoMeta({
           loop
           dots
           :ui="{
-            viewport: '-mx-4 sm:-mx-12 lg:-mx-16 max-w-(--ui-container)'
+            viewport: 'max-w-full sm:max-w-(--ui-container) sm:-mx-12 lg:-mx-16'
           }"
         >
           <UPageCTA
@@ -224,6 +225,7 @@ useSeoMeta({
         :title="t('pages.home.sections.faq.title')"
         :description="t('pages.home.sections.faq.description')"
         :ui="{
+          root: 'overflow-hidden',
           container: 'px-0 !pt-0 gap-md sm:gap-md',
           title: 'text-center text-xl sm:text-xl lg:text-2xl font-medium',
           description: 'text-center text-sm sm:text-md lg:text-sm text-muted'
@@ -235,12 +237,12 @@ useSeoMeta({
             :default-value="faqItems[0]?.value"
             orientation="horizontal"
             :ui="{
-              root: 'flex items-center gap-md w-full',
-              list: 'relative flex bg-transparent dark:bg-transparent gap-sm px-0',
+              root: 'flex items-center gap-md w-full overflow-hidden',
+              list: 'relative flex bg-transparent dark:bg-transparent gap-sm px-0 overflow-x-auto max-w-full scrollbar-hide',
               indicator:
                 'absolute top-[4px] duration-200 ease-out focus:outline-none rounded-lg bg-elevated/60',
               trigger:
-                'px-3 py-2 rounded-lg hover:bg-muted/50 data-[state=active]:text-highlighted data-[state=inactive]:text-muted',
+                'px-3 py-2 rounded-lg hover:bg-muted/50 data-[state=active]:text-highlighted data-[state=inactive]:text-muted shrink-0',
               label: 'truncate'
             }"
           >
