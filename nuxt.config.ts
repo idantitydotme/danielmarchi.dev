@@ -275,7 +275,7 @@ export default defineNuxtConfig({
   },
 
   icon: {
-    mode: "css",
+    mode: "svg",
     class: "icon",
     size: "24px",
     customCollections: []
