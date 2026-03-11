@@ -35,7 +35,7 @@ if (!posts.value) {
   })
 }
 
-if (page.value?.ogImage) {
+if (page.value?.ogImage?.component || page.value?.ogImage?.url) {
   defineOgImage(page.value.ogImage)
 } else if (page.value?.image) {
   defineOgImage({ url: page.value.image })

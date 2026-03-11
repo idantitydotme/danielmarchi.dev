@@ -49,7 +49,7 @@ const languages = computed(() => {
   }))
 })
 
-if (page.value?.ogImage) {
+if (page.value?.ogImage?.component || page.value?.ogImage?.url) {
   defineOgImage(page.value.ogImage)
 } else if ((page.value as any)?.image) {
   defineOgImage({ url: (page.value as any).image })
