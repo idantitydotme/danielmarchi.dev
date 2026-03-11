@@ -157,12 +157,16 @@
         "languages": {
           "title": "Idiomas",
           "levels": {
+            "native": "Nativo",
             "professional": "Profissional",
-            "native": "Nativo"
+            "basic": "Básico",
+            "learning": "Aprendizado"
           },
           "items": {
+            "portuguese": "Português",
             "english": "Inglês",
-            "portuguese": "Português"
+            "spanish": "Espanhol",
+            "romanian": "Romeno"
           }
         },
         "skills": {

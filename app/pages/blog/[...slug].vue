@@ -87,7 +87,7 @@ useSeoMeta((page.value?.seo || {}) as any)
 </script>
 
 <template>
-  <UContainer class="pt-24 sm:pt-32 lg:pt-40">
+  <UContainer class="pt-18 sm:pt-24 lg:pt-32">
     <UPage v-if="page">
       <UPageHeader :title="page.title" :description="page.description" class="border-none">
         <template #headline>

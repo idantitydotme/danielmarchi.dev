@@ -53,7 +53,7 @@ useSeoMeta((page.value?.seo || {}) as any)
 </script>
 
 <template>
-  <div class="pt-24 sm:pt-32 lg:pt-40">
+  <div class="pt-18 sm:pt-24 lg:pt-32">
     <ContentRenderer v-if="page" :key="page.path" :value="page" />
     <UError v-else :error="{ status: 404, message: t('pages.global.errors.notFound') }" />
   </div>

@@ -76,7 +76,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <UPage class="pt-24 sm:pt-32 lg:pt-40">
+  <UPage class="pt-18 sm:pt-24 lg:pt-32">
     <!-- Hero Section -->
     <UPageHero
       :title="t('pages.home.sections.hero.title')"
@@ -155,7 +155,7 @@ useSeoMeta({
         >
           <template #footer>
             <UButton
-              size="xs"
+              size="sm"
               variant="link"
               :label="t('pages.home.sections.blog.readMore')"
               class="gap-0 px-0"
@@ -251,7 +251,7 @@ useSeoMeta({
                 trailing-icon="lucide:plus"
                 :items="item.questions"
                 :unmount-on-hide="false"
-                default-value="0"
+                type="multiple"
                 :ui="{
                   item: 'border-none',
                   content: 'data-[state=open]:animate-none data-[state=closed]:animate-none',

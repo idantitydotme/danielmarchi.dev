@@ -1,5 +1,4 @@
 title: About Me
-description: Senior Frontend Engineer specialized in the Vue and Nuxt ecosystem.
 content: |
   Hi, I'm **Daniel Marchi**, a web developer specialized in building modern, high-performance applications. I've spent the last few years deeply immersed in the Vue and Nuxt ecosystem, helping businesses and developers create better web experiences.
 
@@ -16,8 +15,18 @@ content: |
   When I'm not architecting web apps, I'm often contributing to the open-source community or following the latest trends in the JavaScript ecosystem.
 
   Thanks for stopping by. Feel free to browse my [projects](/projects) or [get in touch](/contact) if you'd like to collaborate!
+description: Senior Frontend Engineer specialized in the Vue and Nuxt ecosystem.
 images:
   - src: ""
     alt: Development workspace
   - src: ""
     alt: Modern web interface design
+sitemap:
+  loc: /about
+  videos: []
+  images: []
+schemaOrg: {}
+head:
+  script: []
+ogImage:
+  props: {}

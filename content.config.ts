@@ -1,7 +1,7 @@
 import { defineCollection, defineContentConfig, z } from "@nuxt/content"
 import { asSeoCollection } from "@nuxtjs/seo/content"
 
-const createButtonSchema = () =>
+export const createButtonSchema = () =>
   z.object({
     label: z.string(),
     icon: z.string().optional(),

@@ -4,6 +4,7 @@ import type { ButtonProps } from "@nuxt/ui"
 /* region State */
 const { t, tm, rt } = useI18n()
 const localePath = useLocalePath()
+const appConfig = useAppConfig()
 
 const calculateAge = (dob: Date) => {
   const today = new Date()
@@ -14,10 +15,42 @@ const calculateAge = (dob: Date) => {
   }
   return currentAge
 }
-const age = calculateAge(new Date(1990, 0, 1))
+const age = calculateAge(new Date(1997, 3, 30))
 
 const portugueseProgress = ref(100)
-const englishProgress = ref(75)
+const englishProgress = ref(100)
+const spanishProgress = ref(25)
+const romanianProgress = ref(5)
+
+const getLanguageLevel = (progress: number) => {
+  if (progress >= 75) return t("pages.resume.sections.languages.levels.native")
+  if (progress >= 50) return t("pages.resume.sections.languages.levels.professional")
+  if (progress >= 25) return t("pages.resume.sections.languages.levels.basic")
+  return t("pages.resume.sections.languages.levels.learning")
+}
+
+const languages = computed(() => [
+  {
+    name: t("pages.resume.sections.languages.items.portuguese"),
+    level: getLanguageLevel(portugueseProgress.value),
+    progress: portugueseProgress.value
+  },
+  {
+    name: t("pages.resume.sections.languages.items.english"),
+    level: getLanguageLevel(englishProgress.value),
+    progress: englishProgress.value
+  },
+  {
+    name: t("pages.resume.sections.languages.items.spanish"),
+    level: getLanguageLevel(spanishProgress.value),
+    progress: spanishProgress.value
+  },
+  {
+    name: t("pages.resume.sections.languages.items.romanian"),
+    level: getLanguageLevel(romanianProgress.value),
+    progress: romanianProgress.value
+  }
+])
 
 const heroLinks = computed<ButtonProps[]>(() => [
   {
@@ -34,19 +67,6 @@ const heroLinks = computed<ButtonProps[]>(() => [
     color: "primary",
     variant: "outline",
     class: "pdf-exclude"
-  }
-])
-
-const languages = computed(() => [
-  {
-    name: t("pages.resume.sections.languages.items.english"),
-    level: t("pages.resume.sections.languages.levels.professional"),
-    progress: englishProgress.value
-  },
-  {
-    name: t("pages.resume.sections.languages.items.portuguese"),
-    level: t("pages.resume.sections.languages.levels.native"),
-    progress: portugueseProgress.value
   }
 ])
 
@@ -346,33 +366,28 @@ const downloadPDF = () => {
               <h3 class="text-highlighted text-center font-bold">Daniel Marchi</h3>
               <UFieldGroup class="gap-xs pdf-exclude">
                 <UButton
-                  variant="ghost"
-                  color="neutral"
-                  icon="simple-icons:linkedin"
-                  to="#"
+                  v-for="link in appConfig.socials"
+                  :key="link.label"
+                  :variant="link.variant"
+                  :color="link.color"
+                  :icon="link.icon"
+                  :to="link.to"
                   target="_blank"
-                  class="hover:text-primary-500"
-                  aria-label="LinkedIn"
-                />
-                <UButton
-                  variant="ghost"
-                  color="neutral"
-                  icon="simple-icons:github"
-                  to="#"
-                  target="_blank"
-                  class="hover:text-primary-500"
-                  aria-label="GitHub"
+                  :aria-label="link.label"
+                  :class="link.class"
                 />
               </UFieldGroup>
               <UButton
+                block
                 variant="ghost"
                 color="neutral"
                 icon="lucide:map-pin"
-                to="#"
-                class="hover:text-primary-500"
-              >
-                {{ t("pages.resume.sections.sidebar.location") }}
-              </UButton>
+                to="https://en.wikipedia.org/wiki/Curitiba"
+                target="_blank"
+                class="h-auto gap-2 text-left hover:text-primary-500"
+                :label="t('pages.resume.sections.sidebar.location')"
+                :ui="{ label: 'whitespace-normal text-balance' }"
+              />
               <UButton
                 block
                 color="success"

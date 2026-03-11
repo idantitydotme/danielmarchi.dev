@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { NavigationMenuItem, ButtonProps } from "@nuxt/ui"
+import type { NavigationMenuItem } from "@nuxt/ui"
 
 /* region Props */
 /* endregion */
@@ -16,7 +16,7 @@ import type { NavigationMenuItem, ButtonProps } from "@nuxt/ui"
 /* region State */
 const { t, locale, setLocale } = useI18n()
 const localePath = useLocalePath()
-const route = useRoute()
+const appConfig = useAppConfig()
 
 const open = ref(false)
 
@@ -49,37 +49,6 @@ const rightLinks = computed<NavigationMenuItem[]>(() => [
     to: localePath("/contact")
   }
 ])
-
-const socialLinks = computed<ButtonProps[]>(() => [
-  {
-    label: "LinkedIn",
-    icon: "simple-icons:linkedin",
-    to: "https://linkedin.com",
-    class: "hover:text-primary-500"
-  },
-  {
-    label: "GitHub",
-    icon: "simple-icons:github",
-    to: "https://github.com",
-    class: "hover:text-primary-500"
-  }
-])
-/* endregion */
-
-/* region Meta */
-/* endregion */
-
-/* region Lifecycle */
-watch(
-  () => route.path,
-  () => {
-    open.value = false
-  }
-)
-/* endregion */
-
-/* region Logic */
-/* endregion */
 </script>
 
 <template>
@@ -109,11 +78,11 @@ watch(
               <LazyUSeparator />
               <div class="gap-sm flex flex-col">
                 <UButton
-                  v-for="link in socialLinks"
+                  v-for="link in appConfig.socials"
                   :key="link.label"
                   size="md"
-                  color="neutral"
-                  variant="ghost"
+                  :variant="link.variant"
+                  :color="link.color"
                   :icon="link.icon"
                   :label="link.label"
                   :to="link.to"
@@ -139,11 +108,11 @@ watch(
 
         <div class="gap-xs hidden items-center sm:flex">
           <UButton
-            v-for="link in socialLinks"
+            v-for="link in appConfig.socials"
             :key="link.label"
             size="md"
-            color="neutral"
-            variant="ghost"
+            :variant="link.variant"
+            :color="link.color"
             :icon="link.icon"
             :to="link.to"
             target="_blank"

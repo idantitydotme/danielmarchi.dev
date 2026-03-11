@@ -4,6 +4,7 @@ import { z } from "zod"
 /* region State */
 const { t } = useI18n()
 const toast = useToast()
+const appConfig = useAppConfig()
 
 interface ContactFormData {
   name: string
@@ -37,22 +38,7 @@ const contactInfo = computed(() => [
     value: t("pages.contact.sections.details.whatsappValue")
   }
 ])
-
-const socialLinks = [
-  {
-    icon: "simple-iconsL:github",
-    name: "GitHub",
-    url: "https://github.com/idantitydotme"
-  },
-  {
-    icon: "simple-icons:linkedin",
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/in/daniel-marchi/"
-  }
-]
 /* endregion */
-
-/* region Meta */
 useSeoMeta({
   title: t("pages.contact.meta.title"),
   description: t("pages.contact.sections.hero.description")
@@ -88,7 +74,7 @@ async function onSubmit() {
 </script>
 
 <template>
-  <UPage class="pt-24 sm:pt-32 lg:pt-40">
+  <UPage class="pt-18 sm:pt-24 lg:pt-32">
     <UPageSection
       :title="t('pages.contact.sections.hero.title')"
       :description="t('pages.contact.sections.hero.description')"
@@ -120,16 +106,16 @@ async function onSubmit() {
               </h4>
               <div class="flex flex-row flex-wrap gap-2">
                 <UButton
-                  v-for="link in socialLinks"
-                  :key="link.name"
+                  v-for="link in appConfig.socials"
+                  :key="link.label"
+                  :variant="link.variant"
+                  :color="link.color"
                   :icon="link.icon"
-                  :to="link.url"
-                  :aria-label="`${link.name}`"
-                  variant="ghost"
-                  color="neutral"
+                  :to="link.to"
+                  :aria-label="link.label"
                   target="_blank"
                   size="xl"
-                  class="hover:text-primary-500"
+                  :class="link.class"
                 />
               </div>
             </div>

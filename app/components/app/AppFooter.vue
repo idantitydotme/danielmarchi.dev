@@ -12,19 +12,7 @@
 /* endregion */
 
 /* region State */
-const socialLinks = [
-  {
-    name: "LinkedIn",
-    icon: "simple-icons:linkedin",
-    to: "https://linkedin.com",
-    class: "hover:text-primary-500"
-  },
-  {
-    name: "GitHub",
-    icon: "simple-icons:github",
-    to: "https://github.com"
-  }
-]
+const appConfig = useAppConfig()
 /* endregion */
 
 /* region Meta */
@@ -45,15 +33,15 @@ const socialLinks = [
 
     <template #right>
       <UButton
-        v-for="link in socialLinks"
-        :key="link.name"
+        v-for="link in appConfig.socials"
+        :key="link.label"
         size="md"
-        color="neutral"
-        variant="ghost"
+        :variant="link.variant"
+        :color="link.color"
         :icon="link.icon"
         :to="link.to"
         target="_blank"
-        :aria-label="link.name"
+        :aria-label="link.label"
         :class="link.class"
       />
     </template>
