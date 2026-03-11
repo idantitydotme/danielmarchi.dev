@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { NavigationMenuItem } from "@nuxt/ui"
+import type { NavigationMenuItem, ButtonProps } from "@nuxt/ui"
 
 /* region Props */
 /* endregion */
@@ -19,6 +19,10 @@ const localePath = useLocalePath()
 const appConfig = useAppConfig()
 
 const open = ref(false)
+
+const socialLinks = computed(
+  () => Object.values(appConfig.socials) as (ButtonProps & { class?: string })[]
+)
 
 const leftLinks = computed<NavigationMenuItem[]>(() => [
   {
@@ -49,6 +53,16 @@ const rightLinks = computed<NavigationMenuItem[]>(() => [
     to: localePath("/contact")
   }
 ])
+/* endregion */
+
+/* region Meta */
+/* endregion */
+
+/* region Lifecycle */
+/* endregion */
+
+/* region Logic */
+/* endregion */
 </script>
 
 <template>
@@ -78,7 +92,7 @@ const rightLinks = computed<NavigationMenuItem[]>(() => [
               <LazyUSeparator />
               <div class="gap-sm flex flex-col">
                 <UButton
-                  v-for="link in appConfig.socials"
+                  v-for="link in socialLinks"
                   :key="link.label"
                   size="md"
                   :variant="link.variant"
@@ -86,7 +100,6 @@ const rightLinks = computed<NavigationMenuItem[]>(() => [
                   :icon="link.icon"
                   :label="link.label"
                   :to="link.to"
-                  target="_blank"
                   :aria-label="link.label"
                   :class="link.class"
                 />
@@ -108,14 +121,13 @@ const rightLinks = computed<NavigationMenuItem[]>(() => [
 
         <div class="gap-xs hidden items-center sm:flex">
           <UButton
-            v-for="link in appConfig.socials"
+            v-for="link in socialLinks"
             :key="link.label"
             size="md"
             :variant="link.variant"
             :color="link.color"
             :icon="link.icon"
             :to="link.to"
-            target="_blank"
             :aria-label="link.label"
             :class="link.class"
           />
@@ -142,7 +154,7 @@ const rightLinks = computed<NavigationMenuItem[]>(() => [
             }"
             :aria-label="t('app.header.languagePicker')"
           >
-            <span>{{ locale === 'pt' ? 'PT' : 'EN' }}</span>
+            <span>{{ locale === "pt" ? "PT" : "EN" }}</span>
             <template #item-leading="{ item }">
               <span class="text-xs font-medium">{{ item.code.toUpperCase() }}</span>
             </template>

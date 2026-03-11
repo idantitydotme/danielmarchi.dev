@@ -1,7 +1,6 @@
-import type { z } from "zod"
-import type { createButtonSchema } from "~/content.config"
+import type { ButtonProps } from "@nuxt/ui"
 
-type ButtonSchema = z.infer<ReturnType<typeof createButtonSchema>>
+type SocialLink = ButtonProps & { class?: string }
 
 declare module "nuxt/schema" {
   interface AppConfig {
@@ -12,17 +11,25 @@ declare module "nuxt/schema" {
       }
     }
     socials: {
-      instagram: ButtonSchema & {
-        class?: string
-      }
-      linkedin: ButtonSchema & {
-        class?: string
-      }
-      github: ButtonSchema & {
-        class?: string
-      }
+      instagram: SocialLink
+      linkedin: SocialLink
+      github: SocialLink
     }
   }
 }
 
-export {}
+declare module "#app" {
+  interface AppConfig {
+    ui: {
+      colors: {
+        primary: string
+        neutral: string
+      }
+    }
+    socials: {
+      instagram: SocialLink
+      linkedin: SocialLink
+      github: SocialLink
+    }
+  }
+}

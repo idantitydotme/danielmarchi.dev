@@ -6,6 +6,10 @@ const { t, tm, rt } = useI18n()
 const localePath = useLocalePath()
 const appConfig = useAppConfig()
 
+const socialLinks = computed(
+  () => Object.values(appConfig.socials) as (ButtonProps & { class?: string })[]
+)
+
 const calculateAge = (dob: Date) => {
   const today = new Date()
   let currentAge = today.getFullYear() - dob.getFullYear()
@@ -77,6 +81,7 @@ const educationItems = computed(() => [
     period: t("pages.resume.sections.education.items[0].period")
   }
 ])
+
 const certificationItems = computed(() => [
   {
     name: t("pages.resume.sections.certifications.items[0].name"),
@@ -97,6 +102,7 @@ const volunteeringItems = computed(() => [
     field: t("pages.resume.sections.volunteering.items[0].field")
   }
 ])
+
 const experienceItems = computed(() => [
   {
     role: t("pages.resume.sections.experience.items[0].role"),
@@ -366,13 +372,12 @@ const downloadPDF = () => {
               <h3 class="text-highlighted text-center font-bold">Daniel Marchi</h3>
               <UFieldGroup class="gap-xs pdf-exclude">
                 <UButton
-                  v-for="link in appConfig.socials"
+                  v-for="link in socialLinks"
                   :key="link.label"
                   :variant="link.variant"
                   :color="link.color"
                   :icon="link.icon"
                   :to="link.to"
-                  target="_blank"
                   :aria-label="link.label"
                   :class="link.class"
                 />
@@ -384,7 +389,7 @@ const downloadPDF = () => {
                 icon="lucide:map-pin"
                 to="https://en.wikipedia.org/wiki/Curitiba"
                 target="_blank"
-                class="h-auto gap-2 text-left hover:text-primary-500"
+                class="hover:text-primary-500 h-auto gap-2 text-left"
                 :label="t('pages.resume.sections.sidebar.location')"
                 :ui="{ label: 'whitespace-normal text-balance' }"
               />

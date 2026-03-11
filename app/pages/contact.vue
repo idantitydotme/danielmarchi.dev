@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { ButtonProps } from "@nuxt/ui"
 import { z } from "zod"
 
 /* region State */
@@ -6,11 +7,10 @@ const { t } = useI18n()
 const toast = useToast()
 const appConfig = useAppConfig()
 
-interface ContactFormData {
-  name: string
-  email: string
-  message: string
-}
+const socialLinks = computed(
+  () => Object.values(appConfig.socials) as (ButtonProps & { class?: string })[]
+)
+/* endregion */
 
 const contactFormSchema = z.object({
   name: z.string().min(2, t("pages.contact.sections.form.fields.name.error")),
@@ -18,7 +18,7 @@ const contactFormSchema = z.object({
   message: z.string().min(10, t("pages.contact.sections.form.fields.message.error"))
 })
 
-const state = ref<ContactFormData>({
+const state = ref({
   name: "",
   email: "",
   message: ""
@@ -39,10 +39,14 @@ const contactInfo = computed(() => [
   }
 ])
 /* endregion */
+
 useSeoMeta({
   title: t("pages.contact.meta.title"),
   description: t("pages.contact.sections.hero.description")
 })
+/* endregion */
+
+/* region Meta */
 /* endregion */
 
 /* region Lifecycle */
@@ -106,15 +110,14 @@ async function onSubmit() {
               </h4>
               <div class="flex flex-row flex-wrap gap-2">
                 <UButton
-                  v-for="link in appConfig.socials"
+                  v-for="link in socialLinks"
                   :key="link.label"
+                  size="xl"
                   :variant="link.variant"
                   :color="link.color"
                   :icon="link.icon"
                   :to="link.to"
                   :aria-label="link.label"
-                  target="_blank"
-                  size="xl"
                   :class="link.class"
                 />
               </div>
