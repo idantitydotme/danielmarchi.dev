@@ -21,12 +21,3 @@ images:
     alt: Development workspace
   - src: ""
     alt: Modern web interface design
-sitemap:
-  loc: /about
-  videos: []
-  images: []
-schemaOrg: {}
-head:
-  script: []
-ogImage:
-  props: {}

@@ -1,11 +1,2 @@
 title: Blog
 description: Thoughts on Vue, Nuxt, and modern frontend development.
-sitemap:
-  loc: /blog
-  videos: []
-  images: []
-schemaOrg: {}
-head:
-  script: []
-ogImage:
-  props: {}
