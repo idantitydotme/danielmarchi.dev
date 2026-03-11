@@ -1,8 +1,13 @@
 ---
 title: Understanding Nuxt 3 Rendering Modes
+date: 2024-03-04
 description: From SSR to ISR, explore the different ways Nuxt 3 can render your application for maximum performance.
-tags: ["Nuxt 3", "Performance", "SSR"]
-date: 2024-03-05
+sitemap:
+  loc: /blog/nuxt-3-rendering-modes
+tags:
+  - Nuxt 3
+  - Performance
+  - SSR
 ---
 
 Nuxt 3 introduced a powerful rendering engine called Nitro, which enables several rendering modes out of the box. Choosing the right one is crucial for your application's success.

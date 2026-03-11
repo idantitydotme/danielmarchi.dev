@@ -1,13 +1,32 @@
 <script setup lang="ts">
-import type { ButtonProps } from "@nuxt/ui"
+import { withoutTrailingSlash } from "ufo"
 
 /* region State */
-const { t, rt } = useI18n()
+const route = useRoute()
+const { locale, t } = useI18n()
 const localePath = useLocalePath()
 const { socials } = useAppConfig()
 
+const { data: page } = await useAsyncData(
+  withoutTrailingSlash(route.path),
+  async () => {
+    const collection = `${locale.value}_resume` as any
+    return queryCollection(collection).first()
+  },
+  { watch: [locale] }
+)
+
+if (!page.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Resume page not found",
+    fatal: true
+  })
+}
+
 const age = computed(() => {
-  const dob = new Date(1997, 3, 30)
+  if (!page.value?.sidebar?.dateOfBirth) return 0
+  const dob = new Date(page.value.sidebar.dateOfBirth)
   const today = new Date()
   return (
     today.getFullYear() -
@@ -16,11 +35,6 @@ const age = computed(() => {
   )
 })
 
-const portugueseProgress = ref(100)
-const englishProgress = ref(100)
-const spanishProgress = ref(25)
-const romanianProgress = ref(5)
-
 const getLanguageLevel = (progress: number) => {
   if (progress >= 75) return t("pages.resume.sections.languages.levels.native")
   if (progress >= 50) return t("pages.resume.sections.languages.levels.professional")
@@ -28,119 +42,26 @@ const getLanguageLevel = (progress: number) => {
   return t("pages.resume.sections.languages.levels.learning")
 }
 
-const languages = computed(() => [
-  {
-    name: t("pages.resume.sections.languages.items.portuguese"),
-    level: getLanguageLevel(portugueseProgress.value),
-    progress: portugueseProgress.value
-  },
-  {
-    name: t("pages.resume.sections.languages.items.english"),
-    level: getLanguageLevel(englishProgress.value),
-    progress: englishProgress.value
-  },
-  {
-    name: t("pages.resume.sections.languages.items.spanish"),
-    level: getLanguageLevel(spanishProgress.value),
-    progress: spanishProgress.value
-  },
-  {
-    name: t("pages.resume.sections.languages.items.romanian"),
-    level: getLanguageLevel(romanianProgress.value),
-    progress: romanianProgress.value
-  }
-])
+const languages = computed(() => {
+  return (page.value?.sidebar?.languages || []).map((lang: { name: string; progress: number }) => ({
+    ...lang,
+    level: getLanguageLevel(lang.progress)
+  }))
+})
 
-const heroLinks = computed<ButtonProps[]>(() => [
-  {
-    label: t("pages.resume.sections.hero.actions.hire"),
-    to: localePath("/contact"),
-    color: "primary",
-    variant: "solid"
-  },
-  {
-    label: t("pages.resume.sections.hero.actions.downloadCv"),
-    icon: "lucide:download",
-    to: "https://cdn.danielmarchi.dev/Files/Resume.pdf",
-    target: "_blank",
-    color: "primary",
-    variant: "outline"
-  }
-])
-
-const educationItems = computed(() => [
-  {
-    degree: t("pages.resume.sections.education.items[0].degree"),
-    school: t("pages.resume.sections.education.items[0].school"),
-    period: t("pages.resume.sections.education.items[0].period")
-  }
-])
-
-const certificationItems = computed(() => [
-  {
-    name: t("pages.resume.sections.certifications.items[0].name"),
-    issuer: t("pages.resume.sections.certifications.items[0].issuer"),
-    date: t("pages.resume.sections.certifications.items[0].date")
-  },
-  {
-    name: t("pages.resume.sections.certifications.items[1].name"),
-    issuer: t("pages.resume.sections.certifications.items[1].issuer"),
-    date: t("pages.resume.sections.certifications.items[1].date")
-  }
-])
-const volunteeringItems = computed(() => [
-  {
-    role: t("pages.resume.sections.volunteering.items[0].role"),
-    organization: t("pages.resume.sections.volunteering.items[0].organization"),
-    period: t("pages.resume.sections.volunteering.items[0].period"),
-    field: t("pages.resume.sections.volunteering.items[0].field")
-  }
-])
-
-const experienceItems = computed(() => [
-  {
-    role: t("pages.resume.sections.experience.items[0].role"),
-    company: t("pages.resume.sections.experience.items[0].company"),
-    period: t("pages.resume.sections.experience.items[0].period"),
-    bullets: [
-      t("pages.resume.sections.experience.items[0].bullets[0]"),
-      t("pages.resume.sections.experience.items[0].bullets[1]")
-    ]
-  },
-  {
-    role: t("pages.resume.sections.experience.items[1].role"),
-    company: t("pages.resume.sections.experience.items[1].company"),
-    period: t("pages.resume.sections.experience.items[1].period"),
-    bullets: [
-      t("pages.resume.sections.experience.items[1].bullets[0]"),
-      t("pages.resume.sections.experience.items[1].bullets[1]")
-    ]
-  },
-  {
-    role: t("pages.resume.sections.experience.items[2].role"),
-    company: t("pages.resume.sections.experience.items[2].company"),
-    period: t("pages.resume.sections.experience.items[2].period"),
-    bullets: [
-      t("pages.resume.sections.experience.items[2].bullets[0]"),
-      t("pages.resume.sections.experience.items[2].bullets[1]")
-    ]
-  },
-  {
-    role: t("pages.resume.sections.experience.items[3].role"),
-    company: t("pages.resume.sections.experience.items[3].company"),
-    period: t("pages.resume.sections.experience.items[3].period"),
-    bullets: [
-      t("pages.resume.sections.experience.items[3].bullets[0]"),
-      t("pages.resume.sections.experience.items[3].bullets[1]")
-    ]
-  }
-])
+if (page.value?.ogImage) {
+  defineOgImage(page.value.ogImage)
+} else if ((page.value as any)?.image) {
+  defineOgImage({ url: (page.value as any).image })
+}
+useHead((page.value?.head || {}) as any)
 /* endregion */
 
 /* region Meta */
 useSeoMeta({
-  title: t("pages.resume.meta.title"),
-  description: t("pages.resume.sections.hero.description")
+  title: page.value?.title || t("pages.resume.meta.title"),
+  description: page.value?.description || t("pages.resume.sections.hero.description"),
+  ...page.value?.seo
 })
 /* endregion */
 
@@ -152,13 +73,15 @@ useSeoMeta({
 </script>
 
 <template>
-  <UContainer class="pt-24 sm:pt-32 lg:pt-40">
+  <UContainer v-if="page" class="pt-24 sm:pt-32 lg:pt-40">
     <UPage :ui="{ root: 'flex flex-col gap-y-8 lg:grid lg:grid-cols-10 lg:gap-10' }">
+      <!-- 1. HERO -->
       <UPageHero
-        :title="t('pages.resume.sections.hero.title')"
-        :description="t('pages.resume.sections.hero.description')"
+        v-if="page.hero"
+        :title="page.hero.title"
+        :description="page.hero.description"
         orientation="horizontal"
-        :links="heroLinks"
+        :links="page.hero.links"
         :ui="{
           title: 'text-highlighted',
           description: 'text-muted',
@@ -166,7 +89,7 @@ useSeoMeta({
         }"
       >
         <NuxtImg
-          src="/Images/Users/Avatars/Daniel-Marchi_0000_00.webp"
+          :src="page.hero.image || '/Images/Users/Avatars/Daniel-Marchi_0000_00.webp'"
           alt="Daniel Marchi"
           width="512"
           height="512"
@@ -178,17 +101,21 @@ useSeoMeta({
         />
       </UPageHero>
 
+      <!-- 2. SKILLS (MDC) -->
       <UPageSection
+        v-if="page.skills"
         :title="t('pages.resume.sections.skills.title')"
         :ui="{
           title: 'text-left text-xl sm:text-2xl lg:text-3xl',
           container: 'px-0 max-w-none gap-md sm:gap-md py-4 sm:py-6 lg:py-8'
         }"
       >
-        <!-- Empty for now -->
+        <MDC :value="page.skills" unwrap="p" class="text-highlighted" />
       </UPageSection>
 
+      <!-- 3. TECH -->
       <UPageSection
+        v-if="page.tech?.length"
         :title="t('pages.resume.sections.tech.title')"
         :ui="{
           title: 'text-left text-xl sm:text-2xl lg:text-3xl',
@@ -196,142 +123,97 @@ useSeoMeta({
         }"
       >
         <div class="gap-lg grid grid-cols-2">
-          <div class="gap-md flex flex-col">
-            <h5 class="text-highlighted">{{ t("pages.resume.sections.tech.categories.audio") }}</h5>
+          <div v-for="category in page.tech" :key="category.title" class="gap-md flex flex-col">
+            <h5 class="text-highlighted">{{ category.title }}</h5>
             <ul class="gap-xs flex flex-col">
-              <li>
+              <li v-for="item in category.items" :key="item.label">
                 <UButton
+                  v-bind="item"
                   block
                   variant="ghost"
                   color="neutral"
-                  icon="simple-icons:vuedotjs"
-                  to="https://vuejs.org/"
-                  target="_blank"
                   class="hover:text-primary-500 justify-start"
-                >
-                  Vue.js
-                </UButton>
-              </li>
-              <li>
-                <UButton
-                  block
-                  variant="ghost"
-                  color="neutral"
-                  icon="simple-icons:nuxtdotjs"
-                  to="https://nuxt.com/"
-                  target="_blank"
-                  class="hover:text-primary-500 justify-start"
-                >
-                  Nuxt
-                </UButton>
-              </li>
-            </ul>
-          </div>
-          <div class="gap-md flex flex-col">
-            <h5 class="text-highlighted">{{ t("pages.resume.sections.tech.categories.video") }}</h5>
-            <ul class="gap-xs flex flex-col">
-              <li>
-                <UButton
-                  block
-                  variant="ghost"
-                  color="neutral"
-                  icon="simple-icons:bun"
-                  to="https://bun.sh/"
-                  target="_blank"
-                  class="hover:text-primary-500 justify-start"
-                >
-                  Bun
-                </UButton>
-              </li>
-              <li>
-                <UButton
-                  block
-                  variant="ghost"
-                  color="neutral"
-                  icon="simple-icons:tailwindcss"
-                  to="https://tailwindcss.com/"
-                  target="_blank"
-                  class="hover:text-primary-500 justify-start"
-                >
-                  Tailwind CSS
-                </UButton>
+                />
               </li>
             </ul>
           </div>
         </div>
       </UPageSection>
 
+      <!-- 4. EDUCATION -->
       <UPageSection
+        v-if="page.education?.length"
         :title="t('pages.resume.sections.education.title')"
         :ui="{
           title: 'text-left text-xl sm:text-2xl lg:text-3xl',
           container: 'px-0 max-w-none gap-md sm:gap-md py-4 sm:py-6 lg:py-8'
         }"
       >
-        <div v-for="(item, index) in educationItems" :key="index">
+        <div v-for="(item, index) in page.education" :key="index">
           <div class="gap-xs flex flex-col">
-            <h3 class="text-highlighted">{{ rt(item.degree) }}</h3>
-            <span class="text-muted text-sm">{{ rt(item.school) }}</span>
-            <span class="text-muted/80 text-xs">{{ rt(item.period) }}</span>
+            <h3 class="text-highlighted">{{ item.degree }}</h3>
+            <span class="text-muted text-sm">{{ item.school }}</span>
+            <span class="text-muted/80 text-xs">{{ item.period }}</span>
           </div>
         </div>
       </UPageSection>
 
+      <!-- 5. EXPERIENCE -->
       <UPageSection
+        v-if="page.experience?.length"
         :title="t('pages.resume.sections.experience.title')"
         :ui="{
           title: 'text-left text-xl sm:text-2xl lg:text-3xl',
           container: 'px-0 max-w-none gap-md sm:gap-md py-4 sm:py-6 lg:py-8'
         }"
       >
-        <div v-for="(item, index) in experienceItems" :key="index">
+        <div v-for="(item, index) in page.experience" :key="index">
           <div class="gap-xs flex flex-col">
-            <h3 class="text-highlighted">{{ rt(item.role) }}</h3>
-            <span class="text-muted text-sm">{{ rt(item.company) }}</span>
-            <span class="text-muted/80 text-xs">{{ rt(item.period) }}</span>
-            <ul
-              v-if="item.bullets && Array.isArray(item.bullets)"
-              class="text-highlighted list-inside list-disc"
-            >
+            <h3 class="text-highlighted">{{ item.role }}</h3>
+            <span class="text-muted text-sm">{{ item.company }}</span>
+            <span class="text-muted/80 text-xs">{{ item.period }}</span>
+            <ul v-if="item.bullets?.length" class="text-highlighted list-inside list-disc">
               <li v-for="(bullet, bIndex) in item.bullets" :key="bIndex">
-                <span class="text-highlighted">{{ rt(bullet) }}</span>
+                <span class="text-highlighted">{{ bullet }}</span>
               </li>
             </ul>
           </div>
         </div>
       </UPageSection>
 
+      <!-- 6. CERTIFICATIONS -->
       <UPageSection
-        v-if="certificationItems.length"
+        v-if="page.certifications?.length"
         :title="t('pages.resume.sections.certifications.title')"
         :ui="{
           title: 'text-left text-xl sm:text-2xl lg:text-3xl',
           container: 'px-0 max-w-none gap-md sm:gap-md py-4 sm:py-6 lg:py-8'
         }"
       >
-        <div v-for="(item, index) in certificationItems" :key="index">
+        <div v-for="(item, index) in page.certifications" :key="index">
           <div class="gap-xs flex flex-col">
-            <h3 class="text-highlighted">{{ rt(item.name) }}</h3>
-            <span class="text-muted text-sm">{{ rt(item.issuer) }}</span>
-            <span class="text-muted/80 text-xs">{{ rt(item.date) }}</span>
+            <h3 class="text-highlighted">{{ item.name }}</h3>
+            <span class="text-muted text-sm">{{ item.issuer }}</span>
+            <span class="text-muted/80 text-xs">{{ item.date }}</span>
           </div>
         </div>
       </UPageSection>
 
+      <!-- 7. VOLUNTEERING -->
       <UPageSection
-        v-if="volunteeringItems.length"
+        v-if="page.volunteering?.length"
         :title="t('pages.resume.sections.volunteering.title')"
         :ui="{
           title: 'text-left text-xl sm:text-2xl lg:text-3xl',
           container: 'px-0 max-w-none gap-md sm:gap-md py-4 sm:py-6 lg:py-8'
         }"
       >
-        <div v-for="(item, index) in volunteeringItems" :key="index">
+        <div v-for="(item, index) in page.volunteering" :key="index">
           <div class="gap-xs flex flex-col">
-            <h3 class="text-highlighted">{{ rt(item.role) }}</h3>
-            <span class="text-muted text-sm">{{ rt(item.organization) }}</span>
-            <span class="text-muted/80 text-xs">{{ rt(item.period) }}</span>
-            <span v-if="item.field" class="text-muted/60 text-xs italic">{{ rt(item.field) }}</span>
+            <h3 class="text-highlighted">{{ item.role }}</h3>
+            <span class="text-muted text-sm">{{ item.organization }}</span>
+            <span class="text-muted/80 text-xs">{{ item.period }}</span>
+            <span v-if="item.field" class="text-muted/60 text-xs italic">{{ item.field }}</span>
           </div>
         </div>
       </UPageSection>
@@ -345,7 +227,7 @@ useSeoMeta({
           <div class="gap-lg flex flex-col">
             <div class="gap-sm flex flex-col items-center justify-center">
               <NuxtImg
-                src="/Images/Users/Avatars/Daniel-Marchi_0000_00.webp"
+                :src="page.sidebar?.image || '/Images/Users/Avatars/Daniel-Marchi_0000_00.webp'"
                 alt="Daniel Marchi"
                 width="96"
                 height="96"
@@ -368,23 +250,25 @@ useSeoMeta({
                 />
               </UFieldGroup>
               <UButton
+                v-if="page.sidebar?.location"
                 block
                 variant="ghost"
                 color="neutral"
                 icon="lucide:map-pin"
-                to="https://en.wikipedia.org/wiki/Curitiba"
+                :to="page.sidebar.locationLink || 'https://en.wikipedia.org/wiki/Curitiba'"
                 target="_blank"
                 class="hover:text-primary-500 h-auto gap-2 text-left"
-                :label="t('pages.resume.sections.sidebar.location')"
+                :label="page.sidebar.location"
                 :ui="{ label: 'whitespace-normal text-balance' }"
               />
               <UButton
+                v-if="page.sidebar?.availability"
                 block
                 color="success"
                 variant="ghost"
                 :to="localePath('/contact')"
                 class="pdf-exclude h-auto gap-2 text-left"
-                :label="t('pages.resume.sections.sidebar.availability')"
+                :label="page.sidebar.availability"
                 :ui="{ label: 'whitespace-normal text-balance' }"
               >
                 <template #leading>
@@ -397,46 +281,30 @@ useSeoMeta({
                 </template>
               </UButton>
             </div>
-            <div class="gap-sm flex flex-col">
+
+            <div v-if="page.sidebar?.about" class="gap-sm flex flex-col">
               <div class="gap-md flex flex-row items-center">
                 <UIcon name="lucide:user" size="xs" />
-                <h5 class="text-highlighted">{{ t("pages.resume.sections.about.title") }}</h5>
+                <h5 class="text-highlighted">{{ page.sidebar.about.title }}</h5>
               </div>
               <USeparator />
               <ul class="text-neutral-900 dark:text-neutral-100">
-                <li>
-                  <span class="text-sm"
-                    ><strong>{{ t("pages.resume.sections.about.fields.name") }}</strong>
-                    {{ t("pages.resume.sections.about.fields.nameValue") }}</span
-                  >
+                <li v-for="field in page.sidebar.about.fields" :key="field.label">
+                  <span class="text-sm">
+                    <strong>{{ field.label }}</strong>
+                    {{ field.value }}
+                  </span>
                 </li>
                 <li>
-                  <span class="text-sm"
-                    ><strong>{{ t("pages.resume.sections.about.fields.gender") }}</strong>
-                    {{ t("pages.resume.sections.about.fields.genderValue") }}</span
-                  >
-                </li>
-                <li>
-                  <span class="text-sm"
-                    ><strong>{{ t("pages.resume.sections.about.fields.pronouns") }}</strong>
-                    {{ t("pages.resume.sections.about.fields.pronounsValue") }}</span
-                  >
-                </li>
-                <li>
-                  <span class="text-sm"
-                    ><strong>{{ t("pages.resume.sections.about.fields.nationality") }}</strong>
-                    {{ t("pages.resume.sections.about.fields.nationalityValue") }}</span
-                  >
-                </li>
-                <li>
-                  <span class="text-sm"
-                    ><strong>{{ t("pages.resume.sections.about.fields.age") }}</strong>
-                    {{ age }}</span
-                  >
+                  <span class="text-sm">
+                    <strong>{{ t("pages.resume.sections.about.fields.age") }}</strong>
+                    {{ age }}
+                  </span>
                 </li>
               </ul>
             </div>
-            <div class="gap-sm flex flex-col">
+
+            <div v-if="languages.length" class="gap-sm flex flex-col">
               <div class="gap-md flex flex-row items-center">
                 <UIcon name="lucide:languages" size="xs" />
                 <h5 class="text-highlighted">{{ t("pages.resume.sections.languages.title") }}</h5>
@@ -460,5 +328,3 @@ useSeoMeta({
     </UPage>
   </UContainer>
 </template>
-
-<style scoped></style>

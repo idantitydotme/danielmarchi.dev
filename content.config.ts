@@ -63,6 +63,91 @@ const projectSchema = commonSchema.extend({
   tags: z.array(z.string()),
   date: z.date()
 })
+const resumeSchema = commonSchema.extend({
+  sidebar: z
+    .object({
+      image: z.string().optional().editor({ input: "media" }),
+      location: z.string().optional(),
+      locationLink: z.string().optional(),
+      availability: z.string().optional(),
+      dateOfBirth: z.string().optional(),
+      about: z
+        .object({
+          title: z.string().optional(),
+          fields: z.array(
+            z.object({
+              label: z.string(),
+              value: z.string()
+            })
+          )
+        })
+        .optional(),
+      languages: z
+        .array(
+          z.object({
+            name: z.string(),
+            progress: z.number()
+          })
+        )
+        .optional()
+    })
+    .optional(),
+  hero: z
+    .object({
+      title: z.string().optional(),
+      description: z.string().optional(),
+      image: z.string().optional().editor({ input: "media" }),
+      links: z.array(createButtonSchema()).optional()
+    })
+    .optional(),
+  skills: z.string().optional().editor({ input: "markdown" }),
+  tech: z
+    .array(
+      z.object({
+        title: z.string(),
+        items: z.array(createButtonSchema())
+      })
+    )
+    .optional(),
+  education: z
+    .array(
+      z.object({
+        degree: z.string(),
+        school: z.string(),
+        period: z.string()
+      })
+    )
+    .optional(),
+  experience: z
+    .array(
+      z.object({
+        role: z.string(),
+        company: z.string(),
+        period: z.string(),
+        bullets: z.array(z.string())
+      })
+    )
+    .optional(),
+  certifications: z
+    .array(
+      z.object({
+        name: z.string(),
+        issuer: z.string(),
+        date: z.string()
+      })
+    )
+    .optional(),
+  volunteering: z
+    .array(
+      z.object({
+        role: z.string(),
+        organization: z.string(),
+        period: z.string(),
+        field: z.string().optional()
+      })
+    )
+    .optional()
+})
 
 export default defineContentConfig({
   collections: {
@@ -92,6 +177,13 @@ export default defineContentConfig({
         type: "page",
         source: { include: "en/*contact.{yml,md}", prefix: "/" },
         schema: contactSchema
+      })
+    ),
+    en_resume: defineCollection(
+      asSeoCollection({
+        type: "page",
+        source: { include: "en/*resume.{yml,md}", prefix: "/" },
+        schema: resumeSchema
       })
     ),
     en_pages: defineCollection(
@@ -128,6 +220,13 @@ export default defineContentConfig({
         type: "page",
         source: { include: "pt/*contact.{yml,md}", prefix: "/pt" },
         schema: contactSchema
+      })
+    ),
+    pt_resume: defineCollection(
+      asSeoCollection({
+        type: "page",
+        source: { include: "pt/*resume.{yml,md}", prefix: "/pt" },
+        schema: resumeSchema
       })
     ),
     pt_pages: defineCollection(

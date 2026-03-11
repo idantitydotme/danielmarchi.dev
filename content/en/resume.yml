@@ -1,0 +1,123 @@
+title: Resume
+certifications:
+  - name: Nuxt Certified Expert
+    issuer: NuxtLabs
+    date: "2023"
+  - name: Meta Front-End Developer
+    issuer: Coursera
+    date: "2022"
+description: Senior Frontend Engineer specializing in Vue and Nuxt. I build robust web architectures and premium digital experiences.
+education:
+  - degree: B.S. in Computer Science
+    school: Federal University of Paraná (UFPR)
+    period: Jun 2021 – Dec 2025
+experience:
+  - role: Senior Frontend Engineer
+    company: Tech Innovations
+    period: 2023 - Present
+    bullets:
+      - Led the migration of a large-scale application to Nuxt 3, improving performance by 40%.
+      - Implemented a custom UI component library using Tailwind CSS and Headless UI.
+  - role: Nuxt Specialist
+    company: Digital Solutions
+    period: 2021 - 2023
+    bullets:
+      - Developed multiple high-traffic e-commerce sites using Vue and Nuxt.
+      - Optimized Core Web Vitals for various client projects, achieving scores above 90.
+  - role: Frontend Developer
+    company: Creative Agency
+    period: 2019 - 2021
+    bullets:
+      - Built responsive and interactive landing pages for international brands.
+      - Collaborated with designers to implement pixel-perfect user interfaces.
+  - role: Junior Developer
+    company: Soft Systems
+    period: 2018 - 2019
+    bullets:
+      - Maintained and improved legacy JavaScript applications.
+      - Gained experience in version control and team collaboration.
+head:
+  script:
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+hero:
+  title: Daniel Marchi
+  description: Senior Frontend Engineer specializing in Vue and Nuxt. I build robust web architectures and premium digital experiences.
+  image: /Images/Users/Avatars/Daniel-Marchi_0000_00.webp
+  links:
+    - label: Let's Talk
+      to: /contact
+      color: primary
+      variant: solid
+    - label: Download CV
+      icon: lucide:download
+      to: https://cdn.danielmarchi.dev/Files/Resume.pdf
+      target: _blank
+      color: primary
+      variant: outline
+ogImage:
+  props: {}
+schemaOrg:
+  _resolver: webPage
+sidebar:
+  image: /Images/Users/Avatars/Daniel-Marchi_0000_00.webp
+  location: Curitiba, Brazil
+  locationLink: https://en.wikipedia.org/wiki/Curitiba
+  availability: Available
+  dateOfBirth: 1997-04-30
+  about:
+    title: About
+    fields:
+      - label: "Name:"
+        value: Daniel Marchi
+      - label: "Gender:"
+        value: Male
+      - label: "Pronouns:"
+        value: He/Him
+      - label: "Nationality:"
+        value: Brazilian
+  languages:
+    - name: Portuguese
+      progress: 100
+    - name: English
+      progress: 100
+    - name: Spanish
+      progress: 25
+    - name: Romanian
+      progress: 5
+sitemap:
+  loc: /resume
+  videos: []
+  images: []
+skills: |
+  I'm a **Senior Frontend Engineer** with a passion for building high-performance web applications. My expertise lies in the **Vue and Nuxt ecosystem**, where I specialize in creating scalable architectures and premium user interfaces.
+
+  ### Core Competencies
+  - **Architecture**: Scalable and maintainable frontend systems.
+  - **Performance**: SSR, Hydration optimization, and Core Web Vitals.
+  - **Accessibility**: Semantic HTML and ARIA best practices.
+tech:
+  - title: Frontend Development
+    items:
+      - label: Vue.js
+        icon: simple-icons:vuedotjs
+        to: https://vuejs.org/
+      - label: Nuxt
+        icon: simple-icons:nuxtdotjs
+        to: https://nuxt.com/
+  - title: Core Ecosystem
+    items:
+      - label: Bun
+        icon: simple-icons:bun
+        to: https://bun.sh/
+      - label: Tailwind CSS
+        icon: simple-icons:tailwindcss
+        to: https://tailwindcss.com/
+volunteering:
+  - role: Open Source Contributor
+    organization: Nuxt Community
+    period: 2022 - Present
+    field: Software Development

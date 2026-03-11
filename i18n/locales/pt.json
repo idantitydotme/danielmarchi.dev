@@ -129,28 +129,10 @@
       },
       "sections": {
         "hero": {
-          "title": "Daniel Marchi",
-          "description": "Engenheiro Frontend Sênior especializado em Vue e Nuxt. Crio arquiteturas web robustas e experiências digitais premium.",
-          "actions": {
-            "hire": "Vamos Conversar",
-            "downloadCv": "Baixar CV"
-          }
-        },
-        "sidebar": {
-          "location": "Curitiba, Brasil",
-          "availability": "Disponível"
+          "description": "Engenheiro Frontend Sênior especializado em Vue e Nuxt. Crio arquiteturas web robustas e experiências digitais premium."
         },
         "about": {
-          "title": "Sobre",
           "fields": {
-            "name": "Nome:",
-            "nameValue": "Daniel Marchi",
-            "gender": "Gênero:",
-            "genderValue": "Masculino",
-            "pronouns": "Pronomes:",
-            "pronounsValue": "Ele/Dele",
-            "nationality": "Nacionalidade:",
-            "nationalityValue": "Brasileiro",
             "age": "Idade:"
           }
         },
@@ -161,98 +143,40 @@
             "professional": "Profissional",
             "basic": "Básico",
             "learning": "Aprendizado"
-          },
-          "items": {
-            "portuguese": "Português",
-            "english": "Inglês",
-            "spanish": "Espanhol",
-            "romanian": "Romeno"
           }
         },
         "skills": {
           "title": "Habilidades"
         },
         "tech": {
-          "title": "Tecnologias",
-          "categories": {
-            "audio": "Desenvolvimento Frontend",
-            "video": "Ecossistema Core"
-          }
+          "title": "Tecnologias"
         },
         "education": {
           "title": "Educação",
-          "items": [
-            {
-              "degree": "Bacharelado em Ciência da Computação",
-              "school": "Universidade Federal do Paraná (UFPR)",
-              "period": "Jun 2021 – Dez 2025"
-            }
-          ]
+          "items": []
         },
         "certifications": {
           "title": "Certificações",
-          "items": [
-            {
-              "name": "Especialista Certificado Nuxt",
-              "issuer": "NuxtLabs",
-              "date": "2023"
-            },
-            {
-              "name": "Desenvolvedor Front-End Meta",
-              "issuer": "Coursera",
-              "date": "2022"
-            }
-          ]
+          "items": [{}]
         },
         "volunteering": {
           "title": "Voluntariado",
-          "items": [
-            {
-              "role": "Contribuidor Open Source",
-              "organization": "Comunidade Nuxt",
-              "period": "2022 - Presente",
-              "field": "Desenvolvimento de Software"
-            }
-          ]
+          "items": []
         },
         "experience": {
           "title": "Experiência",
           "items": [
             {
-              "role": "Engenheiro Frontend Sênior",
-              "company": "Tech Innovations",
-              "period": "2023 - Presente",
-              "bullets": [
-                "Liderei a migração de uma aplicação de larga escala para Nuxt 3, melhorando a performance em 40%.",
-                "Implementei uma biblioteca de componentes UI customizada usando Tailwind CSS e Headless UI."
-              ]
+              "bullets": []
             },
             {
-              "role": "Especialista Nuxt",
-              "company": "Digital Solutions",
-              "period": "2021 - 2023",
-              "bullets": [
-                "Desenvolvi múltiplos sites de e-commerce de alto tráfego usando Vue e Nuxt.",
-                "Otimizei Core Web Vitals para vários projetos de clientes, alcançando pontuações acima de 90."
-              ]
+              "bullets": []
             },
             {
-              "role": "Desenvolvedor Frontend",
-              "company": "Agência Criativa",
-              "period": "2019 - 2021",
-              "bullets": [
-                "Construí landing pages responsivas e interativas para marcas internacionais.",
-                "Colaborei com designers para implementar interfaces de usuário pixel-perfect."
-              ]
+              "bullets": []
             },
             {
-              "role": "Desenvolvedor Júnior",
-              "company": "Soft Systems",
-              "period": "2018 - 2019",
-              "bullets": [
-                "Mantive e melhorei aplicações JavaScript legadas.",
-                "Ganhei experiência em controle de versão e colaboração em equipe."
-              ]
+              "bullets": []
             }
           ]
         }
@@ -296,6 +220,9 @@
           "whatsappValue": "+55 41 99999-9999",
           "socials": "Também estou disponível através das minhas redes sociais:"
         }
+      },
+      "meta": {
+        "title": ""
       }
     },
     "global": {

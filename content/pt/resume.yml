@@ -1,0 +1,115 @@
+title: Currículo
+description: Engenheiro Frontend Sênior especializado em Vue e Nuxt. Crio arquiteturas web robustas e experiências digitais premium.
+sidebar:
+  image: /Images/Users/Avatars/Daniel-Marchi_0000_00.webp
+  location: Curitiba, Brasil
+  locationLink: https://pt.wikipedia.org/wiki/Curitiba
+  availability: Disponível
+  dateOfBirth: "1997-04-30"
+  about:
+    title: Sobre
+    fields:
+      - label: "Nome:"
+        value: Daniel Marchi
+      - label: "Gênero:"
+        value: Masculino
+      - label: "Pronomes:"
+        value: Ele/Dele
+      - label: "Nacionalidade:"
+        value: Brasileiro
+  languages:
+    - name: Português
+      progress: 100
+    - name: Inglês
+      progress: 100
+    - name: Espanhol
+      progress: 25
+    - name: Romeno
+      progress: 5
+hero:
+  title: Daniel Marchi
+  description: Engenheiro Frontend Sênior especializado em Vue e Nuxt. Crio arquiteturas web robustas e experiências digitais premium.
+  image: /Images/Users/Avatars/Daniel-Marchi_0000_00.webp
+  links:
+    - label: Vamos Conversar
+      to: /contact
+      color: primary
+      variant: solid
+    - label: Baixar CV
+      icon: lucide:download
+      to: https://cdn.danielmarchi.dev/Files/Resume.pdf
+      target: _blank
+      color: primary
+      variant: outline
+skills: |
+  Sou um **Engenheiro Frontend Sênior** apaixonado por construir aplicações web de alta performance. Minha expertise reside no **ecossistema Vue e Nuxt**, onde me especializo em criar arquiteturas escaláveis e interfaces de usuário premium.
+
+  ### Competências Principais
+  - **Arquitetura**: Sistemas frontend escaláveis e sustentáveis.
+  - **Performance**: SSR, otimização de hidratação e Core Web Vitals.
+  - **Acessibilidade**: HTML semântico e melhores práticas ARIA.
+tech:
+  - title: Desenvolvimento Frontend
+    items:
+      - label: Vue.js
+        icon: simple-icons:vuedotjs
+        to: https://vuejs.org/
+      - label: Nuxt
+        icon: simple-icons:nuxtdotjs
+        to: https://nuxt.com/
+  - title: Ecossistema Core
+    items:
+      - label: Bun
+        icon: simple-icons:bun
+        to: https://bun.sh/
+      - label: Tailwind CSS
+        icon: simple-icons:tailwindcss
+        to: https://tailwindcss.com/
+education:
+  - degree: Bacharelado em Ciência da Computação
+    school: Universidade Federal do Paraná (UFPR)
+    period: Jun 2021 – Dez 2025
+experience:
+  - role: Engenheiro Frontend Sênior
+    company: Tech Innovations
+    period: 2023 - Presente
+    bullets:
+      - Liderei a migração de uma aplicação de larga escala para Nuxt 3, melhorando a performance em 40%.
+      - Implementei uma biblioteca de componentes UI customizada usando Tailwind CSS e Headless UI.
+  - role: Especialista Nuxt
+    company: Digital Solutions
+    period: 2021 - 2023
+    bullets:
+      - Desenvolvi múltiplos sites de e-commerce de alto tráfego usando Vue e Nuxt.
+      - Otimizei Core Web Vitals para vários projetos de clientes, alcançando pontuações acima de 90.
+  - role: Desenvolvedor Frontend
+    company: Agência Criativa
+    period: 2019 - 2021
+    bullets:
+      - Construí landing pages responsivas e interativas para marcas internacionais.
+      - Colaborei com designers para implementar interfaces de usuário pixel-perfect.
+  - role: Desenvolvedor Júnior
+    company: Soft Systems
+    period: 2018 - 2019
+    bullets:
+      - Mantive e melhorei aplicações JavaScript legadas.
+      - Ganhei experiência em controle de versão e colaboração em equipe.
+certifications:
+  - name: Especialista Certificado Nuxt
+    issuer: NuxtLabs
+    date: "2023"
+  - name: Desenvolvedor Front-End Meta
+    issuer: Coursera
+    date: "2022"
+volunteering:
+  - role: Contribuidor Open Source
+    organization: Comunidade Nuxt
+    period: 2022 - Presente
+    field: Desenvolvimento de Software
+sitemap:
+  loc: /pt/resume
+schemaOrg: {}
+head:
+  script: []
+ogImage:
+  props: {}

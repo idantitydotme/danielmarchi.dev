@@ -129,28 +129,10 @@
       },
       "sections": {
         "hero": {
-          "title": "Daniel Marchi",
-          "description": "Senior Frontend Engineer specializing in Vue and Nuxt. I build robust web architectures and premium digital experiences.",
-          "actions": {
-            "hire": "Let's Talk",
-            "downloadCv": "Download CV"
-          }
-        },
-        "sidebar": {
-          "location": "Curitiba, Brazil",
-          "availability": "Available"
+          "description": "Senior Frontend Engineer specializing in Vue and Nuxt. I build robust web architectures and premium digital experiences."
         },
         "about": {
-          "title": "About",
           "fields": {
-            "name": "Name:",
-            "nameValue": "Daniel Marchi",
-            "gender": "Gender:",
-            "genderValue": "Male",
-            "pronouns": "Pronouns:",
-            "pronounsValue": "He/Him",
-            "nationality": "Nationality:",
-            "nationalityValue": "Brazilian",
             "age": "Age:"
           }
         },
@@ -161,98 +143,40 @@
             "professional": "Professional",
             "basic": "Basic",
             "learning": "Learning"
-          },
-          "items": {
-            "portuguese": "Portuguese",
-            "english": "English",
-            "spanish": "Spanish",
-            "romanian": "Romanian"
           }
         },
         "skills": {
           "title": "Skills"
         },
         "tech": {
-          "title": "Technologies",
-          "categories": {
-            "audio": "Frontend Development",
-            "video": "Core Ecosystem"
-          }
+          "title": "Technologies"
         },
         "education": {
           "title": "Education",
-          "items": [
-            {
-              "degree": "B.S. in Computer Science",
-              "school": "Federal University of Paraná (UFPR)",
-              "period": "Jun 2021 – Dec 2025"
-            }
-          ]
+          "items": []
         },
         "certifications": {
           "title": "Certifications",
-          "items": [
-            {
-              "name": "Nuxt Certified Expert",
-              "issuer": "NuxtLabs",
-              "date": "2023"
-            },
-            {
-              "name": "Meta Front-End Developer",
-              "issuer": "Coursera",
-              "date": "2022"
-            }
-          ]
+          "items": [{}]
         },
         "volunteering": {
           "title": "Volunteering",
-          "items": [
-            {
-              "role": "Open Source Contributor",
-              "organization": "Nuxt Community",
-              "period": "2022 - Present",
-              "field": "Software Development"
-            }
-          ]
+          "items": []
         },
         "experience": {
           "title": "Experience",
           "items": [
             {
-              "role": "Senior Frontend Engineer",
-              "company": "Tech Innovations",
-              "period": "2023 - Present",
-              "bullets": [
-                "Led the migration of a large-scale application to Nuxt 3, improving performance by 40%.",
-                "Implemented a custom UI component library using Tailwind CSS and Headless UI."
-              ]
+              "bullets": []
             },
             {
-              "role": "Nuxt Specialist",
-              "company": "Digital Solutions",
-              "period": "2021 - 2023",
-              "bullets": [
-                "Developed multiple high-traffic e-commerce sites using Vue and Nuxt.",
-                "Optimized Core Web Vitals for various client projects, achieving scores above 90."
-              ]
+              "bullets": []
             },
             {
-              "role": "Frontend Developer",
-              "company": "Creative Agency",
-              "period": "2019 - 2021",
-              "bullets": [
-                "Built responsive and interactive landing pages for international brands.",
-                "Collaborated with designers to implement pixel-perfect user interfaces."
-              ]
+              "bullets": []
             },
             {
-              "role": "Junior Developer",
-              "company": "Soft Systems",
-              "period": "2018 - 2019",
-              "bullets": [
-                "Maintained and improved legacy JavaScript applications.",
-                "Gained experience in version control and team collaboration."
-              ]
+              "bullets": []
             }
           ]
         }
@@ -296,6 +220,9 @@
           "whatsappValue": "+55 41 99999-9999",
           "socials": "I'm also available through my socials:"
         }
+      },
+      "meta": {
+        "title": ""
       }
     },
     "global": {

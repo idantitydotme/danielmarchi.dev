@@ -132,7 +132,7 @@ async function onSubmit() {
 <template>
   <UPageSection>
     <template #title>
-      <slot name="title"/>
+      <slot name="title" />
     </template>
     <template #description>
       <slot name="description" />
