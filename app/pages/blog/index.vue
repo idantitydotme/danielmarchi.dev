@@ -8,7 +8,7 @@ const { data: page } = await useAsyncData(
   withoutTrailingSlash(route.path),
   async () => {
     const collection = `${locale.value}_pages` as any
-    return queryCollection(collection).path("/blog").first()
+    return queryCollection(collection).path(withoutTrailingSlash(route.path)).first()
   },
   { watch: [locale] }
 )

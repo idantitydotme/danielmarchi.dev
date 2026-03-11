@@ -155,15 +155,13 @@
           "title": "Education"
         },
         "certifications": {
-          "title": "Certifications",
-          "items": []
+          "title": "Certifications"
         },
         "volunteering": {
           "title": "Volunteering"
         },
         "experience": {
-          "title": "Experience",
-          "items": [{}, {}, {}, {}]
+          "title": "Experience"
         }
       }
     },
