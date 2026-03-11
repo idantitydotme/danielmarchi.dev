@@ -2,20 +2,19 @@
 import type { ButtonProps } from "@nuxt/ui"
 
 /* region State */
-const { t, tm, rt } = useI18n()
+const { t, rt } = useI18n()
 const localePath = useLocalePath()
 const { socials } = useAppConfig()
 
-const calculateAge = (dob: Date) => {
+const age = computed(() => {
+  const dob = new Date(1997, 3, 30)
   const today = new Date()
-  let currentAge = today.getFullYear() - dob.getFullYear()
-  const m = today.getMonth() - dob.getMonth()
-  if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
-    currentAge--
-  }
-  return currentAge
-}
-const age = calculateAge(new Date(1997, 3, 30))
+  return (
+    today.getFullYear() -
+    dob.getFullYear() -
+    (today < new Date(today.getFullYear(), dob.getMonth(), dob.getDate()) ? 1 : 0)
+  )
+})
 
 const portugueseProgress = ref(100)
 const englishProgress = ref(100)
@@ -57,8 +56,7 @@ const heroLinks = computed<ButtonProps[]>(() => [
     label: t("pages.resume.sections.hero.actions.hire"),
     to: localePath("/contact"),
     color: "primary",
-    variant: "solid",
-    class: "pdf-exclude"
+    variant: "solid"
   },
   {
     label: t("pages.resume.sections.hero.actions.downloadCv"),
@@ -66,8 +64,7 @@ const heroLinks = computed<ButtonProps[]>(() => [
     to: "https://cdn.danielmarchi.dev/Files/Resume.pdf",
     target: "_blank",
     color: "primary",
-    variant: "outline",
-    class: "pdf-exclude"
+    variant: "outline"
   }
 ])
 
