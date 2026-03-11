@@ -32,7 +32,7 @@ const contactInfo = computed(() => [
     value: t("pages.contact.sections.details.emailValue")
   },
   {
-    icon: "simple:icons-whatsapp",
+    icon: "simple-icons:whatsapp",
     label: t("pages.contact.sections.details.whatsapp"),
     value: t("pages.contact.sections.details.whatsappValue")
   }
@@ -40,14 +40,14 @@ const contactInfo = computed(() => [
 
 const socialLinks = [
   {
-    icon: "simple:icons-github",
+    icon: "simple-iconsL:github",
     name: "GitHub",
-    url: "#"
+    url: "https://github.com/idantitydotme"
   },
   {
-    icon: "simple:icons-linkedin",
+    icon: "simple-icons:linkedin",
     name: "LinkedIn",
-    url: "#"
+    url: "https://www.linkedin.com/in/daniel-marchi/"
   }
 ]
 /* endregion */
