@@ -1,15 +1,10 @@
 <script setup lang="ts">
-import type { ButtonProps } from "@nuxt/ui"
 import { z } from "zod"
 
 /* region State */
 const { t } = useI18n()
 const toast = useToast()
-const appConfig = useAppConfig()
-
-const socialLinks = computed(
-  () => Object.values(appConfig.socials) as (ButtonProps & { class?: string })[]
-)
+const { socials } = useAppConfig()
 /* endregion */
 
 const contactFormSchema = z.object({
@@ -110,15 +105,14 @@ async function onSubmit() {
               </h4>
               <div class="flex flex-row flex-wrap gap-2">
                 <UButton
-                  v-for="link in socialLinks"
+                  v-for="link in socials"
                   :key="link.label"
+                  v-bind="link"
                   size="xl"
-                  :variant="link.variant"
-                  :color="link.color"
-                  :icon="link.icon"
-                  :to="link.to"
+                  color="neutral"
+                  variant="ghost"
+                  class="hover:text-primary-500"
                   :aria-label="link.label"
-                  :class="link.class"
                 />
               </div>
             </div>

@@ -5,30 +5,21 @@ export default defineAppConfig({
       neutral: "neutral"
     }
   },
-  socials: {
-    instagram: {
+  socials: [
+    {
       icon: "simple-icons:instagram",
       label: "Instagram",
-      to: "https://instagram.com/idantity.me",
-      variant: "ghost",
-      color: "neutral",
-      class: "hover:text-primary-500"
+      to: "https://instagram.com/idantity.me"
     },
-    linkedin: {
+    {
       icon: "simple-icons:linkedin",
       label: "LinkedIn",
-      to: "https://www.linkedin.com/in/daniel-marchi/",
-      variant: "ghost",
-      color: "neutral",
-      class: "hover:text-primary-500"
+      to: "https://www.linkedin.com/in/daniel-marchi/"
     },
-    github: {
+    {
       icon: "simple-icons:github",
       label: "GitHub",
-      to: "https://github.com/idantitydotme",
-      variant: "ghost",
-      color: "neutral",
-      class: "hover:text-primary-500"
+      to: "https://github.com/idantitydotme"
     }
-  }
+  ]
 })

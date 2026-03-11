@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { ButtonProps } from "@nuxt/ui"
-
 /* region Props */
 /* endregion */
 
@@ -14,11 +12,7 @@ import type { ButtonProps } from "@nuxt/ui"
 /* endregion */
 
 /* region State */
-const appConfig = useAppConfig()
-
-const socialLinks = computed(
-  () => Object.values(appConfig.socials) as (ButtonProps & { class?: string })[]
-)
+const { socials } = useAppConfig()
 /* endregion */
 
 /* region Meta */
@@ -39,15 +33,14 @@ const socialLinks = computed(
 
     <template #right>
       <UButton
-        v-for="link in socialLinks"
+        v-for="link in socials"
         :key="link.label"
+        v-bind="link"
         size="md"
-        :variant="link.variant"
-        :color="link.color"
-        :icon="link.icon"
-        :to="link.to"
+        color="neutral"
+        variant="ghost"
+        class="hover:text-primary-500"
         :aria-label="link.label"
-        :class="link.class"
       />
     </template>
   </UFooter>

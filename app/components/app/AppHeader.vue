@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { NavigationMenuItem, ButtonProps } from "@nuxt/ui"
+import type { NavigationMenuItem } from "@nuxt/ui"
 
 /* region Props */
 /* endregion */
@@ -16,13 +16,9 @@ import type { NavigationMenuItem, ButtonProps } from "@nuxt/ui"
 /* region State */
 const { t, locale, setLocale } = useI18n()
 const localePath = useLocalePath()
-const appConfig = useAppConfig()
+const { socials } = useAppConfig()
 
 const open = ref(false)
-
-const socialLinks = computed(
-  () => Object.values(appConfig.socials) as (ButtonProps & { class?: string })[]
-)
 
 const leftLinks = computed<NavigationMenuItem[]>(() => [
   {
@@ -92,16 +88,13 @@ const rightLinks = computed<NavigationMenuItem[]>(() => [
               <LazyUSeparator />
               <div class="gap-sm flex flex-col">
                 <UButton
-                  v-for="link in socialLinks"
+                  v-for="link in socials"
                   :key="link.label"
-                  size="md"
-                  :variant="link.variant"
-                  :color="link.color"
-                  :icon="link.icon"
-                  :label="link.label"
-                  :to="link.to"
+                  v-bind="link"
+                  color="neutral"
+                  variant="ghost"
+                  class="hover:text-primary-500"
                   :aria-label="link.label"
-                  :class="link.class"
                 />
               </div>
             </div>
@@ -121,15 +114,13 @@ const rightLinks = computed<NavigationMenuItem[]>(() => [
 
         <div class="gap-xs hidden items-center sm:flex">
           <UButton
-            v-for="link in socialLinks"
+            v-for="link in socials"
             :key="link.label"
-            size="md"
-            :variant="link.variant"
-            :color="link.color"
-            :icon="link.icon"
-            :to="link.to"
+            v-bind="link"
+            color="neutral"
+            variant="ghost"
+            class="hover:text-primary-500"
             :aria-label="link.label"
-            :class="link.class"
           />
         </div>
 

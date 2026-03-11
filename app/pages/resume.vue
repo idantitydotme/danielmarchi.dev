@@ -4,11 +4,7 @@ import type { ButtonProps } from "@nuxt/ui"
 /* region State */
 const { t, tm, rt } = useI18n()
 const localePath = useLocalePath()
-const appConfig = useAppConfig()
-
-const socialLinks = computed(
-  () => Object.values(appConfig.socials) as (ButtonProps & { class?: string })[]
-)
+const { socials } = useAppConfig()
 
 const calculateAge = (dob: Date) => {
   const today = new Date()
@@ -67,7 +63,8 @@ const heroLinks = computed<ButtonProps[]>(() => [
   {
     label: t("pages.resume.sections.hero.actions.downloadCv"),
     icon: "lucide:download",
-    onClick: downloadPDF,
+    to: "https://cdn.danielmarchi.dev/Files/Resume.pdf",
+    target: "_blank",
     color: "primary",
     variant: "outline",
     class: "pdf-exclude"
@@ -154,14 +151,6 @@ useSeoMeta({
 /* endregion */
 
 /* region Logic */
-const downloadPDF = () => {
-  const link = document.createElement("a")
-  link.href = "https://cdn.danielmarchi.dev/Files/Resume.pdf"
-  link.setAttribute("download", "Resume.pdf")
-  document.body.appendChild(link)
-  link.click()
-  document.body.removeChild(link)
-}
 /* endregion */
 </script>
 
@@ -372,14 +361,13 @@ const downloadPDF = () => {
               <h3 class="text-highlighted text-center font-bold">Daniel Marchi</h3>
               <UFieldGroup class="gap-xs pdf-exclude">
                 <UButton
-                  v-for="link in socialLinks"
+                  v-for="link in socials"
                   :key="link.label"
-                  :variant="link.variant"
-                  :color="link.color"
-                  :icon="link.icon"
-                  :to="link.to"
+                  v-bind="link"
+                  color="neutral"
+                  variant="ghost"
+                  class="hover:text-primary-500"
                   :aria-label="link.label"
-                  :class="link.class"
                 />
               </UFieldGroup>
               <UButton
