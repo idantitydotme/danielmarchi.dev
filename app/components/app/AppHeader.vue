@@ -64,7 +64,7 @@ const rightLinks = computed<NavigationMenuItem[]>(() => [
 <template>
   <header class="px-sm fixed inset-x-0 top-2 z-50 mx-auto max-w-(--ui-container) sm:top-4">
     <div
-      class="bg-muted px-md py-xs border-muted flex w-full items-center justify-between rounded-full border shadow-lg shadow-neutral-950/5"
+      class="bg-muted/80 px-md py-xs border-muted flex w-full items-center justify-between rounded-full border shadow-lg shadow-neutral-950/5 backdrop-blur-md"
     >
       <!-- Left Section -->
       <div class="flex items-center">
@@ -84,7 +84,11 @@ const rightLinks = computed<NavigationMenuItem[]>(() => [
           />
           <template #body>
             <div class="gap-md flex flex-col">
-              <UNavigationMenu orientation="vertical" :items="[...leftLinks, ...rightLinks]" />
+              <UNavigationMenu
+                orientation="vertical"
+                :items="[...leftLinks, ...rightLinks]"
+                color="primary"
+              />
               <LazyUSeparator />
               <div class="gap-sm flex flex-col">
                 <UButton
@@ -124,8 +128,14 @@ const rightLinks = computed<NavigationMenuItem[]>(() => [
           />
         </div>
 
-        <div class="flex items-stretch gap-1">
-          <UColorModeButton size="sm" aria-label="Toggle color mode" />
+        <div class="flex items-center gap-1">
+          <UColorModeButton
+            size="md"
+            color="neutral"
+            variant="ghost"
+            class="hover:text-primary-500"
+            aria-label="Toggle color mode"
+          />
 
           <USelectMenu
             :model-value="locale"
@@ -137,10 +147,12 @@ const rightLinks = computed<NavigationMenuItem[]>(() => [
             value-key="code"
             label-key="name"
             variant="ghost"
-            size="sm"
+            color="neutral"
+            size="md"
             icon="lucide:languages"
-            class="h-full shrink-0"
+            class="hover:text-primary-500 shrink-0"
             :ui="{
+              base: 'w-fit',
               content: 'w-48'
             }"
             :aria-label="t('app.header.languagePicker')"

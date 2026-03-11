@@ -238,7 +238,7 @@ useSeoMeta({
                 class="ring-default ring-offset-bg mx-auto rounded-full ring ring-offset-6"
               />
               <h3 class="text-highlighted text-center font-bold">Daniel Marchi</h3>
-              <UFieldGroup class="gap-xs pdf-exclude">
+              <div class="gap-xs pdf-exclude flex items-center">
                 <UButton
                   v-for="link in socials"
                   :key="link.label"
@@ -248,7 +248,7 @@ useSeoMeta({
                   class="hover:text-primary-500"
                   :aria-label="link.label"
                 />
-              </UFieldGroup>
+              </div>
               <UButton
                 v-if="page.sidebar?.location"
                 block

@@ -152,33 +152,18 @@
           "title": "Technologies"
         },
         "education": {
-          "title": "Education",
-          "items": []
+          "title": "Education"
         },
         "certifications": {
           "title": "Certifications",
-          "items": [{}]
+          "items": []
         },
         "volunteering": {
-          "title": "Volunteering",
-          "items": []
+          "title": "Volunteering"
         },
         "experience": {
           "title": "Experience",
-          "items": [
-            {
-              "bullets": []
-            },
-            {
-              "bullets": []
-            },
-            {
-              "bullets": []
-            },
-            {
-              "bullets": []
-            }
-          ]
+          "items": [{}, {}, {}, {}]
         }
       }
     },
