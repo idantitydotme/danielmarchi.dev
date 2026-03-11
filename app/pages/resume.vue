@@ -360,7 +360,7 @@ useSeoMeta({
                 <UButton
                   v-for="link in socials"
                   :key="link.label"
-                  v-bind="link"
+                  v-bind="{ ...link, label: undefined }"
                   color="neutral"
                   variant="ghost"
                   class="hover:text-primary-500"

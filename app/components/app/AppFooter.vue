@@ -35,7 +35,7 @@ const { socials } = useAppConfig()
       <UButton
         v-for="link in socials"
         :key="link.label"
-        v-bind="link"
+        v-bind="{ ...link, label: undefined }"
         size="md"
         color="neutral"
         variant="ghost"
