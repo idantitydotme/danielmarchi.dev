@@ -16,8 +16,188 @@ content: |
 
   Thanks for stopping by. Feel free to browse my [projects](/projects) or [get in touch](/contact) if you'd like to collaborate!
 description: Senior Frontend Engineer specialized in the Vue and Nuxt ecosystem.
+head:
+  script:
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
+    - type: application/ld+json
+      key: schema-org-graph
+      data-nuxt-schema-org: true
+      nodes:
+        - _resolver: webPage
 images:
   - src: ""
     alt: Development workspace
   - src: ""
     alt: Modern web interface design
+ogImage:
+  props: {}
+schemaOrg:
+  _resolver: webPage
+sitemap:
+  loc: /about
+  videos: []
+  images: []

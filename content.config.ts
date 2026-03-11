@@ -36,6 +36,19 @@ const commonSchema = z.object({
   images: z.array(createImageSchema()).optional()
 })
 
+const contactSchema = commonSchema.extend({
+  contactItems: z
+    .array(
+      z.object({
+        icon: z.string().optional(),
+        label: z.string().optional(),
+        value: z.string().optional()
+      })
+    )
+    .optional(),
+  recipientEmail: z.string().optional()
+})
+
 const blogSchema = commonSchema.extend({
   minRead: z.number(),
   date: z.date(),
@@ -67,10 +80,24 @@ export default defineContentConfig({
         schema: projectSchema
       })
     ),
+    en_about: defineCollection(
+      asSeoCollection({
+        type: "page",
+        source: { include: "en/*about.{yml,md}", prefix: "/" },
+        schema: commonSchema
+      })
+    ),
+    en_contact: defineCollection(
+      asSeoCollection({
+        type: "page",
+        source: { include: "en/*contact.{yml,md}", prefix: "/" },
+        schema: contactSchema
+      })
+    ),
     en_pages: defineCollection(
       asSeoCollection({
         type: "page",
-        source: { include: "en/*.yml", prefix: "/" },
+        source: { include: "en/*{blog,projects}.{yml,md}", prefix: "/" },
         schema: commonSchema
       })
     ),
@@ -78,28 +105,36 @@ export default defineContentConfig({
     pt_blog: defineCollection(
       asSeoCollection({
         type: "page",
-        source: { include: "pt/blog/**", prefix: "/blog" },
+        source: { include: "pt/blog/**", prefix: "/pt/blog" },
         schema: blogSchema
       })
     ),
     pt_projects: defineCollection(
       asSeoCollection({
         type: "page",
-        source: { include: "pt/projects/**", prefix: "/projects" },
+        source: { include: "pt/projects/**", prefix: "/pt/projects" },
         schema: projectSchema
+      })
+    ),
+    pt_about: defineCollection(
+      asSeoCollection({
+        type: "page",
+        source: { include: "pt/*about.{yml,md}", prefix: "/pt" },
+        schema: commonSchema
+      })
+    ),
+    pt_contact: defineCollection(
+      asSeoCollection({
+        type: "page",
+        source: { include: "pt/*contact.{yml,md}", prefix: "/pt" },
+        schema: contactSchema
       })
     ),
     pt_pages: defineCollection(
       asSeoCollection({
         type: "page",
-        source: { include: "pt/*.yml", prefix: "/" },
+        source: { include: "pt/*{blog,projects}.{yml,md}", prefix: "/pt" },
         schema: commonSchema
-      })
-    ),
-    all: defineCollection(
-      asSeoCollection({
-        type: "page",
-        source: { include: "**" }
       })
     )
   }

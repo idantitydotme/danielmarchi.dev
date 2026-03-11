@@ -1,8 +1,13 @@
 ---
 title: Nuxt Auth Bridge
+date: 2024-02-14
 description: A seamless integration layer between Better-Auth and Nuxt 3, providing a complete authentication solution.
-tags: ["Auth", "Nuxt 3", "Security"]
-date: 2024-02-15
+sitemap:
+  loc: /projects/nuxt-auth-bridge
+tags:
+  - Auth
+  - Nuxt 3
+  - Security
 ---
 
 ## Project Overview

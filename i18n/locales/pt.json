@@ -259,12 +259,8 @@
       }
     },
     "contact": {
-      "meta": {
-        "title": "Contato | Daniel Marchi"
-      },
       "sections": {
         "hero": {
-          "title": "Envie-me uma mensagem",
           "description": "Sinta-se à vontade para entrar em contato para consultas de negócios ou propostas de colaboração!"
         },
         "form": {

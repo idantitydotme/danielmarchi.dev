@@ -7,5 +7,14 @@ links:
   - label: View GitHub
     color: neutral
     variant: outline
-    to: "https://github.com/idantitydotme"
+    to: https://github.com/idantitydotme
     target: _blank
+sitemap:
+  loc: /projects
+  videos: []
+  images: []
+schemaOrg: {}
+head:
+  script: []
+ogImage:
+  props: {}

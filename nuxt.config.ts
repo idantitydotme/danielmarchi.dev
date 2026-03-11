@@ -261,6 +261,10 @@ export default defineNuxtConfig({
 
   components: [
     {
+      path: "~/components/content",
+      pathPrefix: false
+    },
+    {
       path: "~/components",
       pathPrefix: false,
       prefix: "DM"

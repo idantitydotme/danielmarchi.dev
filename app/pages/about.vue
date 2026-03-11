@@ -7,8 +7,8 @@ const { locale, t } = useI18n()
 const { data: page } = await useAsyncData(
   withoutTrailingSlash(route.path),
   async () => {
-    const collection = `${locale.value}_pages` as any
-    return queryCollection(collection).path("/about").first()
+    const collection = `${locale.value}_about` as any
+    return queryCollection(collection).first()
   },
   { watch: [locale] }
 )
