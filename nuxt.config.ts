@@ -239,7 +239,7 @@ export default defineNuxtConfig({
       useCookie: true,
       cookieKey: "i18n_redirected",
       cookieSecure: true,
-      alwaysRedirect: true
+      alwaysRedirect: false
     },
     locales: [
       {
