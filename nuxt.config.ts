@@ -149,7 +149,9 @@ export default defineNuxtConfig({
           "data:",
           "https://cdn.danielmarchi.dev",
           "https://placehold.co",
-          "https://avatars.githubusercontent.com"
+          "https://avatars.githubusercontent.com",
+          "https://i.ytimg.com",
+          "https://*.youtube.com"
         ],
         "object-src": ["'none'"],
         "script-src-attr": ["'none'"],
@@ -162,7 +164,14 @@ export default defineNuxtConfig({
           "'nonce-{{nonce}}'",
           "'wasm-unsafe-eval'",
           "https://esm.sh",
-          "https://static.cloudflareinsights.com"
+          "https://static.cloudflareinsights.com",
+          "https://www.youtube.com",
+          "https://s.ytimg.com"
+        ],
+        "frame-src": [
+          "'self'",
+          "https://www.youtube.com",
+          "https://www.youtube-nocookie.com"
         ],
         "connect-src": [
           "'self'",
@@ -177,7 +186,8 @@ export default defineNuxtConfig({
           "https://*.nuxt.dev",
           "https://api.github.com",
           "https://raw.githubusercontent.com",
-          "https://esm.sh"
+          "https://esm.sh",
+          "https://*.youtube.com"
         ]
       },
       strictTransportSecurity: {
