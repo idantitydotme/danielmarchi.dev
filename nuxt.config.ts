@@ -67,21 +67,7 @@ export default defineNuxtConfig({
         nodeCompat: true
       },
       prerender: {
-        routes: [
-          "/",
-          "/pt",
-          "/en",
-          "/about",
-          "/pt/about",
-          "/contact",
-          "/pt/contact",
-          "/blog",
-          "/pt/blog",
-          "/projects",
-          "/pt/projects",
-          "/resume",
-          "/pt/resume"
-        ],
+        routes: ["/"],
         crawlLinks: true
       }
     },
